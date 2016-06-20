@@ -1,0 +1,78 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - DKNightVersion (2.3.0):
+    - DKNightVersion/Core (= 2.3.0)
+    - DKNightVersion/CoreAnimation (= 2.3.0)
+    - DKNightVersion/UIKit (= 2.3.0)
+  - DKNightVersion/Core (2.3.0):
+    - DKNightVersion/Core/DeallocBlockExecutor (= 2.3.0)
+    - DKNightVersion/Core/extobjc (= 2.3.0)
+  - DKNightVersion/Core/DeallocBlockExecutor (2.3.0)
+  - DKNightVersion/Core/extobjc (2.3.0)
+  - DKNightVersion/CoreAnimation (2.3.0):
+    - DKNightVersion/Core
+  - DKNightVersion/UIKit (2.3.0):
+    - DKNightVersion/Core
+  - IQKeyboardManager (3.3.7)
+  - MJExtension (3.0.10)
+  - MJRefresh (3.1.0)
+  - MMDrawerController (0.6.0):
+    - MMDrawerController/Core (= 0.6.0)
+    - MMDrawerController/MMDrawerBarButtonItem (= 0.6.0)
+    - MMDrawerController/MMDrawerVisualStates (= 0.6.0)
+    - MMDrawerController/Subclass (= 0.6.0)
+  - MMDrawerController/Core (0.6.0)
+  - MMDrawerController/MMDrawerBarButtonItem (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.6.0):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.6.0):
+    - MMDrawerController/Core
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - SSKeychain (1.4.0)
+  - UMengSocial (5.0)
+  - YRJSONAdapter (1.0.1)
+
+DEPENDENCIES:
+  - AFNetworking
+  - DKNightVersion
+  - IQKeyboardManager
+  - MJExtension
+  - MJRefresh
+  - MMDrawerController
+  - SDWebImage
+  - SSKeychain
+  - UMengSocial
+  - YRJSONAdapter
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  DKNightVersion: 459438cbfd14edb9e41a777ff14b18e5661b9269
+  IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
+  MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SSKeychain: c71293fa57216a40ab06c23f4085387583293de4
+  UMengSocial: 48b67179c492a8cf7803fbb0438b8f55432e2fc1
+  YRJSONAdapter: 55956d3e6f6b6eadf05e734914b8d29afa0fc06b
+
+PODFILE CHECKSUM: 062e72210bdffa035f4d5413b1eda5e302b76775
+
+COCOAPODS: 1.0.0

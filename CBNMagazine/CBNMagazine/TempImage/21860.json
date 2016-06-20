@@ -1,0 +1,986 @@
+{
+    "result": 1,
+    "if_can_read": 1,
+    "chapt_id": "22201",
+    "author_list": [],
+    "block_list": [
+                   {
+                   "id": "1193120",
+                   "type": "subtitle",
+                   "content": "《愤怒的小鸟》来了，观众盆友你们真的愤怒吗？",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193121",
+                   "type": "text",
+                   "content": "当初知道《愤怒的小鸟》要拍成大电影的时候，不少粉丝的内心活动是这样的：",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193122",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527225840_71258.jpg",
+                   "width": 718,
+                   "height": 441,
+                   "image_name": "20160527225840_71258.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193123",
+                   "type": "text",
+                   "content": "作为一款伴随着iPhone、iPad成长起来的现象级手游，《愤怒的小鸟》中的经典角色早已风靡全球。\n\n但这么简单的游戏剧情要搬上大屏幕，还是让人捏一把汗。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193125",
+                   "type": "subtitle",
+                   "content": "事实是——这部电影自上映以来，票房成绩一路走高！",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193126",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527225840_71258.jpg",
+                   "width": 553,
+                   "height": 360,
+                   "image_name": "20160527225947_53462.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193127",
+                   "type": "text",
+                   "content": "截至5月27日上午10时，上映8天在国内的票房为2.5亿，在全球的票房收入已经突破1.5亿美元。\n\n其实在这部电影首周的内地票房榜上，就以3天1.95亿的成绩夺得周冠军。\n\n在动画电影中，这个票房成绩已是仅次于《功夫熊猫3》（首周三天3.39亿）和《哆啦A梦：伴我同行》（首周四天2.38亿）的存在了。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193130",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230033_12109.jpg",
+                   "width": 368,
+                   "height": 359,
+                   "image_name": "20160527230033_12109.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193131",
+                   "type": "text",
+                   "content": "（图片来源：微票儿）\n\n同样出乎意料的是，《愤怒的小鸟》的口碑竟不错，豆瓣评分达到了7.2。\n\n如果还能在新一个周末顶住《爱丽丝梦游仙境2》的冲击，最终票房应该会是个相当不错的数字。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193134",
+                   "type": "subtitle",
+                   "content": "过气的小鸟还能起飞，电影成了IP的救命稻草？",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193135",
+                   "type": "text",
+                   "content": "《愤怒的小鸟》也曾经红透半边天。\n\n“10天内实现1000万次付费下载”、“上架两个半小时内登上App榜首”这样的光环，不是谁都能有的。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193137",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230112_29074.jpg",
+                   "width": 1428,
+                   "height": 948,
+                   "image_name": "20160527230112_29074.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193138",
+                   "type": "text",
+                   "content": "（图片来源：Fast Company）\n\n不过，后来的故事就不那么好了：\n\n陆陆续续推出的几十款游戏，因为玩法上没有什么大的突破，口碑日益沉寂，Rovio根据《愤怒的小鸟》建的主题公园也不怎么出彩，连周边销售也被山寨蚕食市场……\n\nRovio推出的其他游戏，更是再没运气能成为类似《愤怒的小鸟》这样的爆款。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193142",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230145_99032.jpg",
+                   "width": 858,
+                   "height": 536,
+                   "image_name": "20160527230145_99032.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193143",
+                   "type": "text",
+                   "content": "2013年，Rovio在洛杉矶成立了电影动画制作团队，开始制作《愤怒的小鸟》大电影；公司还创建了北欧最大的动画工作室制作专门的动画作品，也是要把这个IP榨干的节奏。\n\n由于动画是一个众所周知的高成本的产业，这还一度成为拖累 Rovio业绩的一个重要因素。\n\n然而，两季《愤怒的小鸟》动画片的收视也不如预期，大电影直到2016年才推出——这部大电影的成败，似乎也成了这个“过气”公司的救命稻草，目前看来Rovio可以稍微松一口气了。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193146",
+                   "type": "subtitle",
+                   "content": "游戏不是你想改，就真的能改成功的！",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193147",
+                   "type": "text",
+                   "content": "游戏先天拥有大量的粉丝基础，将游戏改编成电影，顺带把粉丝转化成观众，这看起来的确是一门好生意。\n\n但从历史成绩来看，游戏改编的电影其实不好把握，不少著名游戏IP改编的电影往往在上映前受到万众瞩目和期待，但在上映后票房和口碑都一度扑街。\n\n例如2015年的《像素大战》，不仅豆瓣评分6.1，中国市场的成绩刚刚过亿，在北美市场也是同样的口碑票房双失利。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193150",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230232_62201.jpg",
+                   "width": 600,
+                   "height": 254,
+                   "image_name": "20160527230232_62201.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193151",
+                   "type": "text",
+                   "content": "（图片来源：豆瓣）\n\n为庆祝《街头霸王》诞生20周年而制作的衍生电影《街头霸王：春丽传》则更惨。\n\n作为早年格斗游戏中少有的女性角色，春丽的造型还是挺受玩家喜爱的，但票房和口碑真的惨不忍睹，豆瓣评分4.6分还敢更低吗？\n\n艺恩曾经做过一个游戏IP改编的电影研究，在1993-2014年之间，好莱坞共制作了31 部游戏改编电影。\n\n这31部影片中，半数以上通过全球票房收回投资成本。\n\n但是这类电影整体投资规模偏低，主力军仍集中在5000万美元以下（投资回报比较高的也集中在这类），低于好莱坞制作影片7000万美元的平均投资规模。\n\n看来，在游戏IP改编电影这个细分市场，小成本影片赢面比超级大片大。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193158",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230258_45996.jpg",
+                   "width": 704,
+                   "height": 583,
+                   "image_name": "20160527230258_45996.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193159",
+                   "type": "text",
+                   "content": "从电影类型来看，游戏IP改编电影中没有艺术电影，动作片和恐怖片占据了绝大多数。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193160",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230329_10531.jpg",
+                   "width": 441,
+                   "height": 391,
+                   "image_name": "20160527230329_10531.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193161",
+                   "type": "text",
+                   "content": "而与之对应，被改编成电影的游戏IP大部分都是冒险、格斗类游戏。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193162",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230534_91057.jpg",
+                   "width": 435,
+                   "height": 400,
+                   "image_name": "20160527230534_91057.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193163",
+                   "type": "text",
+                   "content": "（上述图片来源：艺恩）\n\n总的来说，从游戏到电影的跨界路子窄，收益也不那么可期，但这挡不住游戏IP们一波波涌向大银幕。\n\n即将上映的《魔兽》，正好可以来用来检验一下作为最具影响力的游戏IP之一，究竟能产生怎样的票房威力。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193166",
+                   "type": "subtitle",
+                   "content": "切水果和俄罗斯方块也上路了，粉丝的钱真的好赚？",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193167",
+                   "type": "text",
+                   "content": "在过往游戏改编成的电影成功案例中，《古墓丽影》、《魔兽世界》和《波斯王子》这些欧美单机游戏，自带剧情，搬上大银幕有先天优势。",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193168",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230554_28041.jpg",
+                   "width": 550,
+                   "height": 330,
+                   "image_name": "20160527230554_28041.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193169",
+                   "type": "text",
+                   "content": "（图片来源：艺恩）\n\n但那些故事性不强的游戏IP要怎样才能成功？眼下《愤怒的小鸟》给出了一次不错的尝试。\n\n在游戏剧情趋近于零的前提下，虽然电影比不上《疯狂动物城》那样给人全新世界的惊喜体验，但人家美国动画电影套路用得够流畅，而且它真的挺萌不是吗？",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193172",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230609_85276.jpg",
+                   "width": 600,
+                   "height": 324,
+                   "image_name": "20160527230609_85276.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193173",
+                   "type": "text",
+                   "content": "（图片来源：豆瓣）\n\n既然《愤怒的小鸟》打了个好头阵，是不是还有一大堆同类游戏IP都在准备上路了？嗯，事实就是这样。\n\n另一个爆款手游《水果忍者》的制作方Halfbrick工作室，也准备把这个全球下载量已经超过了10亿次的超级IP搬上大银幕。\n\n其实仔细想一想，在乐高大电影能够取得4.68亿美元的全球票房，索尼已经斥巨资买下的Emoji大电影正在筹备中的大势下，多一个“切水果”大电影又何必大惊小怪呢？\n\n据说片中的大反派还将是——一个凤梨，DT君居然还有点莫名的激动！",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193178",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230642_42570.jpg",
+                   "width": 883,
+                   "height": 200,
+                   "image_name": "20160527230642_42570.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193179",
+                   "type": "text",
+                   "content": "不过，当听到1984年推出的俄罗斯方块游戏也确定要改编为电影版三部曲，走的是科幻style……还是由中美联合拍摄、据说其中1/3以上主演将由中国演员担纲的时候，联合制作人还是杨澜的老公吴征，DT君也是越听越慌。\n\n末尾，给大家送上一个粉丝自制预告片，戳这里看完整版~还没被雷到之前，一起尽情yy吧！",
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193181",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527225840_71258.jpg",
+                   "width": 829,
+                   "height": 355,
+                   "image_name": "20160527230709_13072.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193182",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527225840_71258.jpg",
+                   "width": 480,
+                   "height": 270,
+                   "image_name": "20160612115329_42598.20160527225840_71258.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "1193183",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230738_86349.jpg",
+                   "width": 1250,
+                   "height": 552,
+                   "image_name": "20160527230738_86349.jpg"
+                   },
+                   "keyWord": {
+                   "《愤怒的小鸟》": {
+                   "keyWordType": "url",
+                   "keyWordContent": "http://baike.baidu.com/view/64689.htm",
+                   "color": "#838B8B",
+                   "size": "40",
+                   "blod": "1"
+                   },
+                   "《街头霸王》": {
+                   "keyWordType": "normal",
+                   "keyWordContent": {
+                   "issID": "1234567",
+                   "secondID": "7654321"
+                   }
+                   }
+                   }
+                   },
+                   {
+                   "id": "2335688",
+                   "type": "image",
+                   "content": {
+                   "image_title": "",
+                   "if_chart": 0,
+                   "image_url": "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527225840_71258.jpg",
+                   "width": 600,
+                   "height": 133,
+                   "image_name": "2.20160527225840_71258.jpg"
+                   }
+                   }
+                   ],
+    "xianglin_data": [],
+    "chapt_info": {
+        "chapt_id": "22201",
+        "issue_id": "519",
+        "chapt_title": "愤怒的小鸟领路，切水果和俄罗斯方块也在冲向大银幕",
+        "chapt_brief": "如今IP当道，全世界能做IP的东西几乎都在考虑要不要做成电影，或者正被做成电影，或是已经路上了.......",
+        "category_name": "DT财经",
+        "if_pic": 1,
+        "chapt_pic_url": "http://i.cbn.me/store/article_pic/cover/big2/2/22/22201.jpg"
+    },
+    "prev_info": {
+        "chapt_id": "22193",
+        "issue_id": "519",
+        "chapt_title": "拆遍中国的王健林，却拆不掉马德里的一幢楼",
+        "category_name": "DT财经",
+        "if_pic": 1,
+        "chapt_pic_url": "http://i.cbn.me/store/article_pic/cover/big2/2/22/22193.jpg"
+    },
+    "next_info": {
+        "chapt_id": "22206",
+        "issue_id": "519",
+        "chapt_title": "大数据告诉你：为了胸，男人居然比女人更拼！",
+        "category_name": "DT财经",
+        "if_pic": 1,
+        "chapt_pic_url": "http://i.cbn.me/store/article_pic/cover/big2/2/22/22206.jpg"
+    },
+    "RelatedNews": [
+                    {
+                    "is_ad": 0,
+                    "column_id": 0,
+                    "chapt_id": "22334",
+                    "hasAuth": "no",
+                    "click_count": 0,
+                    "issue_id": "538",
+                    "chapt_title": "为了联盟！为了部落！《魔兽》这次真的要上天了",
+                    "category_name": "DT财经",
+                    "cover_img_big": "http://i.cbn.me/store/article_pic/cover/big2/2/22/22334.jpg",
+                    "cover_img_bmini2": "http://ifile.cbn.me/store/article_pic/cover/bmini2/2/22/22334.jpg",
+                    "cover_img_mini": "http://ifile.cbn.me/store/article_pic/cover/mini/2/22/22334.jpg",
+                    "cover_img_smini": "http://ifile.cbn.me/store/article_pic/cover/smini/2/22/22334.jpg",
+                    "cover_img_bigc": "http://ifile.cbn.me/store/article_pic/cover/bigc/2/22/22334.jpg"
+                    },
+                    {
+                    "is_ad": 0,
+                    "column_id": 0,
+                    "chapt_id": "22330",
+                    "hasAuth": "no",
+                    "click_count": 0,
+                    "issue_id": "538",
+                    "chapt_title": "中国“剁手党”在地球上是种多么领先的存在",
+                    "category_name": "DT财经",
+                    "cover_img_big": "http://i.cbn.me/store/article_pic/cover/big2/2/22/22330.jpg",
+                    "cover_img_bmini2": "http://ifile.cbn.me/store/article_pic/cover/bmini2/2/22/22330.jpg",
+                    "cover_img_mini": "http://ifile.cbn.me/store/article_pic/cover/mini/2/22/22330.jpg",
+                    "cover_img_smini": "http://ifile.cbn.me/store/article_pic/cover/smini/2/22/22330.jpg",
+                    "cover_img_bigc": "http://ifile.cbn.me/store/article_pic/cover/bigc/2/22/22330.jpg"
+                    },
+                    {
+                    "is_ad": 0,
+                    "column_id": 0,
+                    "chapt_id": "22285",
+                    "hasAuth": "no",
+                    "click_count": 0,
+                    "issue_id": "538",
+                    "chapt_title": "阿法狗和柯洁终于约了，这是人类最后的希望？",
+                    "category_name": "DT财经",
+                    "cover_img_big": "http://i.cbn.me/store/article_pic/cover/big2/2/22/22285.jpg",
+                    "cover_img_bmini2": "http://ifile.cbn.me/store/article_pic/cover/bmini2/2/22/22285.jpg",
+                    "cover_img_mini": "http://ifile.cbn.me/store/article_pic/cover/mini/2/22/22285.jpg",
+                    "cover_img_smini": "http://ifile.cbn.me/store/article_pic/cover/smini/2/22/22285.jpg",
+                    "cover_img_bigc": "http://ifile.cbn.me/store/article_pic/cover/bigc/2/22/22285.jpg"
+                    },
+                    {
+                    "is_ad": 0,
+                    "column_id": 0,
+                    "chapt_id": "22274",
+                    "hasAuth": "no",
+                    "click_count": 0,
+                    "issue_id": "538",
+                    "chapt_title": "美联储加息风声渐起，你手中的人民币再不换美元就晚了？",
+                    "category_name": "DT财经",
+                    "cover_img_big": "http://i.cbn.me/store/article_pic/cover/big2/2/22/22274.jpg",
+                    "cover_img_bmini2": "http://ifile.cbn.me/store/article_pic/cover/bmini2/2/22/22274.jpg",
+                    "cover_img_mini": "http://ifile.cbn.me/store/article_pic/cover/mini/2/22/22274.jpg",
+                    "cover_img_smini": "http://ifile.cbn.me/store/article_pic/cover/smini/2/22/22274.jpg",
+                    "cover_img_bigc": "http://ifile.cbn.me/store/article_pic/cover/bigc/2/22/22274.jpg"
+                    }
+                    ],
+    "ImageList": [
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527225840_71258.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527225947_53462.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230033_12109.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230112_29074.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230145_99032.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230232_62201.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230258_45996.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230329_10531.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230534_91057.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230554_28041.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230609_85276.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230642_42570.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230709_13072.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160612/20160612115329_42598.20160527225840_71258.jpg",
+                  "http://i.cbn.me/store/orig_image/chapt_image/20160527/20160527230738_86349.jpg"
+                  ]
+}

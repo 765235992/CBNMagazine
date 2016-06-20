@@ -1,0 +1,87 @@
+//
+//  PrefixHeader.pch
+//  CBNWeeklyMagazine
+//
+//  Created by Jim on 16/6/13.
+//  Copyright © 2016年 Demon. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+//iOS7添加__OBJC__
+#import <Foundation/Foundation.h>
+#import "CoreText/CoreText.h"
+#import <UIKit/UIKit.h>
+
+//Category
+#import "NSDate+CBNDate.h"
+#import "NSData+CBNData.h"
+#import "UILabel+CBNLabel.h"
+#import "NSString+CBNString.h"
+#import "UIImage+CBNImage.h"
+#import "UIColor+CBNColor.h"
+#import "UIView+JHCTFrame.h"
+
+//Pod
+#import "MJRefresh.h"
+#import "SSKeychain.h"
+#import "AFNetworking.h"
+#import "YRJSONAdapter.h"
+#import "DKNightVersion.h"
+#import "UIImageView+WebCache.h"
+#import "SDWebImageDownloader.h"
+#import "CBNDrawerVisualStateManager.h"
+#import "UIViewController+MMDrawerController.h"
+
+//自己的全局Manager
+#import "CBNFileManager.h"
+#import "CBNCacheManager.h"
+//#import "CBNDownloadManager.h"
+#import "CBNNetworkStateManager.h"
+
+#import "CBNUserModel.h"
+
+
+#import "CBNBarBurronItem.h"
+#import "CBNRefreshStateHeader.h"
+
+#import "CBNImageView.h"
+#import "CBNLabel.h"
+
+
+//-------------------打印日志-------------------------
+//DEBUG  模式下打印日志,当前行
+#ifdef DEBUG
+#   define CBNLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define CBNLog(...)
+#endif
+
+
+//屏幕宽高
+#define screen_Width ([UIScreen mainScreen].bounds.size.width)
+#define screen_Height ([UIScreen mainScreen].bounds.size.height)
+#define segmentView_Height 40
+//颜色
+//参数格式为：0xFFFFFF
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+#define RGBColor(R, G, B, A) [UIColor colorWithRed:(R) / 255.f green:(G) / 255.f blue:(B) / 255.f alpha:A]
+
+#define RGBColor_(R, G, B) [UIColor colorWithRed:(R) / 255.f green:(G) / 255.f blue:(B) / 255.f alpha:1.0]
+
+#define image_Back_Mask DKColorPickerWithColors([UIColor clearColor],[UIColor colorWithRed:3/255.0 green:0 blue:0 alpha:0.3],[UIColor clearColor])
+
+//字体
+#define font_bold(textSize) [UIFont fontWithName:@"PingFang-SC-Medium" size:(float)textSize]
+#define font(textSize) [UIFont fontWithName:@"PingFang-SC-Medium" size:(float)textSize]
+#define font_px(textSize) [UIFont fontWithName:@"PingFang-SC-Medium" size:textSize]
+#define font_px_bold(textSize) [UIFont fontWithName:@"PingFang-SC-Medium" size:textSize]
+#define IS_IPHONE_6 ([[UIScreen mainScreen] bounds].size.height == 667.0f)
+#define IS_IPHONE_6_PLUS ([[UIScreen mainScreen] bounds].size.height == 736.0f)
+#define fontSize(A,B,C) IS_IPHONE_6_PLUS?(float)(((float)A/2)/96)*72:(IS_IPHONE_6?(float)(((float)B/2)/96)*72:(float)(((float)C/2)/96)*72)
+//应用Version和Bundle号
+#define app_Version_Number [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+#define app_Bundle_Number [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+
+#endif /* PrefixHeader_pch */
