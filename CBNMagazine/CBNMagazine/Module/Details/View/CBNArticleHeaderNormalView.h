@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong) NSArray *author_List;
 
-@property (nonatomic, strong) UILabel *newsTitleLabel;
+@property (nonatomic, strong) CBNLabel *newsTitleLabel;
 
 @property (nonatomic, strong) JHCTLabel *authorLabel;
 
@@ -30,7 +30,7 @@
 
 @property (nonatomic, strong) UIImageView *lineImageView;
 
-@property (nonatomic, strong) UILabel *newsNotesLabel;
+@property (nonatomic, strong) CBNLabel *newsNotesLabel;
 
 @property (nonatomic, strong) CBNChaptAudioView *audioView;
 @end

@@ -17,6 +17,7 @@
 #import "CBNChaptImageCell.h"
 #import "CBNADWebVC.h"
 #import "CBNArticleHeaderNormalView.h"
+#import "CBNDetailBottomView.h"
 
 @interface CBNTextArticleDetailVC ()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -26,35 +27,48 @@
 
 @property (nonatomic, strong) CBNArticleModel *articleModel;
 
+@property (nonatomic, strong) CBNDetailBottomView *bottomView;
+
+@property (nonatomic, strong) UITextView *cmment;
 @end
 
 @implementation CBNTextArticleDetailVC
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
 
 }
-- (void)viewWillDisappear:(BOOL)animated
+- (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
-    
+    [super viewDidDisappear:animated];
+//    self.navigationController.navigationBar.translucent=YES;
+    self.navigationController.navigationBar.hidden = YES;
+
 }
 
 - (void)dealloc
 {
     NSLog(@"释放");
+    self.navigationController.navigationBar.hidden = YES;
+
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.translucent=NO;
+
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0x656782) andFrame:CGRectMake(0, 0, screen_Width, 64)]forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.dk_backgroundColorPicker = DKColorPickerWithRGB(0xffffff ,0x656782,0xffffff);
-    
+//    self.navigationController.navigationBar.backgroundColor = UIColorFromRGB(0x656782);
+
     [self setNavigationHeader];
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
     [self.view addSubview:self.aTableView];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -90,38 +104,38 @@
     chaptInfo.chaptBrief = @"如今IP当道，全世界能做IP的东西几乎都在考虑要不要做成电影，或者正被做成电影，或是已经路上了.......";
     headerView.chapt_Info_Model = chaptInfo;
     NSArray *sourceArray = @[@{@"width":@"300",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,31.0,26.0)],
-                               @"textColor":[NSNumber numberWithInt:0xA3A3A3],
+                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
+                               @"textColor":[NSNumber numberWithInt:0x515151],
                                @"modleType":[NSNumber numberWithInt:JHCoreTextModleTextType]
                                ,@"text":@"作者："},
                              @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,31.0,26.0)],
-                               @"textColor":[NSNumber numberWithInt:0xA3A3A3],
+                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
+                               @"textColor":[NSNumber numberWithInt:0x515151],
                                @"modleType":[NSNumber numberWithInt:JHCoreTextModleButtonType]
                                ,@"text":@" 习近平 "},
                              @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,31.0,26.0)],
-                               @"textColor":[NSNumber numberWithInt:0xA3A3A3],
+                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
+                               @"textColor":[NSNumber numberWithInt:0x515151],
                                @"modleType":[NSNumber numberWithInt:JHCoreTextModleButtonType]
                                ,@"text":@"|"},
                              @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,31.0,26.0)],
-                               @"textColor":[NSNumber numberWithInt:0xA3A3A3],
+                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
+                               @"textColor":[NSNumber numberWithInt:0x515151],
                                @"modleType":[NSNumber numberWithInt:JHCoreTextModleButtonType]
                                ,@"text":@" 李克强 "},
                              @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,31.0,26.0)],
-                               @"textColor":[NSNumber numberWithInt:0xA3A3A3],
+                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
+                               @"textColor":[NSNumber numberWithInt:0x515151],
                                @"modleType":[NSNumber numberWithInt:JHCoreTextModleButtonType]
                                ,@"text":@"|"},
                              @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,31.0,26.0)],
-                               @"textColor":[NSNumber numberWithInt:0xA3A3A3],
+                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
+                               @"textColor":[NSNumber numberWithInt:0x515151],
                                @"modleType":[NSNumber numberWithInt:JHCoreTextModleButtonType]
                                ,@"text":@" 张德江 "},
                              @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,31.0,26.0)],
-                               @"textColor":[NSNumber numberWithInt:0xA3A3A3],
+                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
+                               @"textColor":[NSNumber numberWithInt:0x515151],
                                @"modleType":[NSNumber numberWithInt:JHCoreTextModleTextType]
                                ,@"text":@""}];
     headerView.author_List = sourceArray;
@@ -147,6 +161,43 @@
     };
     _aTableView.tableHeaderView = headerView;
     
+    [self.view addSubview:self.bottomView];
+    [self.view addSubview:self.cmment];
+
+}
+- (CBNDetailBottomView *)bottomView
+{
+    if (!_bottomView) {
+        
+        self.bottomView = [[CBNDetailBottomView alloc] initWithFrame:CGRectMake(0, screen_Height - 44, screen_Height, 44)];
+        __weak typeof(self) weakSelf = self;
+        
+        _bottomView.aaaaaa = ^(NSDictionary *keyWordInfo){
+            NSLog(@"%@",weakSelf.bottomView);
+            [weakSelf.cmment becomeFirstResponder];
+            weakSelf.cmment.hidden = NO;
+
+//            weakSelf.cmment.frame = CGRectMake(0, screen_Height-400, screen_Width, 200);
+        };
+        
+    }
+    
+    return _bottomView;
+}
+- (UITextView *)cmment
+{
+    if (!_cmment) {
+        
+        self.cmment = [[UITextView alloc] initWithFrame:CGRectMake(0, screen_Height-200 , screen_Width, 200)];
+        
+        _cmment.backgroundColor = [UIColor redColor];
+        
+        _cmment.hidden = YES;
+        
+        
+    }
+    
+    return _cmment;
 }
 /*
  *  设置NavigationHeaderBar

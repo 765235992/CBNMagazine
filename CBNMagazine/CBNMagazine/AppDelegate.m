@@ -19,7 +19,8 @@
 
 @implementation AppDelegate
 -(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
-    
+
+
     /*
      *  添加频道根视图
      */
@@ -41,11 +42,12 @@
     [self.drawerController setShowsShadow:NO];
     
     [self.drawerController setRestorationIdentifier:@"MMDrawer"];
+    
     //抽屉打开的大小
     [self.drawerController setMaximumRightDrawerWidth:200.0];
     
-    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeNone];
     
     [self.drawerController
      setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
@@ -58,8 +60,6 @@
      }];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UIColor * tintColor = [UIColor whiteColor];
-    [self.window setTintColor:tintColor];
     
     [self.window setRootViewController:self.drawerController];
     
@@ -69,8 +69,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 //    [[SDImageCache sharedImageCache] setShouldDecompressImages:NO];
 //    [[SDWebImageDownloader sharedDownloader] setShouldDecompressImages:NO];
 

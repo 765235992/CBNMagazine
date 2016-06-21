@@ -2,7 +2,7 @@
 //  CBNMainNavigationVC.m
 //  CBNMagazine
 //
-//  Created by Jim on 16/6/17.
+//  Created by Jim on 16/6/21.
 //  Copyright © 2016年 上海第一财经报业有限公司. All rights reserved.
 //
 
@@ -16,8 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
     [self.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor] andFrame:CGRectMake(0, 0, screen_Width, 1)]];
+
 }
 
 - (void)didReceiveMemoryWarning {

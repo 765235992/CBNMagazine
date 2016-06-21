@@ -50,19 +50,18 @@
     
     return _newsThumbImageView;
 }
-- (UILabel *)newsTitleLabel
+- (CBNLabel *)newsTitleLabel
 {
     if (!_newsTitleLabel) {
         
-        self.newsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, _newsThumbImageView.frame.size.height +15, screen_Width-20, 0)];
+        self.newsTitleLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(10, _newsThumbImageView.frame.size.height +15, screen_Width-20, 0)];
         _newsTitleLabel.backgroundColor = [UIColor clearColor];
         
         
         _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
         
-        _newsTitleLabel.font = font_px_bold(fontSize(48.0,42.0,36.0));
+        _newsTitleLabel.font = font_px_bold(fontSize(56.0,52.0,48.0));
         
-        _newsTitleLabel.numberOfLines = 0;
     }
     
     return _newsTitleLabel;
@@ -89,6 +88,9 @@
         
         self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         
+        _timeLabel.dk_textColorPicker = DKColorPickerWithKey(默认标签字体颜色);
+        
+        _timeLabel.font = font_px(fontSize(42.0,36.0,36.0));
     }
     
     return _timeLabel;
@@ -100,22 +102,22 @@
         
         self.lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 1)];
         
-        _lineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(默认分割线颜色);
+        _lineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(分割线默认颜色);
         
     }
     
     return _lineImageView;
 }
 
-- (UILabel *)newsNotesLabel
+- (CBNLabel *)newsNotesLabel
 {
     if (!_newsNotesLabel) {
         
-        self.newsNotesLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, screen_Width-20, 0)];
+        self.newsNotesLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(10, 0, screen_Width-20, 0)];
         _newsNotesLabel.numberOfLines = 0;
         
         _newsNotesLabel.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
-        _newsNotesLabel.font = font_px(fontSize(40.0,36.0,32.0));
+        _newsNotesLabel.font = font_px(fontSize(42.0,36.0,36.0));
         
     }
     
@@ -135,7 +137,7 @@
     
     _chapt_Info_Model = chapt_Info_Model;
     
-    self.newsTitleLabel.attributedText = [_newsTitleLabel titleLabelAttributedStringWithString:chapt_Info_Model.chaptTitle];
+    self.newsTitleLabel.content = chapt_Info_Model.chaptTitle;
     
     [_newsTitleLabel sizeToFit];
     
@@ -146,9 +148,13 @@
 {
     
     CGFloat titleHeight = _newsTitleLabel.frame.size.height + _newsTitleLabel.frame.origin.y + 20;
+    
+    _timeLabel.text = @"2016.12.30";
+    [_timeLabel sizeToFit];
+    _timeLabel.frame = CGRectMake(self.frame.size.width - 10 - _timeLabel.frame.size.width, titleHeight , _timeLabel.frame.size.width, _timeLabel.frame.size.height);
     _authorLabel.sourceArray = author_List;
     
-    _authorLabel.frame = CGRectMake(10, titleHeight , _authorLabel.frame.size.width, _authorLabel.frame.size.height);
+    _authorLabel.frame = CGRectMake(10, titleHeight , self.frame.size.width - 30 - _timeLabel.frame.size.width, _authorLabel.frame.size.height);
     
     _authorLabel.backgroundColor = [UIColor clearColor];
     
@@ -156,7 +162,7 @@
     _lineImageView.frame = CGRectMake(0, _authorLabel.frame.origin.y + _authorLabel.frame.size.height + 20, screen_Width, 1);
     
     
-    _newsNotesLabel.attributedText = [_newsNotesLabel titleLabelAttributedStringWithString:_chapt_Info_Model.chaptBrief];
+    _newsNotesLabel.content = _chapt_Info_Model.chaptBrief;
     
     [_newsNotesLabel sizeToFit];
     

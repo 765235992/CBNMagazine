@@ -33,9 +33,11 @@
         [self addSubview:self.columnLabel];
         
         
-        self.layer.borderWidth = 1;
+        self.layer.borderWidth = 1.0f;
         
-        self.layer.backgroundColor = UIColorFromRGB(0xababab).CGColor;
+        self.layer.borderColor = UIColorFromRGB(0xBABABA).CGColor;
+        
+        self.layer.masksToBounds = YES;
         
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _audioTitleLabel.frame.size.height + _columnLabel.frame.size.height + 7);
         
@@ -70,7 +72,7 @@
         self.audioTitleLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(_playButton.frame.origin.x + _playButton.frame.size.width + 10, 3, screen_Width - (_playButton.frame.origin.x + _playButton.frame.size.width + 10) - (_timeLabel.frame.size.width + 22), 0)];
         _audioTitleLabel.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
         
-        _audioTitleLabel.font = font_px(fontSize(36.0,31.0,26.0));
+        _audioTitleLabel.font = font_px(fontSize(36.0,36.0,36.0));
         
         _audioTitleLabel.numberOfLines = 0;
         _audioTitleLabel.text  = @"联系Tech Word 2016主题演讲";
@@ -94,7 +96,7 @@
         
         _columnLabel.dk_textColorPicker = DKColorPickerWithKey(默认标签字体颜色);
         
-        _columnLabel.font = font_px(fontSize(36.0,31.0,26.0));
+        _columnLabel.font = font_px(fontSize(32.0,32.0,32.0));
         
         _columnLabel.numberOfLines = 0;
 
@@ -103,8 +105,6 @@
         [_columnLabel sizeToFit];
         
         
-
-
     }
     
     return _columnLabel;
@@ -117,7 +117,7 @@
         
         _timeLabel.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
         
-        _timeLabel.font = font_px(fontSize(36.0,31.0,26.0));
+        _timeLabel.font = font_px(fontSize(36.0,32.0,32.0));
         
         _timeLabel.numberOfLines = 0;
 

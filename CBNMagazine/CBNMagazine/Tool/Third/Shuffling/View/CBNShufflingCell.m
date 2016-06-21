@@ -93,7 +93,7 @@
     
     _newsTitleLabel.frame = CGRectMake(_newsTitleLabel.frame.origin.x, self.frame.size.height - 20*1.8 - _newsTitleLabel.frame.size.height, screen_Width - 46, _newsTitleLabel.frame.size.height);
     
-//    _newsTitleLabel.center = CGPointMake(myWidth/2, (myHeight- 18)/2 + 32 );
+    _newsTitleLabel.center = CGPointMake(myWidth/2, (myHeight)/2 + 32 );
     
     [self sd_setImageWithURL:[NSURL URLWithString:shufflingModel.newsThumbStr] placeholderImage:shufflingModel.newsDefaultImage];
     

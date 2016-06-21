@@ -100,7 +100,7 @@
      */
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init]; paraStyle.alignment = NSTextAlignmentJustified;
     
-    paraStyle.lineSpacing = 8;
+    paraStyle.lineSpacing = 2;
     
     paraStyle.alignment = NSTextAlignmentJustified;
     

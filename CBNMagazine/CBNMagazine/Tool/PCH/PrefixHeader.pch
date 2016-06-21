@@ -77,6 +77,10 @@
 #define font(textSize) [UIFont fontWithName:@"PingFang-SC-Medium" size:(float)textSize]
 #define font_px(textSize) [UIFont fontWithName:@"PingFang-SC-Medium" size:textSize]
 #define font_px_bold(textSize) [UIFont fontWithName:@"PingFang-SC-Medium" size:textSize]
+//PingFangSC-Light
+#define font_px_Light(textSize) [UIFont fontWithName:@"PingFangSC-Light" size:textSize]
+#define font_px_Medium(textSize) [UIFont fontWithName:@"PingFang-SC-Medium" size:textSize]
+
 #define IS_IPHONE_6 ([[UIScreen mainScreen] bounds].size.height == 667.0f)
 #define IS_IPHONE_6_PLUS ([[UIScreen mainScreen] bounds].size.height == 736.0f)
 #define fontSize(A,B,C) IS_IPHONE_6_PLUS?(float)(((float)A/2)/96)*72:(IS_IPHONE_6?(float)(((float)B/2)/96)*72:(float)(((float)C/2)/96)*72)

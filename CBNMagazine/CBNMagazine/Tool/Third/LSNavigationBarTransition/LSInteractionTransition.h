@@ -4,8 +4,8 @@
  
  Abstract:
  The interaction controller for the Swipe demo.  Tracks a UIScreenEdgePanGestureRecognizer
-  from a specified screen edge and derives the completion percentage for the
-  transition.
+ from a specified screen edge and derives the completion percentage for the
+ transition.
  */
 
 #import <UIKit/UIKit.h>

@@ -17,7 +17,7 @@
         _fontSize = 14.0f;
         _lineSpace = 5.0f;
         _textColor = 0x000000;
-        _fontName = @"PingFang-SC-Medium";
+        _fontName = @"PingFangSC-Medium";
         
     }
     return self;
