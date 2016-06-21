@@ -45,8 +45,8 @@
         
         _newsTitleLabel.numberOfLines = 0;
         
-        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
-        _newsTitleLabel.font = font_bold(20);
+        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
+        _newsTitleLabel.font = font_px_Medium(20);
     }
     
     return _newsTitleLabel;
@@ -98,8 +98,8 @@
         self.newsNotesLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, screen_Width-20, 0)];
         _newsNotesLabel.numberOfLines = 0;
         
-        _newsNotesLabel.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
-        _newsNotesLabel.font = font(14);
+        _newsNotesLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
+        _newsNotesLabel.font = font_px_Medium(14);
         
     }
     

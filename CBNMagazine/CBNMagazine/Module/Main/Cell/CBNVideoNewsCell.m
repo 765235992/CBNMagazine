@@ -40,7 +40,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        self.backgroundColor = [UIColor clearColor];
+        self.dk_backgroundColorPicker = DKColorPickerWithKey(默认背景颜色);
 
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
@@ -102,9 +102,9 @@
         
         self.timelabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         
-        _timelabel.dk_textColorPicker = DKColorPickerWithKey(默认背景上标签字体颜色);
+        _timelabel.dk_textColorPicker = DKColorPickerWithKey(图片上的默认标签字体颜色);
         
-        _timelabel.font = font_px(fontSize(36.0,31.0,26.0));
+        _timelabel.font = font_px_Medium(fontSize(36.0,31.0,26.0));
         
         _timelabel.numberOfLines = 0;
     }
@@ -130,9 +130,9 @@
     if (!_newsTitleLabel) {
         
         self.newsTitleLabel = [[CBNLabel alloc] initWithFrame:CGRectMake( 10, imageView_Height + 30, screen_Width - 20, 0)];
-        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
+        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         
-        _newsTitleLabel.font = font_px_bold(fontSize(48.0,42.0,36.0));
+        _newsTitleLabel.font = font_px_Medium(fontSize(48.0,42.0,36.0));
         
         _newsTitleLabel.lineSpace = 0.0;
         
@@ -149,7 +149,7 @@
         
         self.audioTimeLabel = [[CBNImageAndTextLabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0) image:[UIImage imageWithColor:RGBColor(102, 198, 118, 1.0)]];
         
-        _audioTimeLabel.contentLabel.dk_textColorPicker = DKColorPickerWithKey(默认背景上标签字体颜色);
+        _audioTimeLabel.contentLabel.dk_textColorPicker = DKColorPickerWithKey(图片上的默认标签字体颜色);
         
         _audioTimeLabel.iconImageView.dk_imagePicker = DKImagePickerWithImages([UIImage imageNamed:@"audioTime_white_Day.png"],[UIImage imageNamed:@"audioTime_white_Day.png"],[UIImage imageNamed:@"audioTime_white_Day.png"]);
     }
@@ -163,7 +163,7 @@
         
         self.praiseLabel = [[CBNImageAndTextLabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0) image:[UIImage imageWithColor:RGBColor(102, 198, 118, 1.0)]];
         
-        _praiseLabel.contentLabel.dk_textColorPicker = DKColorPickerWithKey(默认背景上标签字体颜色);
+        _praiseLabel.contentLabel.dk_textColorPicker = DKColorPickerWithKey(图片上的默认标签字体颜色);
         
         _praiseLabel.iconImageView.dk_imagePicker = DKImagePickerWithImages([UIImage imageNamed:@"praiseCount_white_Day.png"],[UIImage imageNamed:@"praiseCount_white_Day.png"],[UIImage imageNamed:@"praiseCount_white_Day.png"]);
     }
@@ -177,7 +177,7 @@
         
         self.commentsCountLabel = [[CBNImageAndTextLabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0) image:[UIImage imageWithColor:RGBColor(172, 108, 148, 1.0)]];
         
-        _commentsCountLabel.contentLabel.dk_textColorPicker = DKColorPickerWithKey(默认背景上标签字体颜色);
+        _commentsCountLabel.contentLabel.dk_textColorPicker = DKColorPickerWithKey(图片上的默认标签字体颜色);
         
         _commentsCountLabel.iconImageView.dk_imagePicker = DKImagePickerWithImages([UIImage imageNamed:@"commentsCount_white_Day.png"],[UIImage imageNamed:@"commentsCount_white_Day.png"],[UIImage imageNamed:@"commentsCount_white_Day.png"]);
     }
@@ -191,7 +191,7 @@
         
         self.lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, self.frame.size.height -1, screen_Width-20, 1)];
         
-        _lineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(分割线默认颜色);
+        _lineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(新闻列表分割线颜色);
     }
     
     return _lineImageView;

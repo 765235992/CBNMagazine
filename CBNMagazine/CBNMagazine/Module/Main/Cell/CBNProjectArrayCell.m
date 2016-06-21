@@ -28,7 +28,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        self.dk_backgroundColorPicker = DKColorPickerWithRGB(0xFFFFFF,0x363636,0xFFFFFF);
+        self.dk_backgroundColorPicker = DKColorPickerWithKey(默认背景颜色);
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     

@@ -127,6 +127,8 @@
 		7877D5B41D168F7F0012DEA2 /* 21860.json in Resources */ = {isa = PBXBuildFile; fileRef = 7877D5B31D168F7F0012DEA2 /* 21860.json */; };
 		7877D5B71D16BDB80012DEA2 /* CBNArticleHeaderNormalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5B61D16BDB80012DEA2 /* CBNArticleHeaderNormalView.m */; };
 		7877D5BA1D16DD520012DEA2 /* CBNADWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5B91D16DD520012DEA2 /* CBNADWebVC.m */; };
+		787938CC1D195CC100875F21 /* CBNNavigationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 787938CB1D195CC100875F21 /* CBNNavigationHeaderView.m */; };
+		787938CE1D1963DF00875F21 /* navigation_Logo_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 787938CD1D1963DF00875F21 /* navigation_Logo_Day@3x.png */; };
 		78ED5E6D1D180B6600653CEA /* CBNChaptAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78ED5E6C1D180B6600653CEA /* CBNChaptAudioView.m */; };
 /* End PBXBuildFile section */
 
@@ -365,6 +367,9 @@
 		7877D5B61D16BDB80012DEA2 /* CBNArticleHeaderNormalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNArticleHeaderNormalView.m; sourceTree = "<group>"; };
 		7877D5B81D16DD520012DEA2 /* CBNADWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNADWebVC.h; sourceTree = "<group>"; };
 		7877D5B91D16DD520012DEA2 /* CBNADWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNADWebVC.m; sourceTree = "<group>"; };
+		787938CA1D195CC100875F21 /* CBNNavigationHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNavigationHeaderView.h; sourceTree = "<group>"; };
+		787938CB1D195CC100875F21 /* CBNNavigationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNavigationHeaderView.m; sourceTree = "<group>"; };
+		787938CD1D1963DF00875F21 /* navigation_Logo_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_Logo_Day@3x.png"; sourceTree = "<group>"; };
 		78ED5E6B1D180B6600653CEA /* CBNChaptAudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChaptAudioView.h; sourceTree = "<group>"; };
 		78ED5E6C1D180B6600653CEA /* CBNChaptAudioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChaptAudioView.m; sourceTree = "<group>"; };
 		F1AA840B599CB1991A6B1860 /* Pods-CBNMagazine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBNMagazine.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBNMagazine/Pods-CBNMagazine.release.xcconfig"; sourceTree = "<group>"; };
@@ -622,6 +627,7 @@
 		38C29A6D1D13BBF30061C0A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				787938C91D195CB000875F21 /* NavigationHeader */,
 				386D964E1D17CD000000A7AF /* ProjectView */,
 				7877D5631D14EE5B0012DEA2 /* ImageLabel */,
 				7877D5301D1433F40012DEA2 /* HeaderView */,
@@ -1217,6 +1223,7 @@
 		38C29B331D1794F70061C0A2 /* Day */ = {
 			isa = PBXGroup;
 			children = (
+				787938CD1D1963DF00875F21 /* navigation_Logo_Day@3x.png */,
 				386D96491D17C7390000A7AF /* book_Shop_Day@2x.png */,
 				386D96471D17C6DA0000A7AF /* user_Center_Day@2x.png */,
 				386D96431D17C6310000A7AF /* play_pause_Day@2x.png */,
@@ -1472,6 +1479,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		787938C91D195CB000875F21 /* NavigationHeader */ = {
+			isa = PBXGroup;
+			children = (
+				787938CA1D195CC100875F21 /* CBNNavigationHeaderView.h */,
+				787938CB1D195CC100875F21 /* CBNNavigationHeaderView.m */,
+			);
+			path = NavigationHeader;
+			sourceTree = "<group>";
+		};
 		F1E304A92F76FD6156DD8AC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1600,6 +1616,7 @@
 				386D96311D17965B0000A7AF /* praiseCount_gray_Day@2x.png in Resources */,
 				38C29B1F1D13F6F10061C0A2 /* CBNSynchronousPermissions.plist in Resources */,
 				386D96351D1797120000A7AF /* commentsCount_white_Day@2x.png in Resources */,
+				787938CE1D1963DF00875F21 /* navigation_Logo_Day@3x.png in Resources */,
 				386D963A1D17976F0000A7AF /* praiseCount_white_Day@3x.png in Resources */,
 				386D96391D17976F0000A7AF /* praiseCount_white_Day@2x.png in Resources */,
 				386D964A1D17C7390000A7AF /* book_Shop_Day@2x.png in Resources */,
@@ -1733,6 +1750,7 @@
 				38C29B2A1D13F6F10061C0A2 /* CBNUserCenterVC.m in Sources */,
 				38C29A671D13BB840061C0A2 /* CBNNavigationController.m in Sources */,
 				7877D5801D1688FA0012DEA2 /* JHCTFrameAssembleParser.m in Sources */,
+				787938CC1D195CC100875F21 /* CBNNavigationHeaderView.m in Sources */,
 				38C29B1E1D13F6F10061C0A2 /* CBNSetterModel.m in Sources */,
 				38C29AA71D13DF6B0061C0A2 /* CBNShufflingCell.m in Sources */,
 				38C29A8B1D13BF1E0061C0A2 /* CBNDrawerVisualStateManager.m in Sources */,

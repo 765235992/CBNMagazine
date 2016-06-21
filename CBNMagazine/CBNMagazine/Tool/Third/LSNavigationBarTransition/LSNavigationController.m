@@ -10,7 +10,7 @@
 #import "UIViewController+LSNavigationBarTransition.h"
 #import <objc/runtime.h>
 //最大移动比例可以pop
-#define LSRightScale 0.4
+#define LSRightScale 0.25
 //边缘手势比例
 #define LSScreenEdgeScale 0.3
 
@@ -29,9 +29,9 @@
     self.stack = [[LSStack alloc] init];
     UIGestureRecognizer* gesture = self.interactivePopGestureRecognizer;
     gesture.enabled = NO;
-    UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
-    [self.view addGestureRecognizer:pan];
-    pan.delegate = self;
+//    UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
+//    [self.view addGestureRecognizer:pan];
+//    pan.delegate = self;
 }
 - (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController*)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController
 {

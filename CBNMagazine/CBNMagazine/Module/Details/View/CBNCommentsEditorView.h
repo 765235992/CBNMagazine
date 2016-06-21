@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CBNCommentsEditorView : UIView
+@property (nonatomic, strong) UITextView *textView;
 
 @end

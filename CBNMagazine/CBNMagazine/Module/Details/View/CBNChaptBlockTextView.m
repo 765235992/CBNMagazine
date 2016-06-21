@@ -249,7 +249,7 @@
     NSMutableAttributedString *newAttributedString = [self keyWordAttributedStringConfigurationWithKeyWordArray:_chaptBlockModel.keyWordStrArray andAttributedString:readPressAttributedString andText:text];
     
     self.attributedText = newAttributedString;
-    self.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
+    self.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
     
     [self sizeToFit];
     

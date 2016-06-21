@@ -18,6 +18,8 @@
 #import "CBNADWebVC.h"
 #import "CBNArticleHeaderNormalView.h"
 #import "CBNDetailBottomView.h"
+#import "CBNCommentsEditorView.h"
+#import "UIColor+Extension.h"
 
 @interface CBNTextArticleDetailVC ()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -29,44 +31,35 @@
 
 @property (nonatomic, strong) CBNDetailBottomView *bottomView;
 
-@property (nonatomic, strong) UITextView *cmment;
+@property (nonatomic, strong) CBNCommentsEditorView *commentsEditorView;
 @end
 
 @implementation CBNTextArticleDetailVC
 
 
+
+- (void)dealloc
+{
+    NSLog(@"释放");
+
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
 
 }
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-//    self.navigationController.navigationBar.translucent=YES;
-    self.navigationController.navigationBar.hidden = YES;
-
-}
-
-- (void)dealloc
-{
-    NSLog(@"释放");
-    self.navigationController.navigationBar.hidden = YES;
-
-}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.translucent=NO;
 
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0x656782) andFrame:CGRectMake(0, 0, screen_Width, 64)]forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.backgroundColor = UIColorFromRGB(0x656782);
-
-    [self setNavigationHeader];
     
+    self.view.backgroundColor = [UIColor whiteColor];
+////    self.navigationController.navigationBar.backgroundColor = UIColorFromRGB(0x656782);
+//
+    [self setNavigationHeader];
+//
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.aTableView];
@@ -161,43 +154,43 @@
     };
     _aTableView.tableHeaderView = headerView;
     
-    [self.view addSubview:self.bottomView];
-    [self.view addSubview:self.cmment];
+//    [self.view addSubview:self.bottomView];
+//    [self.view addSubview:self.commentsEditorView];
 
 }
 - (CBNDetailBottomView *)bottomView
 {
     if (!_bottomView) {
         
-        self.bottomView = [[CBNDetailBottomView alloc] initWithFrame:CGRectMake(0, screen_Height - 44, screen_Height, 44)];
+        self.bottomView = [[CBNDetailBottomView alloc] initWithFrame:CGRectMake(0, screen_Height - 64 - 44, screen_Height, 44)];
         __weak typeof(self) weakSelf = self;
         
         _bottomView.aaaaaa = ^(NSDictionary *keyWordInfo){
-            NSLog(@"%@",weakSelf.bottomView);
-            [weakSelf.cmment becomeFirstResponder];
-            weakSelf.cmment.hidden = NO;
+            weakSelf.commentsEditorView.hidden = NO;
 
-//            weakSelf.cmment.frame = CGRectMake(0, screen_Height-400, screen_Width, 200);
+            weakSelf.commentsEditorView.textView.text = @"sfds";
+//            [weakSelf.commentsEditorView becomeFirstResponder];
+
         };
         
     }
     
     return _bottomView;
 }
-- (UITextView *)cmment
+- (CBNCommentsEditorView *)commentsEditorView
 {
-    if (!_cmment) {
+    if (!_commentsEditorView) {
         
-        self.cmment = [[UITextView alloc] initWithFrame:CGRectMake(0, screen_Height-200 , screen_Width, 200)];
+        self.commentsEditorView = [[CBNCommentsEditorView alloc] initWithFrame:CGRectMake(0, screen_Height-200 , screen_Width, 500)];
         
-        _cmment.backgroundColor = [UIColor redColor];
+//        _commentsEditorView.backgroundColor = [UIColor c];
         
-        _cmment.hidden = YES;
+        _commentsEditorView.hidden = YES;
         
         
     }
     
-    return _cmment;
+    return _commentsEditorView;
 }
 /*
  *  设置NavigationHeaderBar
@@ -205,16 +198,34 @@
 - (void)setNavigationHeader
 {
     CBNBarBurronItem *leftBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(leftBar:) andFrame:CGRectMake(0, 0, 30, 30) andImage:[UIImage imageNamed:@"userCenter_Day_Image@2x.png"]];
-    
-    CBNBarBurronItem *nightBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(nightBar:) andFrame:CGRectMake(0, 0, 44, 44) andImagePicker:DKImagePickerWithImages([UIImage imageWithColor:RGBColor(245, 245,245, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(3, 3,3, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(3, 3,3, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)])];
-    CBNBarBurronItem *fontBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(fontBar:) andFrame:CGRectMake(0, 0, 44, 44) andImagePicker:DKImagePickerWithImages([UIImage imageWithColor:RGBColor(245, 245,245, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(3, 3,3, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(3, 3,3, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)])];
+//
+    CBNBarBurronItem *nightBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(nightBar:) andFrame:CGRectMake(0, 0, 44, 44) andImagePicker:DKImagePickerWithImages([UIImage imageWithColor:RGBColor(245, 245,245, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,103, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,103, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)])];
+    CBNBarBurronItem *fontBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(fontBar:) andFrame:CGRectMake(0, 0, 44, 44) andImagePicker:DKImagePickerWithImages([UIImage imageWithColor:RGBColor(245, 245,245, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,1033, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,103, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)])];
 
+    self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.leftBarButtonItem = leftBar;
     
-    self.navigationItem.rightBarButtonItems= [NSArray arrayWithObjects:nightBar,fontBar, nil];
+    self.navigationItem.rightBarButtonItems= [NSArray arrayWithObjects:nightBar,fontBar,nil];
     
-    
+    [self.navigationController.navigationBar setBackgroundImage:[[UIColor clearColor] imageWithColor] forBarMetrics:UIBarMetricsDefault];
+
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
+
 }
+
+- (UIBarButtonItem *)create
+{
+    UIButton *but  = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    but.backgroundColor = [UIColor redColor];
+    
+    but.frame = CGRectMake(0, 0, 44, 44);
+    
+    UIBarButtonItem *bar = [[UIBarButtonItem alloc] initWithCustomView:but];
+    
+    return bar;
+}
+
 - (void)leftBar:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -224,9 +235,14 @@
     if ([self.dk_manager.themeVersion isEqualToString:DKThemeVersionNight]) {
         
         [self.dk_manager dawnComing];
-        
+//        self.navigationController.navigationBar.backgroundColor = UIColorFromRGB(0xFFFFFF);
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0xFFFFFF) andFrame:CGRectMake(0, 0, screen_Width, 44)]forBarMetrics:UIBarMetricsDefault];
+
     } else {
-        
+//        self.navigationController.navigationBar.backgroundColor = UIColorFromRGB(0x00000);
+
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0x00000) andFrame:CGRectMake(0, 0, screen_Width, 44)]forBarMetrics:UIBarMetricsDefaultPrompt];
+
         [self.dk_manager nightFalling];
         
     }

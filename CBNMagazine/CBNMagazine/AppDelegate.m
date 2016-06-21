@@ -73,7 +73,7 @@
 //    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 //    [[SDImageCache sharedImageCache] setShouldDecompressImages:NO];
 //    [[SDWebImageDownloader sharedDownloader] setShouldDecompressImages:NO];
-
+   
     // Override point for customization after application launch.
     return YES;
 }

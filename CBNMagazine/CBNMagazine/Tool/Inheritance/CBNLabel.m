@@ -28,7 +28,7 @@
         self.numberOfLines = 0;
         
         
-        self.dk_textColorPicker = DKColorPickerWithKey(所有字体默认颜色);
+        self.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         
         
     }

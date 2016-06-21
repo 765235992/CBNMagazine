@@ -56,7 +56,7 @@
         _synchronousContentLabel.numberOfLines = 0;
         
         _synchronousContentLabel.dk_textColorPicker = DKColorPickerWithKey(字体默认颜色);
-        _synchronousContentLabel.font = font(15.0);
+        _synchronousContentLabel.font = font_px_Medium(15.0);
     }
     
     return _synchronousContentLabel;

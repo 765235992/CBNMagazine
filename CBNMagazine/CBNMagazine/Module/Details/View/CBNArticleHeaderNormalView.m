@@ -58,9 +58,9 @@
         _newsTitleLabel.backgroundColor = [UIColor clearColor];
         
         
-        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
+        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         
-        _newsTitleLabel.font = font_px_bold(fontSize(56.0,52.0,48.0));
+        _newsTitleLabel.font = font_px_Medium(fontSize(56.0,52.0,48.0));
         
     }
     
@@ -88,9 +88,9 @@
         
         self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         
-        _timeLabel.dk_textColorPicker = DKColorPickerWithKey(默认标签字体颜色);
+        _timeLabel.dk_textColorPicker = DKColorPickerWithKey(白色背景上的默认标签字体颜色);
         
-        _timeLabel.font = font_px(fontSize(42.0,36.0,36.0));
+        _timeLabel.font = font_px_Medium(fontSize(42.0,36.0,36.0));
     }
     
     return _timeLabel;
@@ -102,7 +102,7 @@
         
         self.lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 1)];
         
-        _lineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(分割线默认颜色);
+        _lineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(新闻列表分割线颜色);
         
     }
     
@@ -116,8 +116,8 @@
         self.newsNotesLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(10, 0, screen_Width-20, 0)];
         _newsNotesLabel.numberOfLines = 0;
         
-        _newsNotesLabel.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
-        _newsNotesLabel.font = font_px(fontSize(42.0,36.0,36.0));
+        _newsNotesLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
+        _newsNotesLabel.font = font_px_Medium(fontSize(42.0,36.0,36.0));
         
     }
     

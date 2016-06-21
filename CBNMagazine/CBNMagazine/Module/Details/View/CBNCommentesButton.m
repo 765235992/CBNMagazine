@@ -26,8 +26,8 @@
     
     if (self) {
         
-        [self addSubview:self.view];
-        
+//        [self addSubview:self.view];
+        self.userInteractionEnabled = YES;
         
     }
     return self;
@@ -38,16 +38,16 @@
     if (!_view) {
         
         self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 7, self.frame.size.width, commentes_Button_Height)];
-        _view.userInteractionEnabled = NO;
+//        _view.userInteractionEnabled = NO;
         _view.layer.borderColor = [UIColor grayColor].CGColor;
-        
+//
         _view.layer.borderWidth = 1;
         
         _view.layer.cornerRadius = 10;
-        
-        [_view addSubview:self.iconImageView];
-        
-        [_view addSubview:self.commentTextView];
+//        
+//        [_view addSubview:self.iconImageView];
+//        
+//        [_view addSubview:self.commentTextView];
         
     }
     
@@ -72,10 +72,10 @@
     if (!_commentTextView) {
         
         self.commentTextView = [[CBNLabel alloc] initWithFrame:CGRectMake(_iconImageView.frame.size.width + 12, 0, _view.frame.size.width - (_iconImageView.frame.size.width + 20), commentes_Button_Height)];
-        
+        _commentTextView.userInteractionEnabled = NO;
         _commentTextView.textColor = [UIColor grayColor];
         
-        _commentTextView.font = font_px(fontSize(36.0,36.0,36.0));
+        _commentTextView.font = font_px_Medium(fontSize(36.0,36.0,36.0));
         
         _commentTextView.text = @"写评论……";
 

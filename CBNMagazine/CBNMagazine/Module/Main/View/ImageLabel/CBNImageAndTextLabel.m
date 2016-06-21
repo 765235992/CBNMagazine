@@ -55,7 +55,7 @@
         
         self.contentLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(25, 0, 0, 0)];
         
-        _contentLabel.font = font_px(fontSize(36.0,31.0,26.0));
+        _contentLabel.font = font_px_Medium(fontSize(36.0,31.0,26.0));
         
     }
     

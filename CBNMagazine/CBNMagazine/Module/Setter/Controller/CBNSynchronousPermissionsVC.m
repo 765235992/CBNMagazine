@@ -85,7 +85,7 @@
         
         _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
-        _aTableView.dk_backgroundColorPicker = DKColorPickerWithRGB(0xDBDBDB,0x363636,0xDBDBDB);
+        _aTableView.dk_backgroundColorPicker = DKColorPickerWithKey(默认背景颜色);
         
         _aTableView.tableFooterView = self.synchronousPermissionsFootVie;
         

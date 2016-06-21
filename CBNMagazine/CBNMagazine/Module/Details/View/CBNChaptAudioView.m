@@ -70,9 +70,9 @@
     if (!_audioTitleLabel) {
         
         self.audioTitleLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(_playButton.frame.origin.x + _playButton.frame.size.width + 10, 3, screen_Width - (_playButton.frame.origin.x + _playButton.frame.size.width + 10) - (_timeLabel.frame.size.width + 22), 0)];
-        _audioTitleLabel.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
+        _audioTitleLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         
-        _audioTitleLabel.font = font_px(fontSize(36.0,36.0,36.0));
+        _audioTitleLabel.font = font_px_Medium(fontSize(36.0,36.0,36.0));
         
         _audioTitleLabel.numberOfLines = 0;
         _audioTitleLabel.text  = @"联系Tech Word 2016主题演讲";
@@ -94,9 +94,9 @@
         
         self.columnLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(_playButton.frame.origin.x + _playButton.frame.size.width + 10, _audioTitleLabel.frame.size.height + 4, screen_Width - (_playButton.frame.origin.x + _playButton.frame.size.width + 10) - (_timeLabel.frame.size.width + 22), 0)];
         
-        _columnLabel.dk_textColorPicker = DKColorPickerWithKey(默认标签字体颜色);
+        _columnLabel.dk_textColorPicker = DKColorPickerWithKey(白色背景上的默认标签字体颜色);
         
-        _columnLabel.font = font_px(fontSize(32.0,32.0,32.0));
+        _columnLabel.font = font_px_Medium(fontSize(32.0,32.0,32.0));
         
         _columnLabel.numberOfLines = 0;
 
@@ -115,9 +115,9 @@
         
         self.timeLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(0,0,0,0)];
         
-        _timeLabel.dk_textColorPicker = DKColorPickerWithKey(默认大标题字体颜色);
+        _timeLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         
-        _timeLabel.font = font_px(fontSize(36.0,32.0,32.0));
+        _timeLabel.font = font_px_Medium(fontSize(36.0,32.0,32.0));
         
         _timeLabel.numberOfLines = 0;
 

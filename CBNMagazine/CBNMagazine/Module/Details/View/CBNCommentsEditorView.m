@@ -9,7 +9,6 @@
 #import "CBNCommentsEditorView.h"
 
 @interface CBNCommentsEditorView ()
-
 @end
 
 @implementation CBNCommentsEditorView
@@ -18,8 +17,20 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        [self addSubview:self.textView];
+        self.backgroundColor = [UIColor orangeColor];
     }
     return self;
+}
+
+- (UITextView *)textView
+{
+    if (!_textView) {
+        self.textView = [[UITextView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 200, screen_Width, 200)];
+        
+        _textView.backgroundColor = [UIColor redColor];
+    }
+    
+    return _textView;
 }
 @end

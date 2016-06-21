@@ -30,7 +30,7 @@ static NSString * const CBNWEEK_EMAIL = @"zkkf@cbnweek.com";
 
     [self setNavigationHeader];
 
-    self.view.dk_backgroundColorPicker = DKColorPickerWithRGB(0xDBDBDB,0x363636,0xDBDBDB);
+    self.view.dk_backgroundColorPicker = DKColorPickerWithKey(默认背景颜色);
     
     [self.view addSubview:self.aTableView];
     /*
@@ -75,7 +75,7 @@ static NSString * const CBNWEEK_EMAIL = @"zkkf@cbnweek.com";
     
     titleLabel.text = @"设置";
     
-    titleLabel.font = font(18.0);
+    titleLabel.font = font_px_Medium(18.0);
     
     titleLabel.textAlignment = NSTextAlignmentCenter;
   
@@ -103,7 +103,7 @@ static NSString * const CBNWEEK_EMAIL = @"zkkf@cbnweek.com";
         
         _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
-        _aTableView.dk_backgroundColorPicker = DKColorPickerWithRGB(0xDBDBDB,0x363636,0xDBDBDB);
+        _aTableView.dk_backgroundColorPicker = DKColorPickerWithKey(默认背景颜色);
         
         _aTableView.tableFooterView = self.aTableViewFootView;
 

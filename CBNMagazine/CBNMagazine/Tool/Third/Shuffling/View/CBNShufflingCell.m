@@ -72,9 +72,9 @@
         
         _newsTitleLabel.lineSpace = 0;
         
-        _newsTitleLabel.font = font_px_bold(fontSize(72.0,64.0,56.0));
+        _newsTitleLabel.font = font_px_Medium(fontSize(72.0,64.0,56.0));
         
-        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithRGB(0xFFFFFF,0xFFFFFF,0xFFFFFF);
+        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(默认背景颜色);
         
     }
     

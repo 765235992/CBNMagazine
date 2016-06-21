@@ -17,7 +17,7 @@
 {
     [self ls_viewDidLoad];
     //此处设置全局状态栏背景 其他控制器想修改UINavigationBar背景色可以在viewDidLoad里修改,不会影响其他控制器UINavigationBar背景色
-    [self.navigationController.navigationBar setBackgroundImage:[[UIColor colorWithRed:0.671 green:0.184 blue:1.000 alpha:1.000] imageWithColor] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[[UIColor colorWithRed:0 green:0 blue:0 alpha:0] imageWithColor] forBarMetrics:UIBarMetricsDefault];
 }
 
 + (void)load

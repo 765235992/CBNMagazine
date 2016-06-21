@@ -20,13 +20,14 @@
 #import "CBNTextArticleDetailVC.h"
 #import "CBNSetterVC.h"
 #import "UIColor+Extension.h"
+#import "CBNNavigationHeaderView.h"
 
 #define navigation_Show  (float)(0.73*screen_Width -64)
 
 static const CGFloat MJDuration = 1.0;
 
 @interface CBNMainVC ()<UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic,strong) UIView *navigationView;
+@property (nonatomic,strong) CBNNavigationHeaderView *navigationView;
 @property (nonatomic, strong) UITableView *aTableView;
 @property (strong, nonatomic) NSMutableArray *sourceArray;
 @property (nonatomic, strong) CBNRecommendHeaderView *headerView;
@@ -40,34 +41,43 @@ static const CGFloat MJDuration = 1.0;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.navigationController.navigationBar.hidden = YES;
 
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
-//    self.navigationController.navigationBar.translucent=YES;
-//
-    self.navigationController.navigationBar.hidden = YES;
-    
-    [self.navigationController.navigationBar setBackgroundImage:[[UIColor clearColor]  imageWithColor] forBarMetrics:UIBarMetricsDefault];
-    
-    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+    self.navigationController.navigationBar.translucent=YES;
+    [self.navigationController.navigationBar setBackgroundImage:[[UIColor clearColor] imageWithColor] forBarMetrics:UIBarMetricsDefault];
     
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    self.navigationController.navigationBar.hidden = NO;
 
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavigationHeader];
+//    [self setNavigationHeader];
+
+//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
+//    self.navigationController.navigationBar.barTintColor=[UIColor whiteColor];
+//    [[UIBarButtonItem appearance ] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
+//    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
 
 
+//    self.navigationController.navigationBar.translucent=NO;
+////    self.edgesForExtendedLayout = UIRectEdgeNone;//这个值需要自己在设置
+//    self.navigationController.extendedLayoutIncludesOpaqueBars = YES;
+//    self.modalPresentationCapturesStatusBarAppearance = NO;
+//    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];//set navigation bar title to be transparent
+//    self.navigationController.navigationBar.alpha = 0.f;
 
+//    [self.navigationController.navigationBar setBackgroundImage:[[UIColor clearColor
+//]  imageWithColor] forBarMetrics:UIBarMetricsDefault];
+//    
+//    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+//
     
     CBNSegmentModel *segmentiItem = [[CBNSegmentModel alloc] init];
         
@@ -131,9 +141,9 @@ static const CGFloat MJDuration = 1.0;
     __weak typeof(self) wekSelf = self;
     [self.channelNetworkRequest loadChannelInfoWithChannelID:self.channelItem.channelID secuessed:^(id result) {
         
-        NSLog(@"%@",result);
-        
-        int tempCount = 0;
+//        NSLog(@"%@",result);
+//        
+//        int tempCount = 0;
         
         for (int i = 0; i < [[result objectForKey:@"article_list"] count]; i++) {
             
@@ -178,17 +188,13 @@ static const CGFloat MJDuration = 1.0;
  */
 - (void)setNavigationHeader
 {
-    CBNBarBurronItem *leftBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(leftBar:) andFrame:CGRectMake(0, 0, 30, 30) andImage:[UIImage imageNamed:@"user_Center_Day@2x.png"]];
+    CBNBarBurronItem *leftBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(leftBar:) andFrame:CGRectMake(0, 0, 44, 44) andImage:[RGBColor(0, 0, 0, 1) colorImage]];
     
-    CBNBarBurronItem *rightBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(rightBar:) andFrame:CGRectMake(0, 0, 30, 30) andImage:[UIImage imageNamed:@"book_Shop_Day@2x.png"]];
+    CBNBarBurronItem *rightBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(rightBar:) andFrame:CGRectMake(0, 0, 44, 44) andImage:[RGBColor(0, 0, 0, 0) colorImage]];
     
     self.navigationItem.leftBarButtonItem = leftBar;
     
     self.navigationItem.rightBarButtonItem= rightBar;
-
-
-    
-    self.navigationItem.title = @"CBNweekly";
 
     
     
@@ -202,9 +208,9 @@ static const CGFloat MJDuration = 1.0;
     
 }
 -(void)rightBar:(id)sender{
-//    CBNSetterVC *setterVC = [[CBNSetterVC alloc] init];
-//    
-//    [self.navigationController pushViewController:setterVC animated:YES];
+    CBNSetterVC *setterVC = [[CBNSetterVC alloc] init];
+    
+    [self.navigationController pushViewController:setterVC animated:YES];
     
     
 }
@@ -213,7 +219,7 @@ static const CGFloat MJDuration = 1.0;
         _aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Height)];
         _aTableView.delegate = self;
         _aTableView.dataSource = self;
-        _aTableView.dk_backgroundColorPicker = DKColorPickerWithRGB(0xFFFFFF,0x363636,0xFFFFFF);
+        _aTableView.dk_backgroundColorPicker = DKColorPickerWithKey(默认背景颜色);
         _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _aTableView;
@@ -343,33 +349,38 @@ static const CGFloat MJDuration = 1.0;
 #pragma mark -  重点的地方在这里 滚动时候进行计算
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
-//    if (offsetY<-64) {
-//        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
-//        
-//    }else{
-//        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-//        
-//    }
-    CGFloat alpha = offsetY / navigation_Show;
+    if (offsetY<-64) {
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+        _navigationView.hidden = YES;
+    }else{
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+        _navigationView.hidden = NO;
+
+    }
+    CGFloat alpha = offsetY / (navigation_Show-64);
+    CBNLog(@"%f",alpha);
     
     if (offsetY> navigation_Show -64) {
         [UIView animateWithDuration:0.5 animations:^{
-            self.headerView.sliderView.maskImageView.backgroundColor = RGBColor(0.0, 0.0, 1.2, alpha);
+            self.headerView.sliderView.maskImageView.backgroundColor = RGBColor(0.0, 0.0, 0.0, alpha);
+            self.navigationView.maskImageView.backgroundColor = RGBColor(0.0, 0.0, 0.0, alpha);
+
         }];
-        self.navigationView.hidden = NO;
-        
+        _navigationView.backgroundColor = RGBColor(0.0, 0.0, 0.0, 1);
+
         
     }else if (offsetY >=-64 && offsetY <= navigation_Show-64){
         
         [UIView animateWithDuration:0.5 animations:^{
-            self.headerView.sliderView.maskImageView.backgroundColor = RGBColor(0.0, 0.0, 0.0, alpha*1.2);
+            self.headerView.sliderView.maskImageView.backgroundColor = RGBColor(0.0, 0.0, 0.0, alpha);
+            self.navigationView.maskImageView.backgroundColor = RGBColor(0.0, 0.0, 0.0, alpha);
+
         }];
-        
-        self.navigationView.hidden = YES;
+        _navigationView.backgroundColor = RGBColor(0.0, 0.0, 0.0, 0);
+
         
     }else{
         
-        self.navigationView.hidden = YES;
         
     }
 }
@@ -433,15 +444,14 @@ static const CGFloat MJDuration = 1.0;
         [self refreshChannelSource];
     }
 }
-- (UIView *)navigationView
+- (CBNNavigationHeaderView *)navigationView
 {
     if (!_navigationView) {
         
-        self.navigationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 64)];
+        self.navigationView = [[CBNNavigationHeaderView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, 64)];
         
-        _navigationView.backgroundColor = RGBColor(0.0, 0.0, 0.0, 1);
-        
-        self.navigationView.hidden = YES;
+        _navigationView.backgroundColor = RGBColor(0.0, 0.0, 0.0, 0.0);
+
         
     }
     

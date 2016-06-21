@@ -108,11 +108,11 @@
         
         self.commentsCountLabel = [[CBNImageAndTextLabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0) image:[UIImage imageWithColor:RGBColor(172, 108, 148, 1.0)]];
         
-        _commentsCountLabel.contentLabel.dk_textColorPicker = DKColorPickerWithKey(默认背景上标签字体颜色);
+        _commentsCountLabel.contentLabel.dk_textColorPicker = DKColorPickerWithKey(图片上的默认标签字体颜色);
         
         _commentsCountLabel.iconImageView.dk_imagePicker = DKImagePickerWithImages([UIImage imageNamed:@"commentsCount_white_Day.png"],[UIImage imageNamed:@"commentsCount_white_Day.png"],[UIImage imageNamed:@"commentsCount_white_Day.png"]);
         
-        _commentsCountLabel.contentLabel.font = font_px(fontSize(32.0,32.0,32.0));
+        _commentsCountLabel.contentLabel.font = font_px_Medium(fontSize(32.0,32.0,32.0));
 
         _commentsCountLabel.text = @"1042";
         
@@ -138,6 +138,7 @@
 }
 - (void)sendComment:(id)sender
 {
+    
     if (self.aaaaaa!=nil) {
         
         self.aaaaaa(nil);
