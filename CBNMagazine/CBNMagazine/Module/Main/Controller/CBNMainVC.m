@@ -142,6 +142,9 @@ static const CGFloat MJDuration = 1.0;
  */
 - (void)refreshChannelSource
 {
+    
+    
+    
    
     [self.sourceArray removeAllObjects];
     [self.aTableView reloadData];
@@ -153,7 +156,8 @@ static const CGFloat MJDuration = 1.0;
         
         NSDictionary *newDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSLog(@"%@",newDic);
-        
+        NSLog(@"%@",newDic);
+
         for (NSDictionary *dic in [[newDic objectForKey:@"DataList"] objectForKey:@"data"]) {
 
             NSInteger dataType = [[dic objectForKey:@"DataType"] integerValue];
