@@ -8,33 +8,48 @@
 
 #import "CBNMainVC.h"
 #import "MMDrawerBarButtonItem.h"
-#import "CBNRecommendHeaderView.h"
-#import "CBNNormalNewsCell.h"
-#import "CBNVideoNewsCell.h"
-#import "CBNRecommendNewsCell.h"
-#import "CBNProjectArrayCell.h"
 #import "CBNSegmentView.h"
 #import "CBNSegmentModel.h"
 #import "CBNChannelNetwork.h"
 #import "CBNChannelNewsModel.h"
-#import "CBNTextArticleDetailVC.h"
-#import "CBNSetterVC.h"
 #import "UIColor+Extension.h"
+
+#import "CBNRecommendHeaderView.h"
 #import "CBNNavigationHeaderView.h"
+
+/*
+ *  新闻五种定制类型
+ */
+#import "CBNAudioNewsCell.h"
+#import "CBNVideoNewsCell.h"
+#import "CBNNormalNewsCell.h"
+#import "CBNProjectArrayCell.h"
+#import "CBNRecommendNewsCell.h"
+#import "MJRefresh.h"
+
+/*
+ *  可以push的控制器
+ */
+#import "CBNSetterVC.h"
+#import "CBNTextArticleDetailVC.h"
 
 #define navigation_Show  (float)(0.73*screen_Width -64)
 
 static const CGFloat MJDuration = 1.0;
 
 @interface CBNMainVC ()<UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic,strong) CBNNavigationHeaderView *navigationView;
+@property (nonatomic, strong) CBNNavigationHeaderView *navigationView;
 @property (nonatomic, strong) UITableView *aTableView;
-@property (strong, nonatomic) NSMutableArray *sourceArray;
 @property (nonatomic, strong) CBNRecommendHeaderView *headerView;
-@property (nonatomic, strong) CBNSegmentView *segmentView;
+@property (nonatomic, strong) NSMutableArray *segmentArray;
 @property (nonatomic, strong) CBNSegmentModel *channelItem;
+@property (nonatomic, strong) CBNSegmentView *segmentView;
+@property (nonatomic, strong) NSMutableArray *sourceArray;
 @property (nonatomic, strong) CBNChannelNetwork *channelNetworkRequest;
-@property (nonatomic, assign) CGFloat currentHeight;
+@property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, assign) NSInteger pageCount;
+@property (nonatomic, assign) NSInteger recommendCount;
+
 @end
 
 @implementation CBNMainVC
@@ -58,116 +73,197 @@ static const CGFloat MJDuration = 1.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self setNavigationHeader];
-
-//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
-//    self.navigationController.navigationBar.barTintColor=[UIColor whiteColor];
-//    [[UIBarButtonItem appearance ] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
-//    [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
-
-
-//    self.navigationController.navigationBar.translucent=NO;
-////    self.edgesForExtendedLayout = UIRectEdgeNone;//这个值需要自己在设置
-//    self.navigationController.extendedLayoutIncludesOpaqueBars = YES;
-//    self.modalPresentationCapturesStatusBarAppearance = NO;
-//    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];//set navigation bar title to be transparent
-//    self.navigationController.navigationBar.alpha = 0.f;
-
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIColor clearColor
-//]  imageWithColor] forBarMetrics:UIBarMetricsDefault];
-//    
-//    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
-//
     
-    CBNSegmentModel *segmentiItem = [[CBNSegmentModel alloc] init];
-        
-    segmentiItem.channelID = @"13";
+    /*
+     *  设置NavigationHeaderBar
+     */
+    [self setNavigationHeader];
     
+    /*
+     *  设置开机默认频道
+     */
+    [self setDefaultChannel];
     
-    self.channelItem = segmentiItem;
-    
-    self.sourceArray = [[NSMutableArray alloc] init];
-    
-    
+    /*
+     *  添加列表
+     */
     [self setupTableView];
+    
+    /*
+     *  添加底片
+     */
     [self.view addSubview:self.navigationView];
-    _aTableView.mj_header = [CBNRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshChannelSource)];
     
-    // 马上进入刷新状态
-    [_aTableView.mj_header beginRefreshing];
+
     
-    //
 }
 
+
+/*
+ *  从coreData中取出数据
+ */
 - (void)loadDataFromCoreData
 {
     
-    for (int i = 0; i< 100; i++) {
-        [self.sourceArray addObject:[NSNumber numberWithInt:i]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *str = [[NSBundle mainBundle] pathForResource:@"newsList" ofType:@"json"];
+        NSData *data = [NSData dataWithContentsOfFile:str];
         
+        NSDictionary *newDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"%@",newDic);
+        for (NSDictionary *dic in [newDic objectForKey:@"DataList"]) {
+            NSLog(@"%@",dic);
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            
+            [_aTableView reloadData];
+            [_aTableView.mj_header endRefreshing];
+        });
+        
+    });
+
+
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(MJDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        
+//        // 刷新表格
+//        [_aTableView reloadData];
+//        
+//        // 拿到当前的下拉刷新控件，结束刷新状态
+//        [_aTableView.mj_header endRefreshing];
+//    });
+//    
+}
+
+/*
+ *  网络请求数据刷新动作
+ */
+- (void)refreshChannelSource
+{
+   
+    [self.sourceArray removeAllObjects];
+    [self.aTableView reloadData];
+    
+    _recommendCount = 0;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *str = [[NSBundle mainBundle] pathForResource:@"newsList" ofType:@"json"];
+        NSData *data = [NSData dataWithContentsOfFile:str];
+        
+        NSDictionary *newDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"%@",newDic);
+        
+        for (NSDictionary *dic in [[newDic objectForKey:@"DataList"] objectForKey:@"data"]) {
+
+            NSInteger dataType = [[dic objectForKey:@"DataType"] integerValue];
+            
+            if (dataType == 1) {
+                /*
+                 *  视频
+                 */
+                if (_recommendCount != 3) {
+                    dataType = 0;
+                    _recommendCount++;
+                }else{
+                    dataType = 1;
+                    _recommendCount = 0;
+                }
+            }
+            
+            CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:dic andType:dataType];
+            
+            [_sourceArray addObject:channelModel];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            
+            [_aTableView reloadData];
+            [_aTableView.mj_header endRefreshing];
+        });
+        
+    });
+
+    // 拿到当前的下拉刷新控件，结束刷新状态
+
+    
+    
+    
+//    [self.channelNetworkRequest cannelRequest];
+//    __weak typeof(self) wekSelf = self;
+//    [self.channelNetworkRequest loadChannelInfoWithChannelID:self.channelItem.channelID secuessed:^(id result) {
+//        if ([self.channelItem.channelID isEqualToString:@"13"]) {
+//            
+//            
+//            NSDictionary *dic = @{@"customType":@"customType"};
+//            CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:dic];
+//            [wekSelf.sourceArray addObject:channelModel];
+//
+//        }
+//        for (int i = 0; i < [[result objectForKey:@"article_list"] count]; i++) {
+//            
+//            NSDictionary *channelInfo = [[result objectForKey:@"article_list"] objectAtIndex:i];
+//            
+//            CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:channelInfo];
+//            
+//            [wekSelf.sourceArray addObject:channelModel];
+//        }
+//        // 刷新表格
+//        [wekSelf.aTableView reloadData];
+//        
+//        // 拿到当前的下拉刷新控件，结束刷新状态
+//        [wekSelf.aTableView.mj_header endRefreshing];
+//        
+//        
+//    } failed:^(id error) {
+//        // 刷新表格
+//        [wekSelf.aTableView reloadData];
+//        
+//        // 拿到当前的下拉刷新控件，结束刷新状态
+//        [wekSelf.aTableView.mj_header endRefreshing];
+//        
+//    }];
+    
+}
+
+- (void)footerRereshing
+{
+    NSString *str = [[NSBundle mainBundle] pathForResource:@"newsList" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:str];
+    
+    NSDictionary *newDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSLog(@"%@",newDic);
+    
+    for (NSDictionary *dic in [[newDic objectForKey:@"DataList"] objectForKey:@"data"]) {
+        
+        NSInteger dataType = [[dic objectForKey:@"DataType"] integerValue];
+        
+        if (dataType == 1) {
+            /*
+             *  视频
+             */
+            if (_recommendCount != 3) {
+                dataType = 0;
+                _recommendCount++;
+            }else{
+                dataType = 1;
+                _recommendCount = 0;
+            }
+        }
+        
+        CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:dic andType:dataType];
+        
+        [_sourceArray addObject:channelModel];
     }
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(MJDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        // 刷新表格
         [_aTableView reloadData];
         
-        // 拿到当前的下拉刷新控件，结束刷新状态
-        [_aTableView.mj_header endRefreshing];
+        [self.aTableView.mj_footer endRefreshing];
     });
-}
-- (void)refreshChannelSource
-{
-    //    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
-    //
-    //    dispatch_queue_t mainQueue = dispatch_get_main_queue();
-    //
-    //    dispatch_async(globalQueue, ^{
-    //
-    //
-    //
-    //        dispatch_async(mainQueue, ^{
-    //
-    //            [_aTableView reloadData];
-    //        });
-    //    });
     
-    [self.sourceArray removeAllObjects];
-    [self.aTableView reloadData];
-    
-    // 拿到当前的下拉刷新控件，结束刷新状态
-    //    [self.aTableView.mj_header endRefreshing];
-    [self.channelNetworkRequest cannelRequest];
-    __weak typeof(self) wekSelf = self;
-    [self.channelNetworkRequest loadChannelInfoWithChannelID:self.channelItem.channelID secuessed:^(id result) {
-        
-//        NSLog(@"%@",result);
-//        
-//        int tempCount = 0;
-        
-        for (int i = 0; i < [[result objectForKey:@"article_list"] count]; i++) {
-            
-            NSDictionary *channelInfo = [[result objectForKey:@"article_list"] objectAtIndex:i];
-            
-            CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:channelInfo];
-            
-            [wekSelf.sourceArray addObject:channelModel];
-        }
-        // 刷新表格
-        [wekSelf.aTableView reloadData];
-        
-        // 拿到当前的下拉刷新控件，结束刷新状态
-        [wekSelf.aTableView.mj_header endRefreshing];
-        
-        
-    } failed:^(id error) {
-        // 刷新表格
-        [wekSelf.aTableView reloadData];
-        
-        // 拿到当前的下拉刷新控件，结束刷新状态
-        [wekSelf.aTableView.mj_header endRefreshing];
-        
-    }];
     
 }
 - (CBNChannelNetwork *)channelNetworkRequest
@@ -175,7 +271,6 @@ static const CGFloat MJDuration = 1.0;
     if (!_channelNetworkRequest) {
         
         self.channelNetworkRequest = [[CBNChannelNetwork alloc] init];
-        
         
     }
     
@@ -195,44 +290,75 @@ static const CGFloat MJDuration = 1.0;
     self.navigationItem.leftBarButtonItem = leftBar;
     
     self.navigationItem.rightBarButtonItem= rightBar;
-
-    
     
 }
--(void)leftBar:(id)sender{
+/*
+ *  抽屉打开
+ */
+-(void)leftBar:(id)sender
+{
     
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
-//    CBNTextArticleDetailVC *ar = [[CBNTextArticleDetailVC alloc] init];
-//    
-//    [self.navigationController pushViewController:ar animated:NO];
     
 }
--(void)rightBar:(id)sender{
+/*
+ *  前往设置
+ */
+-(void)rightBar:(id)sender
+{
     CBNSetterVC *setterVC = [[CBNSetterVC alloc] init];
     
     [self.navigationController pushViewController:setterVC animated:YES];
     
     
 }
-- (UITableView *)aTableView {
+/*
+ *  初始化列表
+ */
+- (UITableView *)aTableView
+{
     if (_aTableView == nil) {
-        _aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Height)];
+        
+        self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Height)];
+        
         _aTableView.delegate = self;
+        
         _aTableView.dataSource = self;
+        
         _aTableView.dk_backgroundColorPicker = DKColorPickerWithKey(默认背景颜色);
+        
         _aTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
     }
     return _aTableView;
 }
 
--(void)setupTableView {
+-(void)setupTableView
+{
     
     [self.view addSubview:self.aTableView];
     
-    //    [_aScrollView addSubview:self.aTableView];
     _aTableView.tableHeaderView = self.headerView;
     
+    _aTableView.mj_header = [CBNRefreshStateHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshChannelSource)];
     
+    // 马上进入刷新状态
+    [_aTableView.mj_header beginRefreshing];
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    
+    // 设置文字
+    [footer setTitle:@" " forState:MJRefreshStateIdle];
+    [footer setTitle:@"加载更多数据" forState:MJRefreshStateRefreshing];
+    [footer setTitle:@"没有更多数据" forState:MJRefreshStateNoMoreData];
+    
+    // 设置字体
+    footer.stateLabel.font = [UIFont systemFontOfSize:17];
+    
+    // 设置颜色
+    footer.stateLabel.textColor = [UIColor orangeColor];
+    
+    // 设置footer
+    self.aTableView.mj_footer = footer;
     
 }
 #pragma mark -  UITableViewDelegate
@@ -248,31 +374,27 @@ static const CGFloat MJDuration = 1.0;
 }
 #pragma mark - tableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"11%@11",self.sourceArray);
     return self.sourceArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    CBNChannelNewsModel *channelModel = [_sourceArray objectAtIndex:indexPath.row];
     
-    if (indexPath.row == 0) {
-        static NSString *identifier = @"CBNProjectArrayCell";
+    if ([channelModel.data_type integerValue] == 3) {
+        static NSString *identifier = @"CBNAudioNewsCell";
         
         
-        CBNProjectArrayCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        CBNAudioNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
             
-            cell = [[CBNProjectArrayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            cell = [[CBNAudioNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         
+        cell.channelNewsModel = channelModel;
         return cell;
-        
-    }
-    CBNChannelNewsModel *channelModel = [_sourceArray objectAtIndex:indexPath.row];
-    
-    if (indexPath.row%5==0) {
-        
+    }else if ([channelModel.data_type integerValue] == 2){
         static NSString *identifier = @"CBNVideoNewsCell";
         
         
@@ -285,10 +407,8 @@ static const CGFloat MJDuration = 1.0;
         
         cell.channelNewsModel = channelModel;
         return cell;
-    }
-    
-    if (indexPath.row%3==0) {
-        
+
+    }else if ([channelModel.data_type integerValue] == 1){
         static NSString *identifier = @"CBNRecommendNewsCell";
         
         
@@ -301,42 +421,51 @@ static const CGFloat MJDuration = 1.0;
         cell.channelNewsModel = channelModel;
         
         return cell;
-    }
-    
-    static NSString *identifier = @"CBNNormalNewsCell";
-    
-    
-    CBNNormalNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    
-    if (cell == nil) {
+    }else{
+        static NSString *identifier = @"CBNNormalNewsCell";
         
-        cell = [[CBNNormalNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        
+        CBNNormalNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        
+        if (cell == nil) {
+            
+            cell = [[CBNNormalNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        cell.channelNewsModel = channelModel;
+        
+        channelModel = cell.channelNewsModel ;
+        NSLog(@"%@",channelModel);
+        [_sourceArray replaceObjectAtIndex:indexPath.row withObject:channelModel];
+        return cell;
+
     }
-    cell.channelNewsModel = channelModel;
+//    if ([channelModel.custom_type isEqualToString:@"customType"]) {
+//        static NSString *identifier = @"CBNProjectArrayCell";
+//        
+//        
+//        CBNProjectArrayCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+//        
+//        if (cell == nil) {
+//            
+//            cell = [[CBNProjectArrayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+//        }
+//        
+//        return cell;
+//        
+//    }
     
-    return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        
-        CBNProjectArrayCell *cell = (CBNProjectArrayCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-        
-        return cell.frame.size.height;
-    }
-    if (indexPath.row%5==0) {
-        
-        CBNVideoNewsCell *cell = (CBNVideoNewsCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-        
-        return cell.frame.size.height;
-    }
     
-    if (indexPath.row%3==0) {
-        CBNRecommendNewsCell *cell = (CBNRecommendNewsCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-        return cell.frame.size.height;
+    
+    CBNChannelNewsModel *channelModel = [_sourceArray objectAtIndex:indexPath.row];
+
+    if (channelModel.height == 0.0 ) {
+        return 100;
     }
-    CBNNormalNewsCell *cell = (CBNNormalNewsCell *)[self tableView:tableView cellForRowAtIndexPath:indexPath];
-    return cell.frame.size.height;
+    return channelModel.height;
+
     
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -347,24 +476,33 @@ static const CGFloat MJDuration = 1.0;
     
 }
 #pragma mark -  重点的地方在这里 滚动时候进行计算
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
     CGFloat offsetY = scrollView.contentOffset.y;
+    
     if (offsetY<-64) {
+        
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+        
         _navigationView.hidden = YES;
+        
     }else{
+        
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+        
         _navigationView.hidden = NO;
 
     }
+    
     CGFloat alpha = offsetY / (navigation_Show-64);
-    CBNLog(@"%f",alpha);
     
     if (offsetY> navigation_Show -64) {
+        
         [UIView animateWithDuration:0.5 animations:^{
+            
             self.headerView.sliderView.maskImageView.backgroundColor = RGBColor(0.0, 0.0, 0.0, alpha);
-            self.navigationView.maskImageView.backgroundColor = RGBColor(0.0, 0.0, 0.0, alpha);
-
+            
         }];
         _navigationView.backgroundColor = RGBColor(0.0, 0.0, 0.0, 1);
 
@@ -372,30 +510,17 @@ static const CGFloat MJDuration = 1.0;
     }else if (offsetY >=-64 && offsetY <= navigation_Show-64){
         
         [UIView animateWithDuration:0.5 animations:^{
+            
             self.headerView.sliderView.maskImageView.backgroundColor = RGBColor(0.0, 0.0, 0.0, alpha);
-            self.navigationView.maskImageView.backgroundColor = RGBColor(0.0, 0.0, 0.0, alpha);
 
         }];
         _navigationView.backgroundColor = RGBColor(0.0, 0.0, 0.0, 0);
 
         
-    }else{
-        
-        
     }
 }
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    //    [UIView animateWithDuration:1 animations:^{
-    //        self.tabBarController.tabBar.transform = CGAffineTransformMakeTranslation(0, 49);
-    //        [UIView animateWithDuration:5 animations:^{
-    //            self.navigationController.navigationBar.alpha = 0;
-    //        }];
-    //    }];
-    //
-}
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-}
+
 #define mark 控件的创建
 - (CBNRecommendHeaderView *)headerView
 {
@@ -407,26 +532,41 @@ static const CGFloat MJDuration = 1.0;
     
     return _headerView;
 }
+
+
+- (NSMutableArray *)segmentArray
+{
+    if (!_segmentArray) {
+        self.segmentArray = [[NSMutableArray alloc] init];
+        
+        NSMutableArray *arr = [[NSMutableArray alloc] initWithContentsOfFile:[[CBNFileManager sharedInstance] loadPlistFilePathWithPlistName:@"CBNChannel"]];
+        
+        for (NSDictionary *channelInfo in arr) {
+            
+            CBNSegmentModel *segmentItem = [[CBNSegmentModel alloc] init];
+            
+            segmentItem.title = [channelInfo objectForKey:@"title"];
+            
+            segmentItem.channelID = [channelInfo objectForKey:@"ChannelID"];
+            
+            segmentItem.index = [[channelInfo objectForKey:@"index"] integerValue];
+            
+            [_segmentArray addObject:segmentItem];
+            
+        }
+        
+    }
+    
+    return _segmentArray;
+}
+/*
+ *  初始化频道列表
+ */
 - (CBNSegmentView *)segmentView
 {
     if (!_segmentView) {
         
-        NSMutableArray *arr = [[NSMutableArray alloc] initWithContentsOfFile:[[CBNFileManager sharedInstance] loadPlistFilePathWithPlistName:@"CBNChannel"]];
-        
-        NSMutableArray *resultArr = [[NSMutableArray alloc] init];
-        
-        for (NSDictionary *channelInfo in arr) {
-            
-            CBNSegmentModel *segmentiItem = [[CBNSegmentModel alloc] init];
-            
-            segmentiItem.title = [channelInfo objectForKey:@"title"];
-            
-            segmentiItem.channelID = [channelInfo objectForKey:@"ChannelID"];
-            
-            [resultArr addObject:segmentiItem];
-            
-        }
-        _segmentView = [[CBNSegmentView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, segmentView_Height) andTitleItemArray:resultArr];
+        self.segmentView = [[CBNSegmentView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, segmentView_Height) andTitleItemArray:self.segmentArray];
         __weak typeof(self) weakSelf = self;
         
         _segmentView.channelChanged = ^(CBNSegmentModel *channelItem){
@@ -437,13 +577,24 @@ static const CGFloat MJDuration = 1.0;
     }
     return _segmentView;
 }
+/*
+ *  频道切换
+ */
 - (void)channelChanged:(CBNSegmentModel *)channelItem
 {
-    if (channelItem.channelID!=0) {
-        self.channelItem = channelItem;
-        [self refreshChannelSource];
-    }
+    self.channelItem = channelItem;
+    [self refreshChannelSource];
 }
+/*
+ *  设置开机默认频道
+ */
+- (void)setDefaultChannel
+{
+    self.channelItem = [self.segmentArray objectAtIndex:0];
+}
+/*
+ *  添加底片
+ */
 - (CBNNavigationHeaderView *)navigationView
 {
     if (!_navigationView) {
@@ -457,5 +608,13 @@ static const CGFloat MJDuration = 1.0;
     
     return _navigationView;
 }
-
+- (NSMutableArray *)sourceArray
+{
+    if (!_sourceArray) {
+        
+        self.sourceArray = [[NSMutableArray alloc] init];
+    }
+    
+    return _sourceArray;
+}
 @end

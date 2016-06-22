@@ -18,9 +18,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.navigationBar setShadowImage:[UIImage imageWithColor:[UIColor clearColor] andFrame:CGRectMake(0, 0, screen_Width, 1)]];
-
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
+    //设置轻扫的方向
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight; //默认向右
+    [self.view addGestureRecognizer:swipeGesture];
 }
-
+- (void)swipeGesture:(id)sender
+{
+    [self popViewControllerAnimated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

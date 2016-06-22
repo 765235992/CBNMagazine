@@ -7,13 +7,11 @@
 //
 
 #import "CBNProjectArrayCell.h"
-#import "CBNProjectBaseView.h"
 
 #define collection_width (((screen_Width - 45)/4.0)) + 20
 
 @interface CBNProjectArrayCell ()
 
-@property (nonatomic, strong) CBNProjectBaseView *projectCollectionView;
 
 @end
 
@@ -44,7 +42,6 @@
 - (CBNProjectBaseView *)projectCollectionView
 {
     if (!_projectCollectionView) {
-        NSLog(@"？？ %f",collection_width);
         
         self.projectCollectionView = [[CBNProjectBaseView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, collection_width )];
         

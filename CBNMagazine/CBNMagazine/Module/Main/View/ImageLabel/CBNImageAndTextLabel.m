@@ -65,6 +65,11 @@
 
 - (void)setText:(NSString *)text
 {
+    
+    self.frame = CGRectMake(0, 0, 0, 0);
+    
+    _contentLabel.frame = CGRectMake(0, 0, 0, 0);
+    
     _contentLabel.text = text;
     
     [_contentLabel sizeToFit];

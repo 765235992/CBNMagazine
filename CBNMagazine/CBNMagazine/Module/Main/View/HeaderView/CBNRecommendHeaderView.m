@@ -9,13 +9,13 @@
 #import "CBNRecommendHeaderView.h"
 
 @implementation CBNRecommendHeaderView
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
         [self addSubview:self.sliderView];
-        
         
     }
     return self;

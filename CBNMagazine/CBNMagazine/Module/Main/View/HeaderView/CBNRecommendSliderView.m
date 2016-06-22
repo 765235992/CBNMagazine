@@ -34,14 +34,19 @@
         
         NSMutableArray *arr1 = [NSMutableArray array];
         
+        /*
+         *  设置默认的数量以及对应的内容
+         */
         for (NSInteger i = 0; i < 5; i++) {
             
             CBNShufflingModel *itemModel = [[CBNShufflingModel alloc] init];
             
-            
             itemModel.newsThumbStr =@" ";
+            
             itemModel.newsTitleStr = @" ";
+            
             itemModel.newsDefaultImage = [UIImage imageNamed:@"defaultImage.jpg"];
+            
             itemModel.index = i;
             
             [arr1 addObject:itemModel];

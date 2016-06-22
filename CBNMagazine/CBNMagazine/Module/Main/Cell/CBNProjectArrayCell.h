@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CBNProjectBaseView.h"
 
 @interface CBNProjectArrayCell : UITableViewCell
+@property (nonatomic, strong) CBNProjectBaseView *projectCollectionView;
 
 @end

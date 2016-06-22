@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CBNProjectModel.h"
 
 @interface CBNProjectBaseView : UIView
-
+@property (nonatomic, copy) void (^projectCellClicked)(NSIndexPath *indexPath, CBNProjectModel *projectModel);
 @end

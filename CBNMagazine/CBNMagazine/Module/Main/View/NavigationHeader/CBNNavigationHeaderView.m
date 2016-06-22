@@ -21,8 +21,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-//        [self addSubview:self.maskImageView];
-        
         [self addSubview:self.lefeButton];
         
         [self addSubview:self.rightButton];
@@ -31,17 +29,7 @@
     }
     return self;
 }
-- (UIImageView *)maskImageView
-{
-    if (!_maskImageView) {
-        
-        self.maskImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-        
-        _maskImageView.image = [UIImage imageWithColor:RGBColor(0, 0, 0, 0) andFrame:self.bounds];
-    }
-    
-    return _maskImageView;
-}
+
 - (UIButton *)lefeButton
 {
     if (!_lefeButton) {
@@ -50,7 +38,7 @@
         
         _lefeButton.frame = CGRectMake(10, 25, 30, 30);
         
-        [_lefeButton setImage:[UIImage imageNamed:@"user_Center_Day@2x.png"] forState:UIControlStateNormal];
+        [_lefeButton setImage:[UIImage imageNamed:@"user_Center_Day.png"] forState:UIControlStateNormal];
         
     }
     
@@ -64,7 +52,7 @@
         
         _rightButton.frame = CGRectMake(screen_Width-40, 25, 30, 30);
         
-        [_rightButton setImage:[UIImage imageNamed:@"book_Shop_Day@2x.png"] forState:UIControlStateNormal];
+        [_rightButton setImage:[UIImage imageNamed:@"book_Shop_Day.png"] forState:UIControlStateNormal];
         
     }
     
@@ -75,10 +63,9 @@
 {
     if (!_logoImageView) {
         
-        self.logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 400/3, 44)];
-//        _logoImageView.backgroundColor = [UIColor redColor];
+        self.logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 133, 44)];
         
-        _logoImageView.image = [UIImage imageNamed:@"navigation_Logo_Day@3x.png"];
+        _logoImageView.image = [UIImage imageNamed:@"navigation_Logo_Day.png"];
         
         _logoImageView.center = CGPointMake(screen_Width/2, _logoImageView.center.y);
     }

@@ -100,7 +100,7 @@
      */
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init]; paraStyle.alignment = NSTextAlignmentJustified;
     
-    paraStyle.lineSpacing = 2;
+    paraStyle.lineSpacing = 5;
     
     paraStyle.alignment = NSTextAlignmentJustified;
     
@@ -175,16 +175,16 @@
             /*
              *  添加链接下划线
              */
-            [attributes setObject:(id)[NSNumber numberWithInt:NSUnderlineStyleDouble] forKey:(id)NSUnderlineStyleAttributeName];
+            [attributes setObject:(id)[NSNumber numberWithInt:NSUnderlineStyleSingle] forKey:(id)NSUnderlineStyleAttributeName];
             /*
              *  设置关键字的颜色
              */
             /*
              *  添加链接下划线颜色
              */
-            [attributes setObject:UIColorFromRGB(0x0000FF) forKey:NSForegroundColorAttributeName];
+            [attributes setObject:UIColorFromRGB(0x436EEE) forKey:NSForegroundColorAttributeName];
             //
-            [attributes setObject:UIColorFromRGB(0x0000FF) forKey:NSUnderlineColorAttributeName];
+            [attributes setObject:UIColorFromRGB(0x436EEE) forKey:NSUnderlineColorAttributeName];
             
             
             [newAttributedString addAttributes:attributes range:result.range];

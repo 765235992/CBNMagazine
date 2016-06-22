@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CBNNavigationHeaderView : UIView
-@property (nonatomic, strong) UIImageView *maskImageView;
 
 @end

@@ -57,6 +57,7 @@
         self.newsTitleLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(10, _newsThumbImageView.frame.size.height +15, screen_Width-20, 0)];
         _newsTitleLabel.backgroundColor = [UIColor clearColor];
         
+        _newsTitleLabel.lineSpace = 5;
         
         _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         
@@ -114,7 +115,8 @@
     if (!_newsNotesLabel) {
         
         self.newsNotesLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(10, 0, screen_Width-20, 0)];
-        _newsNotesLabel.numberOfLines = 0;
+        
+        _newsNotesLabel.lineSpace = 5;
         
         _newsNotesLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         _newsNotesLabel.font = font_px_Medium(fontSize(42.0,36.0,36.0));
@@ -150,8 +152,10 @@
     CGFloat titleHeight = _newsTitleLabel.frame.size.height + _newsTitleLabel.frame.origin.y + 20;
     
     _timeLabel.text = @"2016.12.30";
+    
     [_timeLabel sizeToFit];
-    _timeLabel.frame = CGRectMake(self.frame.size.width - 10 - _timeLabel.frame.size.width, titleHeight , _timeLabel.frame.size.width, _timeLabel.frame.size.height);
+
+    _timeLabel.frame = CGRectMake(screen_Width - 10 - _timeLabel.frame.size.width, titleHeight , _timeLabel.frame.size.width, _timeLabel.frame.size.height);
     _authorLabel.sourceArray = author_List;
     
     _authorLabel.frame = CGRectMake(10, titleHeight , self.frame.size.width - 30 - _timeLabel.frame.size.width, _authorLabel.frame.size.height);

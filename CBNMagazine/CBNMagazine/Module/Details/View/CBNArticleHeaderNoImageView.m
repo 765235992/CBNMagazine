@@ -36,15 +36,15 @@
 }
 
 
-- (UILabel *)newsTitleLabel
+- (CBNLabel *)newsTitleLabel
 {
     if (!_newsTitleLabel) {
         
-        self.newsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 15, screen_Width-20, 0)];
+        self.newsTitleLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(10, 15, screen_Width-20, 0)];
         _newsTitleLabel.backgroundColor = [UIColor clearColor];
         
-        _newsTitleLabel.numberOfLines = 0;
-        
+        _newsTitleLabel.lineSpace = 5;
+
         _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         _newsTitleLabel.font = font_px_Medium(20);
     }
@@ -91,12 +91,12 @@
     return _lineImageView;
 }
 
-- (UILabel *)newsNotesLabel
+- (CBNLabel *)newsNotesLabel
 {
     if (!_newsNotesLabel) {
         
-        self.newsNotesLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, screen_Width-20, 0)];
-        _newsNotesLabel.numberOfLines = 0;
+        self.newsNotesLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(10, 0, screen_Width-20, 0)];
+        _newsNotesLabel.lineSpace = 5;
         
         _newsNotesLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         _newsNotesLabel.font = font_px_Medium(14);

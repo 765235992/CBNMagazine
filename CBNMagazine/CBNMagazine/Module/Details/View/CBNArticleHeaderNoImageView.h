@@ -17,7 +17,7 @@
 @property (nonatomic, strong) CBNChaptInfoModel *chapt_Info_Model;
 
 @property (nonatomic, strong) NSArray *author_List;
-@property (nonatomic, strong) UILabel *newsTitleLabel;
+@property (nonatomic, strong) CBNLabel *newsTitleLabel;
 
 @property (nonatomic, strong) JHCTLabel *authorLabel;
 
@@ -25,6 +25,6 @@
 
 @property (nonatomic, strong) UIImageView *lineImageView;
 
-@property (nonatomic, strong) UILabel *newsNotesLabel;
+@property (nonatomic, strong) CBNLabel *newsNotesLabel;
 
 @end

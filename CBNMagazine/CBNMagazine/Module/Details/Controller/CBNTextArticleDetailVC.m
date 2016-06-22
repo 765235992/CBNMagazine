@@ -56,7 +56,6 @@
 
     
     self.view.backgroundColor = [UIColor whiteColor];
-////    self.navigationController.navigationBar.backgroundColor = UIColorFromRGB(0x656782);
 //
     [self setNavigationHeader];
 //
@@ -207,24 +206,12 @@
     
     self.navigationItem.rightBarButtonItems= [NSArray arrayWithObjects:nightBar,fontBar,nil];
     
-    [self.navigationController.navigationBar setBackgroundImage:[[UIColor clearColor] imageWithColor] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIColorFromRGB(0xFFFFF0) imageWithColor] forBarMetrics:UIBarMetricsDefault];
 
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
 
 }
 
-- (UIBarButtonItem *)create
-{
-    UIButton *but  = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    but.backgroundColor = [UIColor redColor];
-    
-    but.frame = CGRectMake(0, 0, 44, 44);
-    
-    UIBarButtonItem *bar = [[UIBarButtonItem alloc] initWithCustomView:but];
-    
-    return bar;
-}
 
 - (void)leftBar:(id)sender
 {

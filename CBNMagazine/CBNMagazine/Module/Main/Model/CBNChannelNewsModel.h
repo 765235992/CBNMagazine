@@ -9,17 +9,21 @@
 #import <Foundation/Foundation.h>
 
 @interface CBNChannelNewsModel : NSObject
-@property (nonatomic, strong) NSString *if_pic;
-@property (nonatomic, strong) NSString *image;
-@property (nonatomic, strong) NSString *mini_image;
-@property (nonatomic, strong) NSString *chapt_time;
-@property (nonatomic, strong) NSString *lanmu_name;
-@property (nonatomic, strong) NSString *chapt_title;
-@property (nonatomic, strong) NSString *chapt_brief;
-@property (nonatomic, strong) NSString *chapt_id;
+
+@property (nonatomic, strong) NSString *chatp_id;
 @property (nonatomic, strong) NSString *issue_id;
+@property (nonatomic, strong) NSString *chapt_title;
+@property (nonatomic, strong) NSString *index_title;
+@property (nonatomic, strong) NSString *renew_time;
+@property (nonatomic, strong) NSString *chapt_time;
 @property (nonatomic, strong) NSString *click_count;
-@property (nonatomic, strong) NSString *comm_count;
-@property (nonatomic, strong) NSString *customType;
-- (id)initWithChannelNewsInfo:(NSDictionary *)channelNewsInfo;
+@property (nonatomic, strong) NSString *cover_img_big;
+@property (nonatomic, strong) NSString *data_type;
+@property (nonatomic, strong) NSString *release_time;
+@property (nonatomic, strong) NSString *sound_time;
+@property (nonatomic, strong) NSString *comments;
+@property (nonatomic, strong) NSString *like;
+@property (nonatomic, assign) CGFloat height;
+
+- (id)initWithChannelNewsInfo:(NSDictionary *)channelNewsInfo andType:(NSInteger)type;
 @end

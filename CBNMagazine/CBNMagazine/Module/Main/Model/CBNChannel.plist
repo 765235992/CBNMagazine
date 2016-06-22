@@ -16,7 +16,7 @@
 		<key>title</key>
 		<string>商业头条</string>
 		<key>Index</key>
-		<integer>0</integer>
+		<integer>1</integer>
 	</dict>
 	<dict>
 		<key>ChannelID</key>
@@ -24,7 +24,7 @@
 		<key>title</key>
 		<string>热点事件</string>
 		<key>Index</key>
-		<integer>0</integer>
+		<integer>2</integer>
 	</dict>
 	<dict>
 		<key>ChannelID</key>
@@ -32,7 +32,7 @@
 		<key>title</key>
 		<string>新一线</string>
 		<key>Index</key>
-		<integer>0</integer>
+		<integer>3</integer>
 	</dict>
 	<dict>
 		<key>ChannelID</key>
@@ -40,7 +40,7 @@
 		<key>title</key>
 		<string>周围Surrounding</string>
 		<key>Index</key>
-		<integer>0</integer>
+		<integer>3</integer>
 	</dict>
 	<dict>
 		<key>ChannelID</key>
@@ -48,7 +48,7 @@
 		<key>title</key>
 		<string>金字招牌</string>
 		<key>Index</key>
-		<integer>0</integer>
+		<integer>5</integer>
 	</dict>
 	<dict>
 		<key>ChannelID</key>
@@ -56,7 +56,7 @@
 		<key>title</key>
 		<string>Points观点</string>
 		<key>Index</key>
-		<integer>0</integer>
+		<integer>6</integer>
 	</dict>
 	<dict>
 		<key>ChannelID</key>
@@ -64,7 +64,7 @@
 		<key>title</key>
 		<string>Business+</string>
 		<key>Index</key>
-		<integer>0</integer>
+		<integer>7</integer>
 	</dict>
 	<dict>
 		<key>ChannelID</key>
@@ -72,7 +72,7 @@
 		<key>title</key>
 		<string>封面故事</string>
 		<key>Index</key>
-		<integer>0</integer>
+		<integer>8</integer>
 	</dict>
 	<dict>
 		<key>ChannelID</key>
@@ -80,7 +80,7 @@
 		<key>title</key>
 		<string>大公司</string>
 		<key>Index</key>
-		<integer>0</integer>
+		<integer>9</integer>
 	</dict>
 	<dict>
 		<key>ChannelID</key>
@@ -88,7 +88,7 @@
 		<key>title</key>
 		<string>快公司</string>
 		<key>Index</key>
-		<integer>0</integer>
+		<integer>10</integer>
 	</dict>
 	<dict>
 		<key>ChannelID</key>
@@ -96,7 +96,7 @@
 		<key>title</key>
 		<string>职场&amp;公司人</string>
 		<key>Index</key>
-		<integer>0</integer>
+		<integer>11</integer>
 	</dict>
 </array>
 </plist>

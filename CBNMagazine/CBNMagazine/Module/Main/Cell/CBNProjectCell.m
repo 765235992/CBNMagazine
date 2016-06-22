@@ -25,8 +25,9 @@
 - (CBNImageView *)projectImageView
 {
     if (!_projectImageView) {
-        NSLog(@"%f",screen_Width);
+
         self.projectImageView = [[CBNImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height)];
+        
         self.projectImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
         
         _projectImageView.image = [UIImage imageNamed:@"defaultImage.jpg"];

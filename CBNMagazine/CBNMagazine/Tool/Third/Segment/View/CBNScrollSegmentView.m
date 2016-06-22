@@ -253,10 +253,10 @@
 
 - (void)adjustUIWhenBtnOnClickWithAnimate:(BOOL)animated {
     if (_currentIndex == _oldIndex) {
-        if (self.titleBtnOnClick) {
-            //        DLog(@"%lu",(unsigned long)_currentIndex);
-            self.titleBtnOnClick([_titles objectAtIndex:_currentIndex]);
-        }
+//        if (self.titleBtnOnClick) {
+//            //        DLog(@"%lu",(unsigned long)_currentIndex);
+//            self.titleBtnOnClick([_titles objectAtIndex:_currentIndex]);
+//        }
 
         return;
     }

@@ -25,9 +25,9 @@
 
 @property (nonatomic, strong) CBNImageAndTextLabel *commentsCountLabel;
 
-@property (nonatomic, strong) CBNImageAndTextLabel *audioTimeLabel;
+@property (nonatomic, strong) CBNImageAndTextLabel *videoTimeLabel;
 
-@property (nonatomic, strong) CBNImageView *audioIconImageView;
+@property (nonatomic, strong) CBNImageView *videoIconImageView;
 
 @end
 @implementation CBNVideoNewsCell
@@ -70,7 +70,7 @@
         
         _playImageView.center = CGPointMake((screen_Width-20)/2, imageView_Height/2 );
         
-        [_newsThumbImageView addSubview:self.audioTimeLabel];
+        [_newsThumbImageView addSubview:self.videoTimeLabel];
         
         [_newsThumbImageView addSubview:self.praiseLabel];
         
@@ -78,23 +78,23 @@
         
         [_newsThumbImageView addSubview:self.timelabel];
 
-        [_newsThumbImageView addSubview:self.audioIconImageView];
+        [_newsThumbImageView addSubview:self.videoIconImageView];
     }
     
     return _newsThumbImageView;
 }
-- (CBNImageView *)audioIconImageView
+- (CBNImageView *)videoIconImageView
 {
-    if (!_audioIconImageView) {
+    if (!_videoIconImageView) {
         
-        self.audioIconImageView = [[CBNImageView alloc] initWithFrame:CGRectMake(10, 8, 27*screen_Width/320, 21*screen_Width/320)];
+        self.videoIconImageView = [[CBNImageView alloc] initWithFrame:CGRectMake(10, 8, 23*screen_Width/320, 18*screen_Width/320)];
         
-        _audioIconImageView.backgroundColor = [UIColor clearColor];
+        _videoIconImageView.backgroundColor = [UIColor clearColor];
         
-        _audioIconImageView.dk_imagePicker = DKImagePickerWithImages([UIImage imageNamed:@"audio_white_Day.png"],[UIImage imageNamed:@"audio_white_Day.png"],[UIImage imageNamed:@"audio_white_Day.png"]);
+        _videoIconImageView.dk_imagePicker = DKImagePickerWithImages([UIImage imageNamed:@"video_white_Day.png"],[UIImage imageNamed:@"video_white_Day.png"],[UIImage imageNamed:@"video_white_Day.png"]);
     }
     
-    return _audioIconImageView;
+    return _videoIconImageView;
 }
 - (UILabel *)timelabel
 {
@@ -132,29 +132,28 @@
         self.newsTitleLabel = [[CBNLabel alloc] initWithFrame:CGRectMake( 10, imageView_Height + 30, screen_Width - 20, 0)];
         _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         
-        _newsTitleLabel.font = font_px_Medium(fontSize(48.0,42.0,36.0));
+        _newsTitleLabel.font = font_px_Medium(fontSize(44.0,40.0,36.0));
         
-        _newsTitleLabel.lineSpace = 0.0;
+        _newsTitleLabel.lineSpace = 2.0;
         
         _newsTitleLabel.numberOfLines = 0;
 
-        
         }
     
     return _newsTitleLabel;
 }
-- (CBNImageAndTextLabel *)audioTimeLabel
+- (CBNImageAndTextLabel *)videoTimeLabel
 {
-    if (!_audioTimeLabel) {
+    if (!_videoTimeLabel) {
         
-        self.audioTimeLabel = [[CBNImageAndTextLabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0) image:[UIImage imageWithColor:RGBColor(102, 198, 118, 1.0)]];
+        self.videoTimeLabel = [[CBNImageAndTextLabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0) image:[UIImage imageWithColor:RGBColor(102, 198, 118, 1.0)]];
         
-        _audioTimeLabel.contentLabel.dk_textColorPicker = DKColorPickerWithKey(图片上的默认标签字体颜色);
+        _videoTimeLabel.contentLabel.dk_textColorPicker = DKColorPickerWithKey(图片上的默认标签字体颜色);
         
-        _audioTimeLabel.iconImageView.dk_imagePicker = DKImagePickerWithImages([UIImage imageNamed:@"audioTime_white_Day.png"],[UIImage imageNamed:@"audioTime_white_Day.png"],[UIImage imageNamed:@"audioTime_white_Day.png"]);
+        _videoTimeLabel.iconImageView.dk_imagePicker = DKImagePickerWithImages([UIImage imageNamed:@"audioTime_white_Day.png"],[UIImage imageNamed:@"audioTime_white_Day.png"],[UIImage imageNamed:@"audioTime_white_Day.png"]);
     }
     
-    return _audioTimeLabel;
+    return _videoTimeLabel;
 }
 
 - (CBNImageAndTextLabel *)praiseLabel
@@ -199,27 +198,32 @@
 - (void)setChannelNewsModel:(CBNChannelNewsModel *)channelNewsModel
 {
     
-    NSLog(@"%@",channelNewsModel.image);
+    NSLog(@"%@",channelNewsModel.cover_img_big);
     
-    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:channelNewsModel.image] placeholderImage:[UIImage imageNamed:@"defaultImage.jpg"]];
-    
-    _timelabel.text = @"20.17.12.31";
+    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:channelNewsModel.cover_img_big] placeholderImage:[UIImage imageNamed:@"defaultImage.jpg"]];
+    _timelabel.frame = CGRectMake(0, 0, 0, 0);
+
+    _timelabel.text = [NSDate getUTCFormateDate:channelNewsModel.renew_time];
     
     [_timelabel sizeToFit];
     
-    _timelabel.frame = CGRectMake(10, imageView_Height - 10 - _timelabel.frame.size.height, _timelabel.frame.size.width, _timelabel.frame.size.height);
-    _audioTimeLabel.text = @"3:20";
+    _timelabel.frame = CGRectMake(12, imageView_Height - 10 - _timelabel.frame.size.height, _timelabel.frame.size.width, _timelabel.frame.size.height);
     
-    CGFloat audioTimeWidth = _audioTimeLabel.frame.size.width +10;
+    _videoTimeLabel.text = [NSString stringWithFormat:@"%@",channelNewsModel.sound_time];;
     
-    _audioTimeLabel.frame = CGRectMake(_newsThumbImageView.frame.size.width - audioTimeWidth  , imageView_Height - 10 - _audioTimeLabel.frame.size.height, _audioTimeLabel.frame.size.width, _audioTimeLabel.frame.size.height);
+    CGFloat audioTimeWidth = _videoTimeLabel.frame.size.width +10;
     
-    _commentsCountLabel.text = @"1042";
+    _videoTimeLabel.frame = CGRectMake(_newsThumbImageView.frame.size.width - audioTimeWidth  , imageView_Height - 10 - _videoTimeLabel.frame.size.height, _videoTimeLabel.frame.size.width, _videoTimeLabel.frame.size.height);
+    _commentsCountLabel.frame = CGRectMake(0, 0, 0, 0);
+
+    _commentsCountLabel.text = [NSString stringWithFormat:@"%ld",[channelNewsModel.comments integerValue]];
+    
     CGFloat commentCountWidth = _commentsCountLabel.frame.size.width +10;
 
     _commentsCountLabel.frame = CGRectMake(_newsThumbImageView.frame.size.width - audioTimeWidth - commentCountWidth, imageView_Height - 10 - _commentsCountLabel.frame.size.height, _commentsCountLabel.frame.size.width, _commentsCountLabel.frame.size.height);
-    
-    _praiseLabel.text = @"300";
+    _praiseLabel.frame = CGRectMake(0, 0, 0, 0);
+
+    _praiseLabel.text =  [NSString stringWithFormat:@"%ld",[channelNewsModel.like integerValue]];;
     
     CGFloat praiseWidth = _praiseLabel.frame.size.width +10;
 
@@ -234,6 +238,18 @@
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, screen_Width-20, _newsTitleLabel.frame.origin.y + _newsTitleLabel.frame.size.height+16);
 
     _lineImageView.frame = CGRectMake(10, self.frame.size.height -1, screen_Width -20, 1);
+    
+    _channelNewsModel = channelNewsModel;
+    
+    _channelNewsModel.height = self.frame.size.height;
+    [self setNeedsDisplay];
+    
+    [self setNeedsLayout];
+    
+    [_newsThumbImageView setNeedsLayout];
+    
+    [_newsThumbImageView setNeedsDisplay];
+
 }
 
 
