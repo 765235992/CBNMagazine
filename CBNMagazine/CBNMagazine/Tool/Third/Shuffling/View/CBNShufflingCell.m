@@ -85,7 +85,7 @@
 - (void)setShufflingModel:(CBNShufflingModel *)shufflingModel
 {
     
-    _newsTitleLabel.content = @"上海迪斯尼今天12点正式开放\n多个首发项目亮相\n全球最大的迪士尼城堡\n最长的米奇通话专列巡游";
+    _newsTitleLabel.content =shufflingModel.newsTitleStr;
     
     _newsTitleLabel.textAlignment = 1;
 

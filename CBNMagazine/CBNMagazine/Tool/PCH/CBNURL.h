@@ -8,14 +8,15 @@
 
 #ifndef CBNURL_h
 #define CBNURL_h
-
+#define sever_key_Str @"key"
 /*
  *  服务器
  */
-#define sever_URL @"http://testapi.cbnweek.com/"
+#define sever_URL @"http://testapi.cbnweek.com/index.php/"
 
 #define secret_key @"www_y_z_cbnweek_w_com"
 
-#define index @"Index/"
+#define Index @"Index/"
 
+#define GetProjectList @"GetProjectList"
 #endif /* CBNURL_h */

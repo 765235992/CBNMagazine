@@ -35,4 +35,10 @@
     
     return _projectImageView;
 }
+- (void)setProjectModel:(CBNProjectModel *)projectModel
+{
+     [_projectImageView sd_setImageWithURL:[NSURL URLWithString:projectModel.img] placeholderImage:[UIImage imageNamed:@"defaultImage.jpg"]];
+}
+
+
 @end

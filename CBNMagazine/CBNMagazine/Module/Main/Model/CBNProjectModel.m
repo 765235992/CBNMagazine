@@ -9,5 +9,17 @@
 #import "CBNProjectModel.h"
 
 @implementation CBNProjectModel
+- (id)initWithProjectResult:(NSDictionary *)result
+{
+    self = [super init];
+    
+    if (self) {
+        self.img = [result objectForKey:@"img"];
+        
+        self.url = [result objectForKey:@"url"];
 
+    }
+    
+    return self;
+}
 @end

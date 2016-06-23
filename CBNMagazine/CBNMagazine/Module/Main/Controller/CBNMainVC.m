@@ -30,12 +30,13 @@
 /*
  *  可以push的控制器
  */
+#import "CBNWebDetailVC.h"
+
 #import "CBNSetterVC.h"
 #import "CBNTextArticleDetailVC.h"
 
 #define navigation_Show  (float)(0.73*screen_Width -64)
 
-static const CGFloat MJDuration = 1.0;
 
 @interface CBNMainVC ()<UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) CBNNavigationHeaderView *navigationView;
@@ -49,7 +50,7 @@ static const CGFloat MJDuration = 1.0;
 @property (nonatomic, assign) NSInteger currentPage;
 @property (nonatomic, assign) NSInteger pageCount;
 @property (nonatomic, assign) NSInteger recommendCount;
-
+@property (nonatomic, strong) NSMutableArray *sliderArray;
 @end
 
 @implementation CBNMainVC
@@ -73,201 +74,180 @@ static const CGFloat MJDuration = 1.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor redColor];
     /*
      *  设置NavigationHeaderBar
      */
     [self setNavigationHeader];
-    
+
     /*
      *  设置开机默认频道
      */
     [self setDefaultChannel];
-    
+
     /*
      *  添加列表
      */
     [self setupTableView];
-    
+
     /*
      *  添加底片
      */
     [self.view addSubview:self.navigationView];
-    
 
+
+    [self refreshSliderDadaFromSever];
     
 }
 
-
-/*
- *  从coreData中取出数据
- */
-- (void)loadDataFromCoreData
+- (void)refreshSliderDadaFromSever
 {
+    NSString *urlString = [NSString stringWithFormat:@"%@%@%@",sever_URL,Index,@"SWF"];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *str = [[NSBundle mainBundle] pathForResource:@"newsList" ofType:@"json"];
-        NSData *data = [NSData dataWithContentsOfFile:str];
+    NSString *secretStr = [NSString getTheMD5EncryptedStringWithString:[NSString stringWithFormat:@"%@%@",secret_key,@"SWF"]];
+    
+    NSMutableDictionary *parDic = [[NSMutableDictionary alloc] init];
+    
+    [parDic setObject:secretStr forKey:sever_key_Str];
+    __weak typeof(self) weakSelf = self;
+    
+    [CBNChannelRequest GET:urlString parameters:parDic success:^(id result) {
         
-        NSDictionary *newDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSLog(@"%@",newDic);
-        for (NSDictionary *dic in [newDic objectForKey:@"DataList"]) {
-            NSLog(@"%@",dic);
+        if ([[result objectForKey:@"Code"]integerValue] == 200) {
+            
+            [self.sliderArray removeAllObjects];
+            NSMutableArray *arr1 = [[NSMutableArray alloc] init];
+            for (NSDictionary *dic in [[result objectForKey:@"DataList"] objectForKey:@"data"]) {
+                
+                NSInteger dataType = [[dic objectForKey:@"DataType"] integerValue];
+                
+                
+                CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:dic andType:dataType];
+                CBNShufflingModel *itemModel = [[CBNShufflingModel alloc] init];
+                
+                itemModel.newsThumbStr = channelModel.cover_img_big;
+                
+                itemModel.newsTitleStr = channelModel.chapt_title;
+                
+                itemModel.newsDefaultImage = [UIImage imageNamed:@"defaultImage.jpg"];
+                
+                
+                [arr1 addObject:itemModel];
+
+                [_sliderArray addObject:channelModel];
+            }
+
+            weakSelf.headerView.sliderView.shufflingView.sourceModelArray = arr1;
         }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            
-            [_aTableView reloadData];
-            [_aTableView.mj_header endRefreshing];
-        });
-        
-    });
-
-
+ 
+    } failed:^(NSError *error) {
+       
+    }];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(MJDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        
-//        // 刷新表格
-//        [_aTableView reloadData];
-//        
-//        // 拿到当前的下拉刷新控件，结束刷新状态
-//        [_aTableView.mj_header endRefreshing];
-//    });
-//    
+
 }
+
 
 /*
  *  网络请求数据刷新动作
  */
 - (void)refreshChannelSource
 {
-    
-    
-    
-   
     [self.sourceArray removeAllObjects];
+    
     [self.aTableView reloadData];
     
     _recommendCount = 0;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *str = [[NSBundle mainBundle] pathForResource:@"newsList" ofType:@"json"];
-        NSData *data = [NSData dataWithContentsOfFile:str];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@%@%@",sever_URL,Index,@"GetIndexArticleList"];
+    
+    NSString *secretStr = [NSString getTheMD5EncryptedStringWithString:[NSString stringWithFormat:@"%@%@",secret_key,@"GetIndexArticleList"]];
+    
+    NSMutableDictionary *parDic = [[NSMutableDictionary alloc] init];
+    
+    [parDic setObject:secretStr forKey:sever_key_Str];
+
+    [CBNChannelRequest GET:urlString parameters:parDic success:^(id result) {
         
-        NSDictionary *newDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        NSLog(@"%@",newDic);
-        NSLog(@"%@",newDic);
+        if ([[result objectForKey:@"Code"]integerValue] == 200) {
+            CBNChannelNewsModel *projectModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:nil andType:999];
+            [_sourceArray addObject:projectModel];
 
-        for (NSDictionary *dic in [[newDic objectForKey:@"DataList"] objectForKey:@"data"]) {
-
-            NSInteger dataType = [[dic objectForKey:@"DataType"] integerValue];
-            
-            if (dataType == 1) {
-                /*
-                 *  视频
-                 */
-                if (_recommendCount != 3) {
-                    dataType = 0;
-                    _recommendCount++;
-                }else{
-                    dataType = 1;
-                    _recommendCount = 0;
+            for (NSDictionary *dic in [[result objectForKey:@"DataList"] objectForKey:@"data"]) {
+                
+                NSInteger dataType = [[dic objectForKey:@"DataType"] integerValue];
+                
+                if (dataType == 1) {
+                    /*
+                     *  视频
+                     */
+                    if (_recommendCount != 3) {
+                        dataType = 0;
+                        _recommendCount++;
+                    }else{
+                        dataType = 1;
+                        _recommendCount = 0;
+                    }
                 }
+                
+                CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:dic andType:dataType];
+                
+                [_sourceArray addObject:channelModel];
             }
-            
-            CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:dic andType:dataType];
-            
-            [_sourceArray addObject:channelModel];
+
         }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            
-            [_aTableView reloadData];
-            [_aTableView.mj_header endRefreshing];
-        });
-        
-    });
-
-    // 拿到当前的下拉刷新控件，结束刷新状态
-
+        [_aTableView reloadData];
+        [_aTableView.mj_header endRefreshing];
+    } failed:^(NSError *error) {
+        [_aTableView reloadData];
+        [_aTableView.mj_header endRefreshing];
+    }];
     
-    
-    
-//    [self.channelNetworkRequest cannelRequest];
-//    __weak typeof(self) wekSelf = self;
-//    [self.channelNetworkRequest loadChannelInfoWithChannelID:self.channelItem.channelID secuessed:^(id result) {
-//        if ([self.channelItem.channelID isEqualToString:@"13"]) {
-//            
-//            
-//            NSDictionary *dic = @{@"customType":@"customType"};
-//            CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:dic];
-//            [wekSelf.sourceArray addObject:channelModel];
-//
-//        }
-//        for (int i = 0; i < [[result objectForKey:@"article_list"] count]; i++) {
-//            
-//            NSDictionary *channelInfo = [[result objectForKey:@"article_list"] objectAtIndex:i];
-//            
-//            CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:channelInfo];
-//            
-//            [wekSelf.sourceArray addObject:channelModel];
-//        }
-//        // 刷新表格
-//        [wekSelf.aTableView reloadData];
-//        
-//        // 拿到当前的下拉刷新控件，结束刷新状态
-//        [wekSelf.aTableView.mj_header endRefreshing];
-//        
-//        
-//    } failed:^(id error) {
-//        // 刷新表格
-//        [wekSelf.aTableView reloadData];
-//        
-//        // 拿到当前的下拉刷新控件，结束刷新状态
-//        [wekSelf.aTableView.mj_header endRefreshing];
-//        
-//    }];
-    
+ 
 }
 
-- (void)footerRereshing
+- (void)loadMoreChannelDataFromSever
 {
-    NSString *str = [[NSBundle mainBundle] pathForResource:@"newsList" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:str];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@%@",sever_URL,Index,@"GetIndexArticleList"];
     
-    NSDictionary *newDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSLog(@"%@",newDic);
+    NSString *secretStr = [NSString getTheMD5EncryptedStringWithString:[NSString stringWithFormat:@"%@%@",secret_key,@"GetIndexArticleList"]];
     
-    for (NSDictionary *dic in [[newDic objectForKey:@"DataList"] objectForKey:@"data"]) {
+    NSMutableDictionary *parDic = [[NSMutableDictionary alloc] init];
+    
+    [parDic setObject:secretStr forKey:sever_key_Str];
+    
+    [CBNChannelRequest GET:urlString parameters:parDic success:^(id result) {
         
-        NSInteger dataType = [[dic objectForKey:@"DataType"] integerValue];
-        
-        if (dataType == 1) {
-            /*
-             *  视频
-             */
-            if (_recommendCount != 3) {
-                dataType = 0;
-                _recommendCount++;
-            }else{
-                dataType = 1;
-                _recommendCount = 0;
+        if ([[result objectForKey:@"Code"]integerValue] == 200) {
+            for (NSDictionary *dic in [[result objectForKey:@"DataList"] objectForKey:@"data"]) {
+                
+                NSInteger dataType = [[dic objectForKey:@"DataType"] integerValue];
+                
+                if (dataType == 1) {
+                    /*
+                     *  视频
+                     */
+                    if (_recommendCount != 3) {
+                        dataType = 0;
+                        _recommendCount++;
+                    }else{
+                        dataType = 1;
+                        _recommendCount = 0;
+                    }
+                }
+                
+                CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:dic andType:dataType];
+                
+                [_sourceArray addObject:channelModel];
             }
+            
         }
-        
-        CBNChannelNewsModel *channelModel = [[CBNChannelNewsModel alloc]initWithChannelNewsInfo:dic andType:dataType];
-        
-        [_sourceArray addObject:channelModel];
-    }
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(MJDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
         [_aTableView reloadData];
-        
-        [self.aTableView.mj_footer endRefreshing];
-    });
-    
+        [_aTableView.mj_footer endRefreshing];
+    } failed:^(NSError *error) {
+        [_aTableView reloadData];
+        [_aTableView.mj_footer endRefreshing];
+    }];
     
 }
 - (CBNChannelNetwork *)channelNetworkRequest
@@ -348,9 +328,9 @@ static const CGFloat MJDuration = 1.0;
     
     // 马上进入刷新状态
     [_aTableView.mj_header beginRefreshing];
-    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
-    
-    // 设置文字
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreChannelDataFromSever)];
+//
+//    // 设置文字
     [footer setTitle:@" " forState:MJRefreshStateIdle];
     [footer setTitle:@"加载更多数据" forState:MJRefreshStateRefreshing];
     [footer setTitle:@"没有更多数据" forState:MJRefreshStateNoMoreData];
@@ -385,14 +365,40 @@ static const CGFloat MJDuration = 1.0;
     
     CBNChannelNewsModel *channelModel = [_sourceArray objectAtIndex:indexPath.row];
     
-    if ([channelModel.data_type integerValue] == 3) {
+    
+    if ([channelModel.data_type integerValue] == 999) {
+        static NSString *identifier = @"CBNProjectArrayCell";
+        
+        CBNProjectArrayCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        __weak typeof(self) weakSelf = self;
+        
+        if (cell == nil) {
+            CBNLog(@"创建");
+            
+            cell = [[CBNProjectArrayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            
+            cell.projectCollectionView.projectCellClicked = ^(NSIndexPath *indexPath, CBNProjectModel *projectModel)
+            {
+                
+                [weakSelf projectClicked:projectModel];
+                
+            };
+        }
+        cell.channelNewsModel = channelModel;
+        
+        channelModel = cell.channelNewsModel ;
+        [_sourceArray replaceObjectAtIndex:indexPath.row withObject:channelModel];
+        return cell;
+
+    }else if ([channelModel.data_type integerValue] == 3) {
         static NSString *identifier = @"CBNAudioNewsCell";
         
         
         CBNAudioNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
-            
+            CBNLog(@"创建");
+
             cell = [[CBNAudioNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         
@@ -405,7 +411,8 @@ static const CGFloat MJDuration = 1.0;
         CBNVideoNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
-            
+            CBNLog(@"创建");
+
             cell = [[CBNVideoNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         
@@ -419,7 +426,8 @@ static const CGFloat MJDuration = 1.0;
         CBNRecommendNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
-            
+            CBNLog(@"创建");
+
             cell = [[CBNRecommendNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         cell.channelNewsModel = channelModel;
@@ -432,31 +440,20 @@ static const CGFloat MJDuration = 1.0;
         CBNNormalNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
-            
+            CBNLog(@"创建");
+
             cell = [[CBNNormalNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         cell.channelNewsModel = channelModel;
         
         channelModel = cell.channelNewsModel ;
-        NSLog(@"%@",channelModel);
+
         [_sourceArray replaceObjectAtIndex:indexPath.row withObject:channelModel];
+        
         return cell;
 
     }
-//    if ([channelModel.custom_type isEqualToString:@"customType"]) {
-//        static NSString *identifier = @"CBNProjectArrayCell";
-//        
-//        
-//        CBNProjectArrayCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-//        
-//        if (cell == nil) {
-//            
-//            cell = [[CBNProjectArrayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-//        }
-//        
-//        return cell;
-//        
-//    }
+
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -478,6 +475,15 @@ static const CGFloat MJDuration = 1.0;
     
     [self.navigationController pushViewController:ar animated:YES];
     
+}
+- (void)projectClicked:(CBNProjectModel *)projectModel
+{
+    CBNWebDetailVC *webDetaileVC = [[CBNWebDetailVC alloc] init];
+    
+    webDetaileVC.webURL = projectModel.url;
+    
+    [self.navigationController pushViewController:webDetaileVC animated:YES];
+    NSLog(@"%@",projectModel.url);
 }
 #pragma mark -  重点的地方在这里 滚动时候进行计算
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -620,5 +626,15 @@ static const CGFloat MJDuration = 1.0;
     }
     
     return _sourceArray;
+}
+- (NSMutableArray *)sliderArray
+
+{
+    if (!_sliderArray) {
+        
+        self.sliderArray = [[NSMutableArray alloc] init];
+    }
+    
+    return _sliderArray;
 }
 @end

@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CBNProjectBaseView.h"
+#import "CBNChannelNewsModel.h"
 
 @interface CBNProjectArrayCell : UITableViewCell
+@property (nonatomic, strong) CBNChannelNewsModel *channelNewsModel;
+
 @property (nonatomic, strong) CBNProjectBaseView *projectCollectionView;
 
 @end

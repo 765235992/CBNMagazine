@@ -10,4 +10,6 @@
 
 @interface CBNChannelRequest : NSObject
 
+
++ (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id result))sucess failed:(void (^)(NSError *error))failed;
 @end

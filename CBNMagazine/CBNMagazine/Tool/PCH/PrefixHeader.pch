@@ -47,7 +47,8 @@
 
 #import "CBNImageView.h"
 #import "CBNLabel.h"
-
+#import "CBNURL.h"
+#import "CBNChannelRequest.h"
 
 //-------------------打印日志-------------------------
 //DEBUG  模式下打印日志,当前行

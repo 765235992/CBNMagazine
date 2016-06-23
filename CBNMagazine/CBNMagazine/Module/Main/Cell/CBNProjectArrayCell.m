@@ -50,7 +50,12 @@
     return _projectCollectionView;
 }
 
-
+- (void)setChannelNewsModel:(CBNChannelNewsModel *)channelNewsModel
+{
+    _channelNewsModel = channelNewsModel;
+    
+    _channelNewsModel.height = self.frame.size.height;
+}
 
 
 

@@ -198,9 +198,8 @@
 - (void)setChannelNewsModel:(CBNChannelNewsModel *)channelNewsModel
 {
     
-    NSLog(@"%@",channelNewsModel.cover_img_big);
-    
     [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:channelNewsModel.cover_img_big] placeholderImage:[UIImage imageNamed:@"defaultImage.jpg"]];
+    
     _timelabel.frame = CGRectMake(0, 0, 0, 0);
 
     _timelabel.text = [NSDate getUTCFormateDate:channelNewsModel.renew_time];
