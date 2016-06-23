@@ -11,6 +11,7 @@
 #import "CBNUerChannelVC.h"
 #import "CBNMainNavigationVC.h"
 #import "CBNUserCenterNavigationVC.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AppDelegate ()
 @property (nonatomic,strong) MMDrawerController * drawerController;
@@ -32,22 +33,22 @@
      *  添加用户根视图
      */
     CBNUerChannelVC *userCenterVC =[[CBNUerChannelVC alloc] initWithNibName:nil bundle:nil];
-    CBNUserCenterNavigationVC *userCenterNavigationVC = [[CBNUserCenterNavigationVC alloc]initWithRootViewController:userCenterVC];
-    [userCenterNavigationVC setRestorationIdentifier:@"GMUserRootVC"];
+    UINavigationController *userCenterNavigationVC = [[CBNUserCenterNavigationVC alloc]initWithRootViewController:userCenterVC];
+    [userCenterNavigationVC setRestorationIdentifier:@"CBNUerChannelVC"];
     
     /*
      *  添加到抽屉上去
      */
     self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:channelRootNavigationVC leftDrawerViewController:userCenterNavigationVC];
-    [self.drawerController setShowsShadow:NO];
+    [self.drawerController setShowsShadow:YES];
     
     [self.drawerController setRestorationIdentifier:@"MMDrawer"];
     
     //抽屉打开的大小
-    [self.drawerController setMaximumRightDrawerWidth:200.0];
-    
-    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
-    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeNone];
+    [self.drawerController setMaximumLeftDrawerWidth:180*screen_Width/320];
+ 
+    [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
     [self.drawerController
      setDrawerVisualStateBlock:^(MMDrawerController *drawerController, MMDrawerSide drawerSide, CGFloat percentVisible) {
@@ -99,5 +100,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 
 @end

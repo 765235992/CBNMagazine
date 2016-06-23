@@ -37,7 +37,10 @@
  *  文章图片地址
  */
 @property (nonatomic, strong) NSString *chaptPicURL;
-
+/*
+ *  文章图片地址
+ */
+@property (nonatomic, strong) NSString *chaptTime;
 /*
  *  初始化
  */

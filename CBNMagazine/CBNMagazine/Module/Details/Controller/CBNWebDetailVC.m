@@ -19,15 +19,15 @@
 - (void)dealloc
 {
     NSLog(@"广告链接释放");
-    NSHTTPCookie *cookie;
-    
-    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    
-    for (cookie in [storage cookies]) {
-        
-        [storage deleteCookie:cookie];
-        
-    }
+//    NSHTTPCookie *cookie;
+//    
+//    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//    
+//    for (cookie in [storage cookies]) {
+//        
+//        [storage deleteCookie:cookie];
+//        
+//    }
 }
 
 

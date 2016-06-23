@@ -14,8 +14,8 @@
     self = [super init];
     
     if (self) {
-        
-        self.chatp_id = [NSString stringWithFormat:@"%@",[channelNewsInfo objectForKey:@"chatp_id"]];
+        NSLog(@"%@",channelNewsInfo);
+        self.chatp_id = [NSString stringWithFormat:@"%@",[channelNewsInfo objectForKey:@"chapt_id"]];
         
         self.issue_id = [NSString stringWithFormat:@"%@",[channelNewsInfo objectForKey:@"issue_id"]];
 

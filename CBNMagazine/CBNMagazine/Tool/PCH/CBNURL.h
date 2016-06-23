@@ -16,7 +16,9 @@
 
 #define secret_key @"www_y_z_cbnweek_w_com"
 
-#define Index @"Index/"
+#define Index @"index/"
 
 #define GetProjectList @"GetProjectList"
+
+#define Daymore @"Daymore/"
 #endif /* CBNURL_h */

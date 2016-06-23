@@ -12,7 +12,7 @@
 @property (nonatomic, strong) NSString *data_type;
 @property (nonatomic, strong) NSString *active;
 @property (nonatomic, strong) NSString *created;
-@property (nonatomic, strong) NSString *project_id;
+@property (nonatomic, strong) NSString *subject_id;
 @property (nonatomic, strong) NSString *if_interaction;
 @property (nonatomic, strong) NSString *img;
 @property (nonatomic, strong) NSString *interaction_content;

@@ -35,7 +35,7 @@
         
         self.blockTextView = [[CBNChaptBlockTextView alloc] initWithFrame:CGRectMake(10, 10, screen_Width-20, 0)];
         
-        _blockTextView.font = font_px_Medium(fontSize(42.0,42.0,42.0));
+        _blockTextView.font = font_px_Regular(fontSize(42.0,42.0,42.0));
         
         [_blockTextView CBNChaptKeyWordClicked:^(NSDictionary *keyWordInfo) {
             

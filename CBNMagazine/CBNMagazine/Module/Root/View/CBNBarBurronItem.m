@@ -13,6 +13,10 @@
 @end
 
 @implementation CBNBarBurronItem
+- (void)dealloc
+{
+    NSLog(@"dsd");
+}
 //- (id)initWithImage:(UIImage *)image style:(UIBarButtonItemStyle)style target:(id)target action:(SEL)action
 -(instancetype)initWithTarget:(id)target action:(SEL)action andFrame:(CGRect)rect andImage:(UIImage *)image
 {

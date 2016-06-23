@@ -8,6 +8,10 @@
 
 #import "CBNArticleHeaderNormalView.h"
 
+@interface CBNArticleHeaderNormalView ()
+@property (nonatomic, strong) NSMutableArray *authorArray;
+@end
+
 @implementation CBNArticleHeaderNormalView
 
 
@@ -118,8 +122,8 @@
         
         _newsNotesLabel.lineSpace = 5;
         
-        _newsNotesLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
-        _newsNotesLabel.font = font_px_Medium(fontSize(42.0,36.0,36.0));
+        _newsNotesLabel.dk_textColorPicker = DKColorPickerWithKey(白色背景上的默认标签字体颜色);
+        _newsNotesLabel.font = font_px_Regular(fontSize(42.0,36.0,36.0));
         
     }
     
@@ -145,18 +149,54 @@
     
     
 }
-
+- (NSMutableArray *)authorArray
+{
+    if (!_authorArray) {
+        
+        self.authorArray = [[NSMutableArray alloc] init];
+    }
+    return _authorArray;
+}
 - (void)setAuthor_List:(NSArray *)author_List
 {
+    NSLog(@"%@",_chapt_Info_Model.chaptPicURL);
+    
+    [_newsThumbImageView sd_setImageWithURL:[NSURL URLWithString:_chapt_Info_Model.chaptPicURL] placeholderImage:[UIImage imageNamed:@"defaultImage.jpg"]];
+    
+    [self.authorArray removeAllObjects];
+
+    if (author_List.count > 0) {
+        
+        [self.authorArray addObject:[self noClickedDicWithText:@"作者："]];
+
+        
+        for (int i = 0; i < author_List.count; i++) {
+            if (i%2 ==1) {
+               
+                [self.authorArray addObject:[self noClickedDicWithText:@" | "]];
+            }
+            
+            CBNChaptAuthorModel *authorModel = [author_List objectAtIndex:i];
+            
+         
+            [self.authorArray addObject:[self canClickedDicWithText:authorModel.authorName]];
+        }
+       
+    }else{
+        
+        [self.authorArray addObject:[self noClickedDicWithText:@"第一财经周刊"]];
+    }
+    
     
     CGFloat titleHeight = _newsTitleLabel.frame.size.height + _newsTitleLabel.frame.origin.y + 20;
     
-    _timeLabel.text = @"2016.12.30";
+    _timeLabel.text = [NSDate getUTCFormateDate:_chapt_Info_Model.chaptTime];
     
     [_timeLabel sizeToFit];
 
     _timeLabel.frame = CGRectMake(screen_Width - 10 - _timeLabel.frame.size.width, titleHeight , _timeLabel.frame.size.width, _timeLabel.frame.size.height);
-    _authorLabel.sourceArray = author_List;
+    
+    _authorLabel.sourceArray = self.authorArray;
     
     _authorLabel.frame = CGRectMake(10, titleHeight , self.frame.size.width - 30 - _timeLabel.frame.size.width, _authorLabel.frame.size.height);
     
@@ -177,5 +217,32 @@
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _audioView.frame.origin.y + _audioView.frame.size.height);
     
 }
-
+- (NSDictionary *)canClickedDicWithText:(NSString *)text
+{
+    NSNumber *authorSize  = [NSNumber numberWithInt:fontSize(36.0,36.0,36.0)];
+    NSNumber *authorColor = [NSNumber numberWithInt:0x515151];
+    NSNumber *canClicked = [NSNumber numberWithInt:JHCoreTextModleButtonType];
+    NSDictionary *tempAuthotDic = [[NSMutableDictionary alloc] init];
+    [tempAuthotDic setValue:@"200" forKey:@"width"];
+    [tempAuthotDic setValue:authorSize forKey:@"fontSize"];
+    [tempAuthotDic setValue:authorColor forKey:@"textColor"];
+    [tempAuthotDic setValue:canClicked forKey:@"modleType"];
+    [tempAuthotDic setValue:text forKey:@"text"];
+    
+    return tempAuthotDic;
+}
+- (NSDictionary *)noClickedDicWithText:(NSString *)text
+{
+    NSNumber *authorSize  = [NSNumber numberWithInt:fontSize(36.0,36.0,36.0)];
+    NSNumber *authorColor = [NSNumber numberWithInt:0x515151];
+    NSNumber *noClicked = [NSNumber numberWithInt:JHCoreTextModleTextType];
+    NSDictionary *tempAuthotDic = [[NSMutableDictionary alloc] init];
+    [tempAuthotDic setValue:@"200" forKey:@"width"];
+    [tempAuthotDic setValue:authorSize forKey:@"fontSize"];
+    [tempAuthotDic setValue:authorColor forKey:@"textColor"];
+    [tempAuthotDic setValue:noClicked forKey:@"modleType"];
+    [tempAuthotDic setValue:text forKey:@"text"];
+    
+    return tempAuthotDic;
+}
 @end

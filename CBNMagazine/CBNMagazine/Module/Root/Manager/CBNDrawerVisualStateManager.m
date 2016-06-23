@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation CBNDrawerVisualStateManager
+
 + (CBNDrawerVisualStateManager *)sharedManager {
     static CBNDrawerVisualStateManager *_sharedManager = nil;
     static dispatch_once_t onceToken;
@@ -50,7 +51,7 @@
                 
                 UIViewController * sideDrawerViewController;
                 CATransform3D transform;
-                CGFloat maxDrawerWidth = 0.0;
+                CGFloat maxDrawerWidth;
                 
                 if(drawerSide == MMDrawerSideLeft){
                     sideDrawerViewController = drawerController.leftDrawerViewController;

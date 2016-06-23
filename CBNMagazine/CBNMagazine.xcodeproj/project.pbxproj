@@ -102,6 +102,7 @@
 		38DD7F2F1D1A57AE0048EE60 /* CBNProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7F2E1D1A57AE0048EE60 /* CBNProjectModel.m */; };
 		38DD7F311D1A78D20048EE60 /* newsList.json in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7F301D1A78D20048EE60 /* newsList.json */; };
 		38DD7F371D1B8D1B0048EE60 /* CBNWebDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7F361D1B8D1B0048EE60 /* CBNWebDetailVC.m */; };
+		38DD7F411D1BAC6F0048EE60 /* CBNArticleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7F401D1BAC6F0048EE60 /* CBNArticleRequest.m */; };
 		7877D51F1D141F570012DEA2 /* UIColor+CBNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D51E1D141F570012DEA2 /* UIColor+CBNColor.m */; };
 		7877D5361D1433F40012DEA2 /* CBNRecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5321D1433F40012DEA2 /* CBNRecommendHeaderView.m */; };
 		7877D5371D1433F40012DEA2 /* CBNRecommendSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5341D1433F40012DEA2 /* CBNRecommendSliderView.m */; };
@@ -323,6 +324,8 @@
 		38DD7F301D1A78D20048EE60 /* newsList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newsList.json; sourceTree = "<group>"; };
 		38DD7F351D1B8D1B0048EE60 /* CBNWebDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNWebDetailVC.h; sourceTree = "<group>"; };
 		38DD7F361D1B8D1B0048EE60 /* CBNWebDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNWebDetailVC.m; sourceTree = "<group>"; };
+		38DD7F3F1D1BAC6F0048EE60 /* CBNArticleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNArticleRequest.h; sourceTree = "<group>"; };
+		38DD7F401D1BAC6F0048EE60 /* CBNArticleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNArticleRequest.m; sourceTree = "<group>"; };
 		5F4D9C7E4A6FA1692A9C61C1 /* libPods-CBNMagazine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CBNMagazine.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7877D51D1D141F570012DEA2 /* UIColor+CBNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CBNColor.h"; sourceTree = "<group>"; };
 		7877D51E1D141F570012DEA2 /* UIColor+CBNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CBNColor.m"; sourceTree = "<group>"; };
@@ -1293,6 +1296,15 @@
 			path = Night;
 			sourceTree = "<group>";
 		};
+		38DD7F3E1D1BAC650048EE60 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				38DD7F3F1D1BAC6F0048EE60 /* CBNArticleRequest.h */,
+				38DD7F401D1BAC6F0048EE60 /* CBNArticleRequest.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		7877D5301D1433F40012DEA2 /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1438,11 +1450,11 @@
 		7877D5851D168AF00012DEA2 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				38DD7F3E1D1BAC650048EE60 /* Network */,
 				7877D5861D168B2E0012DEA2 /* Cell */,
 				7877D5871D168B2E0012DEA2 /* Controller */,
 				7877D5881D168B2E0012DEA2 /* Image */,
 				7877D5891D168B2E0012DEA2 /* Model */,
-				7877D58A1D168B2E0012DEA2 /* Network */,
 				7877D58B1D168B2E0012DEA2 /* View */,
 			);
 			path = Details;
@@ -1496,13 +1508,6 @@
 				7877D5991D168C360012DEA2 /* CBNArticleModel.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		7877D58A1D168B2E0012DEA2 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		7877D58B1D168B2E0012DEA2 /* View */ = {
@@ -1845,6 +1850,7 @@
 				38087AC21D19072E0089C0DD /* CBNCommentsEditorView.m in Sources */,
 				7877D59A1D168C360012DEA2 /* CBNArticleModel.m in Sources */,
 				38C29B321D13F7150061C0A2 /* CBNFileManager.m in Sources */,
+				38DD7F411D1BAC6F0048EE60 /* CBNArticleRequest.m in Sources */,
 				38C29B231D13F6F10061C0A2 /* CBNForgetVC.m in Sources */,
 				38DD7F0F1D1A2D970048EE60 /* CBNAudioNewsCell.m in Sources */,
 				38087AD01D1928FD0089C0DD /* CBNMainNavigationVC.m in Sources */,

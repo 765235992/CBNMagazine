@@ -20,11 +20,13 @@
 #import "CBNDetailBottomView.h"
 #import "CBNCommentsEditorView.h"
 #import "UIColor+Extension.h"
+#import "CBNArticleRequest.h"
 
 @interface CBNTextArticleDetailVC ()<UITableViewDataSource, UITableViewDelegate>
 {
-    CBNArticleHeaderNormalView *headerView;
+    
 }
+@property (nonatomic, strong) CBNArticleHeaderNormalView *headerView;
 @property (nonatomic, strong) UITableView *aTableView;
 
 @property (nonatomic, strong) CBNArticleModel *articleModel;
@@ -41,7 +43,7 @@
 - (void)dealloc
 {
     NSLog(@"释放");
-
+    
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -53,109 +55,88 @@
 {
     [super viewDidLoad];
     
-
+    NSLog(@"%@--%@",self.chapt_ID,self.issue_ID);
     
     self.view.backgroundColor = [UIColor whiteColor];
-//
+
     [self setNavigationHeader];
-//
+
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.aTableView];
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *str = [[NSBundle mainBundle] pathForResource:@"21860" ofType:@"json"];
-        NSData *data = [NSData dataWithContentsOfFile:str];
+    NSString *secretStr = [NSString getTheMD5EncryptedStringWithString:[NSString stringWithFormat:@"%@%@",secret_key,@"index"]];
+    
+    NSString *secretStr2 = [NSString getTheMD5EncryptedStringWithString:[NSString stringWithFormat:@"%@%@%@",self.chapt_ID,self.issue_ID,secret_key]];
+    
+    NSMutableDictionary *parDic = [[NSMutableDictionary alloc] init];
+    
+    [parDic setObject:secretStr forKey:@"key"];
+    [parDic setObject:secretStr2 forKey:@"setKey"];
+    [parDic setObject:self.chapt_ID forKey:@"chapt_id"];
+    [parDic setObject:self.issue_ID forKey:@"issue_id"];
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@%@%@",sever_URL,Daymore,@"index"];
+
+    [CBNArticleRequest GET:urlString parameters:parDic success:^(id result) {
         
-        NSDictionary *newDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"%@",[result objectForKey:@"Error"]);
         
-        
-        self.articleModel = [[CBNArticleModel alloc] initArticleResult:newDic];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
+        if ([[result objectForKey:@"Code"] integerValue] == 200) {
+            self.articleModel = [[CBNArticleModel alloc] initArticleResult:[result objectForKey:@"DataList"]];
             
-            NSLog(@"%@",_articleModel.block_list);
+            self.headerView.chapt_Info_Model = _articleModel.chapt_info;
             
-            [_aTableView reloadData];
+            _headerView.author_List = _articleModel.author_list;
             
-        });
-        
-    });
-    
-    
-    
-    headerView = [[CBNArticleHeaderNormalView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
-    
-    __weak typeof(self) weakSelf = self;
-    
-    
-    
-    CBNChaptInfoModel *chaptInfo = [[CBNChaptInfoModel alloc] init];
-    
-    chaptInfo.chaptTitle = @"愤怒的小鸟领路，切水果和俄罗斯方块也在冲向大银幕";
-    chaptInfo.chaptBrief = @"如今IP当道，全世界能做IP的东西几乎都在考虑要不要做成电影，或者正被做成电影，或是已经路上了.......";
-    headerView.chapt_Info_Model = chaptInfo;
-    NSArray *sourceArray = @[@{@"width":@"300",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
-                               @"textColor":[NSNumber numberWithInt:0x515151],
-                               @"modleType":[NSNumber numberWithInt:JHCoreTextModleTextType]
-                               ,@"text":@"作者："},
-                             @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
-                               @"textColor":[NSNumber numberWithInt:0x515151],
-                               @"modleType":[NSNumber numberWithInt:JHCoreTextModleButtonType]
-                               ,@"text":@" 习近平 "},
-                             @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
-                               @"textColor":[NSNumber numberWithInt:0x515151],
-                               @"modleType":[NSNumber numberWithInt:JHCoreTextModleButtonType]
-                               ,@"text":@"|"},
-                             @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
-                               @"textColor":[NSNumber numberWithInt:0x515151],
-                               @"modleType":[NSNumber numberWithInt:JHCoreTextModleButtonType]
-                               ,@"text":@" 李克强 "},
-                             @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
-                               @"textColor":[NSNumber numberWithInt:0x515151],
-                               @"modleType":[NSNumber numberWithInt:JHCoreTextModleButtonType]
-                               ,@"text":@"|"},
-                             @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
-                               @"textColor":[NSNumber numberWithInt:0x515151],
-                               @"modleType":[NSNumber numberWithInt:JHCoreTextModleButtonType]
-                               ,@"text":@" 张德江 "},
-                             @{@"width":@"200",
-                               @"fontSize":[NSNumber numberWithInt:fontSize(36.0,36.0,36.0)],
-                               @"textColor":[NSNumber numberWithInt:0x515151],
-                               @"modleType":[NSNumber numberWithInt:JHCoreTextModleTextType]
-                               ,@"text":@""}];
-    headerView.author_List = sourceArray;
-    
-    headerView.authorLabel.labelClicked = ^(JHCoreTextModle *sender){
-        
-        
-        CBNADWebVC *webVC = [[CBNADWebVC alloc] init];
-        
-        if ([sender.text isEqualToString:@" 习近平 "]) {
-            webVC.webURL = @"http://baike.baidu.com/link?url=_CTyoZynXejuQg-5nsZZahx7jKiCPGyJ4RZxVMFNZkMSWZk4AOEecWcEU1YCA4BFHhOoxxShss8By_i-Nc9Woa";
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [_aTableView setTableHeaderView:self.headerView];
+                
+                [_aTableView reloadData];
+                
+            });
+
+        }else{
             
-        }else if ([sender.text isEqualToString:@" 李克强 "]){
-            webVC.webURL = @"http://baike.baidu.com/link?url=jrWhZuXMDu1XH_8GFWiBZ5c2D7xEWGyPgmmiOpGmPZqZ8cK5HEZxnJ0oL0ZZz11vv4zsk_0sdfE5QGjToRwSsbVsoviCbnMba3Wd-ttwwn7";
+            UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示" message:[result objectForKey:@"Error"] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
             
-        }else if ([sender.text isEqualToString:@" 张德江 "])
-        {
-            webVC.webURL = @"http://baike.baidu.com/link?url=gyiupluQUdERFtywGrH21PkK_HGR3LUFrkitTMFMj0cVby7ySW15GOa0Qd-aXK-4bWGkWRvJT4jAV3aCgPabISDnTt14XqFzsf78C-HMVtO";
+            [alter show];
             
         }
         
-        [weakSelf.navigationController pushViewController:webVC animated:YES];
-    };
-    _aTableView.tableHeaderView = headerView;
     
-//    [self.view addSubview:self.bottomView];
-//    [self.view addSubview:self.commentsEditorView];
+    } failed:^(NSError *error) {
+        NSLog(@"%@  ",error);
 
+    }];
+
+
+
+    
+
+ 
+
+
+}
+- (CBNArticleHeaderNormalView *)headerView
+{
+    if (!_headerView) {
+        self.headerView = [[CBNArticleHeaderNormalView alloc] initWithFrame:CGRectMake(0, 0, 320, 0)];
+        __weak typeof(self) weakSelf = self;
+
+        _headerView.authorLabel.labelClicked = ^(JHCoreTextModle *sender){
+            
+            [weakSelf headerViewClicked];
+            
+        };
+    }
+    
+    return _headerView;
+}
+- (void)headerViewClicked
+{
+    NSLog(@"daskhdjh");
 }
 - (CBNDetailBottomView *)bottomView
 {
@@ -182,8 +163,6 @@
         
         self.commentsEditorView = [[CBNCommentsEditorView alloc] initWithFrame:CGRectMake(0, screen_Height-200 , screen_Width, 500)];
         
-//        _commentsEditorView.backgroundColor = [UIColor c];
-        
         _commentsEditorView.hidden = YES;
         
         
@@ -198,15 +177,16 @@
 {
     CBNBarBurronItem *leftBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(leftBar:) andFrame:CGRectMake(0, 0, 30, 30) andImage:[UIImage imageNamed:@"userCenter_Day_Image@2x.png"]];
 //
-    CBNBarBurronItem *nightBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(nightBar:) andFrame:CGRectMake(0, 0, 44, 44) andImagePicker:DKImagePickerWithImages([UIImage imageWithColor:RGBColor(245, 245,245, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,103, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,103, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)])];
-    CBNBarBurronItem *fontBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(fontBar:) andFrame:CGRectMake(0, 0, 44, 44) andImagePicker:DKImagePickerWithImages([UIImage imageWithColor:RGBColor(245, 245,245, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,1033, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,103, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)])];
+    CBNBarBurronItem *nightBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(nightBar:) andFrame:CGRectMake(0, 0, 44, 44) andImagePicker:DKImagePickerWithImages([UIImage imageWithColor:RGBColor(145, 145,145, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,103, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,103, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)])];
+    CBNBarBurronItem *fontBar = [[CBNBarBurronItem alloc] initWithTarget:self action:@selector(fontBar:) andFrame:CGRectMake(0, 0, 44, 44) andImagePicker:DKImagePickerWithImages([UIImage imageWithColor:RGBColor(145, 145,145, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,1033, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)],[UIImage imageWithColor:RGBColor(103, 103,103, 1) andFrame:CGRectMake(0, 0, screen_Width, 64)])];
+
 
     self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.leftBarButtonItem = leftBar;
     
     self.navigationItem.rightBarButtonItems= [NSArray arrayWithObjects:nightBar,fontBar,nil];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIColorFromRGB(0xFFFFF0) imageWithColor] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[RGBColor(245, 245,245, 1) imageWithColor] forBarMetrics:UIBarMetricsDefault];
 
     [self.navigationController.navigationBar setBarStyle:UIBarStyleBlackTranslucent];
 
@@ -222,11 +202,10 @@
     if ([self.dk_manager.themeVersion isEqualToString:DKThemeVersionNight]) {
         
         [self.dk_manager dawnComing];
-//        self.navigationController.navigationBar.backgroundColor = UIColorFromRGB(0xFFFFFF);
+        
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0xFFFFFF) andFrame:CGRectMake(0, 0, screen_Width, 44)]forBarMetrics:UIBarMetricsDefault];
 
     } else {
-//        self.navigationController.navigationBar.backgroundColor = UIColorFromRGB(0x00000);
 
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:UIColorFromRGB(0x00000) andFrame:CGRectMake(0, 0, screen_Width, 44)]forBarMetrics:UIBarMetricsDefaultPrompt];
 
@@ -244,7 +223,7 @@
 {
     if (!_aTableView) {
         
-        self.aTableView = [[UITableView alloc] initWithFrame:self.view.bounds];
+        self.aTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, screen_Height-64)];
         
         _aTableView.delegate = self;
         
@@ -266,7 +245,6 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"?? %ld",self.articleModel.block_list.count);
     return self.articleModel.block_list.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -283,7 +261,7 @@
         CBNChaptBlockCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
-            NSLog(@"创建 %ld",indexPath.row);
+
             cell = [[CBNChaptBlockCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             
             __weak typeof(self) weakSelf = self;
@@ -310,13 +288,14 @@
         return cell;
         
     }else if ([chaptBlockModel.blockType isEqualToString:@"subtitle"]){
+        
         static NSString *identifier = @"CBNChaptSubTitleCell";
         
         
         CBNChaptSubTitleCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
-            NSLog(@"创建 %ld",indexPath.row);
+            
             cell = [[CBNChaptSubTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             
             __weak typeof(self) weakSelf = self;
@@ -337,17 +316,19 @@
         cell.chaptBlockModel = chaptBlockModel;
         
         chaptBlockModel = cell.chaptBlockModel;
+        
         [_articleModel.block_list replaceObjectAtIndex:indexPath.row withObject:chaptBlockModel];
         
         return cell;
-    }else{
-        static NSString *identifier = @"CBNChaptImageCell";
         
+    }else{
+        
+        static NSString *identifier = @"CBNChaptImageCell";
         
         CBNChaptImageCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
-            NSLog(@"走起 %ld",(long)indexPath.row);
+
             cell = [[CBNChaptImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             
         }
@@ -355,6 +336,7 @@
         cell.chaptBlockModel = chaptBlockModel;
         
         chaptBlockModel = cell.chaptBlockModel ;
+        
         [_articleModel.block_list replaceObjectAtIndex:indexPath.row withObject:chaptBlockModel];
         
         return cell;
@@ -375,18 +357,21 @@
     
     
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CBNChaptBlockModel *chaptBlockModel = [_articleModel.block_list objectAtIndex:indexPath.row];
+    
+    NSLog(@"%@",chaptBlockModel.blockImageContent.imageURL);
+
+}
 - (void)keyWordClicked:(NSDictionary *)sender
 {
-    NSLog(@"%@",sender);
     CBNADWebVC *webVC = [[CBNADWebVC alloc] init];
     
     webVC.webURL = [[sender objectForKey:@"keyWordContent"] description];
     
     [self.navigationController pushViewController:webVC animated:YES];
-    //
-    //    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:[[sender objectForKey:@"keyWordContent"] description] message:[sender objectForKey:@"keyWordType"] delegate:sender cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-    
-    //    [alter show];
+
 }
 
 
