@@ -122,6 +122,8 @@
         
         if ([[result objectForKey:@"Code"]integerValue] == 200) {
             
+            NSLog(@"%@",result);
+            NSInteger count = 0;
             [self.sliderArray removeAllObjects];
             NSMutableArray *arr1 = [[NSMutableArray alloc] init];
             for (NSDictionary *dic in [[result objectForKey:@"DataList"] objectForKey:@"data"]) {
@@ -138,6 +140,9 @@
                 itemModel.newsTitleStr = channelModel.chapt_title;
                 
                 itemModel.newsDefaultImage = [UIImage imageNamed:@"defaultImage.jpg"];
+                
+                itemModel.index = count;
+                count++;
                 
                 
                 [arr1 addObject:itemModel];
@@ -559,13 +564,32 @@
     }
 }
 
+- (void)sliderToDetailWithShufflingModel:(CBNShufflingModel *)shufflingModel
+{
+    
+    CBNChannelNewsModel *channelModel = [_sliderArray objectAtIndex:shufflingModel.index];
 
+    CBNTextArticleDetailVC *ar = [[CBNTextArticleDetailVC alloc] init];
+    
+    ar.chapt_ID = channelModel.chatp_id;
+    
+    ar.issue_ID = channelModel.issue_id;
+    
+    [self.navigationController pushViewController:ar animated:YES];
+}
 #define mark 控件的创建
 - (CBNRecommendHeaderView *)headerView
 {
     if (!_headerView) {
         
         self.headerView = [[CBNRecommendHeaderView alloc] initWithFrame:CGRectMake(0, 0, screen_Width, navigation_Show )];
+        __weak typeof(self) weakSelf = self;
+
+        _headerView.sliderView.shufflingView.imageViewDidTapAtIndex = ^(CBNShufflingModel *shufflingModel){
+            
+            [weakSelf sliderToDetailWithShufflingModel:shufflingModel];
+            
+        };
         
     }
     

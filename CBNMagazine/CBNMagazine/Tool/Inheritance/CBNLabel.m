@@ -50,13 +50,9 @@
      */
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     
-    if (self.isCenter == NO) {
-        paraStyle.alignment = NSTextAlignmentJustified;
+ 
+    paraStyle.alignment = self.textAlignment;
 
-    }else{
-        paraStyle.alignment = NSTextAlignmentCenter;
-
-    }
     paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
     
     [paraStyle setLineSpacing:self.lineSpace];

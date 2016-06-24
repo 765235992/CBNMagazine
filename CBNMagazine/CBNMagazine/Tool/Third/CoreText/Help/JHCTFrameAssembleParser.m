@@ -84,8 +84,16 @@
     CGFloat lineSpacing = coreTextModle.lineSpace;
     const CFIndex kNumberOfSettings = 5;
     CTLineBreakMode lineBreak = kCTLineBreakByCharWrapping;//kCTLineBreakByCharWrapping;//换行模式
-    CTTextAlignment alignment = kCTTextAlignmentLeft;
+    CTTextAlignment alignment ;
+    if (coreTextModle.textAlignment == 0) {
+      alignment  = kCTTextAlignmentJustified;
+    }else if (coreTextModle.textAlignment == 1){
+        alignment  = kCTTextAlignmentCenter;
 
+    }else{
+        alignment  = kCTTextAlignmentRight;
+
+    }
     CTParagraphStyleSetting theSettings[kNumberOfSettings] = {
         { kCTParagraphStyleSpecifierLineSpacingAdjustment, sizeof(CGFloat), &lineSpacing },
         { kCTParagraphStyleSpecifierMaximumLineSpacing, sizeof(CGFloat), &lineSpacing },

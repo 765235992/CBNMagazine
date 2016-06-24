@@ -7,9 +7,17 @@
 //
 
 #import "CBNChaptAudioView.h"
+#import "CBNMarqueeView.h"
+
+#define clearance 7*screen_Width/320
+
+#define text_clearance 2*screen_Width/320
 
 @interface CBNChaptAudioView ()
-@property (nonatomic, strong) CBNLabel *audioTitleLabel;
+@property (nonatomic, assign) CGFloat titleHeight;
+@property (nonatomic, assign) CGFloat columnHeight;
+
+@property (nonatomic, strong) CBNMarqueeView *audioTitleLabel;
 
 @property (nonatomic, strong) CBNLabel *columnLabel;
 
@@ -19,12 +27,28 @@
 @end
 
 @implementation CBNChaptAudioView
-
+- (void)dealloc
+{
+    
+}
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubview:self.timeLabel];
+        
+        CGSize size1 = [@" " sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:font_px_Medium(fontSize(46.0,38.0,38.0)),NSFontAttributeName, nil]];
+        
+        self.titleHeight = size1.height;
+        
+        CGSize size2 = [@" " sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:font_px_Medium(fontSize(32.0,32.0,32.0)),NSFontAttributeName, nil]];
+
+        self.columnHeight = size2.height;
+
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, clearance*2 + text_clearance + _titleHeight + _columnHeight);
+
+        self.layer.cornerRadius = self.frame.size.height/2;//设置那个圆角的有多圆
+        
+        self.dk_backgroundColorPicker = DKColorPickerWithKey(红色背景颜色);
         
         [self addSubview:self.playButton];
 
@@ -32,22 +56,13 @@
         
         [self addSubview:self.columnLabel];
         
-        
-        self.layer.borderWidth = 1.0f;
-        
-        self.layer.borderColor = UIColorFromRGB(0xBABABA).CGColor;
+        [self addSubview:self.timeLabel];
+
         
         self.layer.masksToBounds = YES;
-        
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _audioTitleLabel.frame.size.height + _columnLabel.frame.size.height + 7);
-        
-        _playButton.center = CGPointMake(_playButton.center.x, self.frame.size.height/2);
-        
-        _timeLabel.center = CGPointMake(_timeLabel.center.x, self.frame.size.height/2);
+ 
+      
 
-        self.backgroundColor = [UIColor clearColor];
-        
-        
     }
     return self;
 }
@@ -58,29 +73,35 @@
         
         self.playButton = [UIButton buttonWithType:UIButtonTypeCustom];
         
-        _playButton.frame = CGRectMake(12, 0, 20, 20);
+        _playButton.frame = CGRectMake(clearance, clearance, self.frame.size.height - clearance*2, self.frame.size.height - clearance*2);
         
-        _playButton.backgroundColor = [UIColor redColor];
+        [_playButton setBackgroundImage:[UIImage imageNamed:@"play_pause_Day.png"] forState:UIControlStateNormal];
+        
+        _playButton.center = CGPointMake(_playButton.center.x, self.frame.size.height/2);
+
     }
     
     return _playButton;
 }
-- (CBNLabel *)audioTitleLabel
+- (CBNMarqueeView *)audioTitleLabel
 {
     if (!_audioTitleLabel) {
+
+        self.audioTitleLabel = [[CBNMarqueeView alloc] initWithFrame:CGRectMake( _playButton.frame.size.width + clearance * 2, clearance , self.frame.size.width - (self.frame.size.height/2 + clearance  + _playButton.frame.size.width), _titleHeight)];
+
+        NSString *text = @"联系Tech Wo联系Tech Worr";
         
-        self.audioTitleLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(_playButton.frame.origin.x + _playButton.frame.size.width + 10, 3, screen_Width - (_playButton.frame.origin.x + _playButton.frame.size.width + 10) - (_timeLabel.frame.size.width + 22), 0)];
-        _audioTitleLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
+        self.audioTitleLabel.text = [self getNewStrWithText:text];
+
+        self.audioTitleLabel.scrollDirection = CBAutoScrollDirectionLeft;
+        self.audioTitleLabel.labelSpacing = 0;
+        [self.audioTitleLabel observeApplicationNotifications];
         
-        _audioTitleLabel.font = font_px_Medium(fontSize(36.0,36.0,36.0));
+        _audioTitleLabel.textColor = [UIColor whiteColor];
         
-        _audioTitleLabel.numberOfLines = 0;
-        _audioTitleLabel.text  = @"联系Tech Word 2016主题演讲";
+        self.audioTitleLabel.pauseInterval = 0.0;
         
-        [_audioTitleLabel sizeToFit];
-        
-        _audioTitleLabel.frame = CGRectMake(_playButton.frame.origin.x + _playButton.frame.size.width + 10, 3, self.frame.size.width - (_playButton.frame.origin.x + _playButton.frame.size.width + 10) - (_timeLabel.frame.size.width + 22), _audioTitleLabel.frame.size.height);
-        
+        _audioTitleLabel.font = font_px_Medium(fontSize(42.0,38.0,38.0));
         
         _audioTitleLabel.backgroundColor = [UIColor clearColor];
     }
@@ -88,13 +109,39 @@
     return _audioTitleLabel;
 }
 
+- (NSString *)getNewStrWithText:(NSString *)text
+{
+    CGSize size1 = [text sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:font_px_Medium(fontSize(46.0,38.0,38.0)),NSFontAttributeName, nil]];
+
+    
+    if (size1.width > _audioTitleLabel.frame.size.width) {
+        
+        return text;
+        
+    }
+    
+    NSMutableArray *strArray = [[NSMutableArray alloc] init];
+    
+    
+    for (int i = 0; i < ((_audioTitleLabel.frame.size.width - size1.width)/_titleHeight + 1)*2; i++) {
+        [strArray addObject:@"  "];
+    }
+    NSString *ns=[strArray componentsJoinedByString:@""];
+
+    NSString *newStr = [text stringByAppendingFormat:@"%@",ns];
+  
+
+    return newStr;
+    
+}
 - (CBNLabel *)columnLabel
 {
     if (!_columnLabel) {
         
-        self.columnLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(_playButton.frame.origin.x + _playButton.frame.size.width + 10, _audioTitleLabel.frame.size.height + 4, screen_Width - (_playButton.frame.origin.x + _playButton.frame.size.width + 10) - (_timeLabel.frame.size.width + 22), 0)];
+        self.columnLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(_playButton.frame.origin.x + _playButton.frame.size.width + clearance, _audioTitleLabel.frame.size.height + clearance , screen_Width - (_playButton.frame.origin.x + _playButton.frame.size.width + 10) - (_timeLabel.frame.size.width + 22), 0)];
         
-        _columnLabel.dk_textColorPicker = DKColorPickerWithKey(白色背景上的默认标签字体颜色);
+//        _columnLabel.dk_textColorPicker = DKColorPickerWithKey(白色背景上的默认标签字体颜色);
+        
         
         _columnLabel.font = font_px_Medium(fontSize(32.0,32.0,32.0));
         
@@ -104,7 +151,8 @@
         
         [_columnLabel sizeToFit];
         
-        
+        _columnLabel.textColor = [UIColor whiteColor];
+
     }
     
     return _columnLabel;
@@ -117,6 +165,8 @@
         
         _timeLabel.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         
+        _timeLabel.textColor = [UIColor whiteColor];
+        
         _timeLabel.font = font_px_Medium(fontSize(36.0,32.0,32.0));
         
         _timeLabel.numberOfLines = 0;
@@ -124,8 +174,8 @@
         _timeLabel.text  = @"59 : 59";
         
         [_timeLabel sizeToFit];
-        
-        _timeLabel.frame = CGRectMake(self.frame.size.width - 10 - _timeLabel.frame.size.width, 0, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
+    
+        _timeLabel.frame = CGRectMake( self.frame.size.width - (self.frame.size.height/2 +  _timeLabel.frame.size.width-clearance), _audioTitleLabel.frame.size.height + clearance, _timeLabel.frame.size.width, _timeLabel.frame.size.height);
         
         _timeLabel.backgroundColor = [UIColor clearColor];
     }

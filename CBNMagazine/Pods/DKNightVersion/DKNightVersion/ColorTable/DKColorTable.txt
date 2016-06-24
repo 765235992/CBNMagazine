@@ -11,6 +11,7 @@ NORMAL   NIGHT    RED
 #FF3030  #A52A2A  #ffffff 频道切换已选择字体颜色
 #ababab  #FFFFF0  #ffffff 白色背景上的默认标签字体颜色
 #ffffff  #FFFFF0  #ffffff 图片上的默认标签字体颜色
+#FF0000  #CD0000  #ffffff 红色背景颜色
 #ffffff  #363636  #ffffff 默认背景颜色
 #121212  #FFFFF0  #ffffff 字体默认颜色
 #43CD80  #218868  #ffffff 按钮默认背景颜色
