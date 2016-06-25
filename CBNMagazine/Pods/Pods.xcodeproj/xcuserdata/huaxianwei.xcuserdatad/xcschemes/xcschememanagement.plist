@@ -6,53 +6,58 @@
 	<dict>
 		<key>AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>DKNightVersion.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>5</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MMDrawerController.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-CBNMagazine.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SFFocusViewLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SSKeychain.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>YRJSONAdapter.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -67,12 +72,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F74D9EA91F4C43190670066BAC37D44</key>
+		<key>56E0DEB3D553F2D30B6F8764F85C0477</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>91B12058D3CFD5D36F48E14805C9FBC9</key>
+		<key>5FD328DEF1A4E8EC1EB509E63D500F5E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>67A50D8EF20DADF19FEAEFFFF7FE7482</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F74D9EA91F4C43190670066BAC37D44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,17 +102,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A98B7AF069FC2143D2E84490EAFF93AA</key>
+		<key>BA2EA342DACB5DA92BC15FC468E4D281</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D49DB53395BD20821A34EFE7F1EF480C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E5314B8CC4E9C351BD50C3770B6D12CE</key>
+		<key>C63FA14FC391BD0F878C64E72D14786B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

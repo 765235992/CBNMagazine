@@ -21,6 +21,10 @@
 #import "CBNCommentsEditorView.h"
 #import "UIColor+Extension.h"
 #import "CBNArticleRequest.h"
+#import "HXWAudioPlayer.h"
+#import "HXWAudioModel.h"
+#import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface CBNTextArticleDetailVC ()<UITableViewDataSource, UITableViewDelegate>
 {
@@ -34,6 +38,10 @@
 @property (nonatomic, strong) CBNDetailBottomView *bottomView;
 
 @property (nonatomic, strong) CBNCommentsEditorView *commentsEditorView;
+
+@property (nonatomic, strong) HXWAudioPlayer *audioPlayer;
+
+@property (nonatomic, assign) BOOL isHavePlayItem;
 @end
 
 @implementation CBNTextArticleDetailVC
@@ -43,7 +51,8 @@
 - (void)dealloc
 {
     NSLog(@"释放");
-    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(willDealloc) name:@"willDealloc" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"willDealloc" object:nil];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -51,13 +60,42 @@
     
 
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+
+    //    接受远程控制
+
+    [self becomeFirstResponder];
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+
+    [super viewDidAppear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    //    取消远程控制
+    [self resignFirstResponder];
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+}
+/*
+ *  是否可远程控制
+ */
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    NSLog(@"%@--%@",self.chapt_ID,self.issue_ID);
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    NSLog(@"%@--%@",self.chapt_ID,self.issue_ID);
+    /*
+     *  设置后台播放
+     */
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    self.isHavePlayItem = NO;
 
     [self setNavigationHeader];
 
@@ -130,6 +168,29 @@
             [weakSelf headerViewClicked];
             
         };
+        
+        _headerView.audioView.audioButtonState = ^(UIButton *sender){
+            
+            
+            
+            if (weakSelf.isHavePlayItem == NO) {
+                
+                [weakSelf setAudioModel];
+                
+                weakSelf.isHavePlayItem = YES;
+
+            }
+            
+            if (sender.selected == YES) {
+                
+                [weakSelf.audioPlayer play];
+                
+            }else{
+                
+                [weakSelf.audioPlayer pause];
+ 
+            }
+        };
     }
     
     return _headerView;
@@ -138,6 +199,53 @@
 {
     NSLog(@"daskhdjh");
 }
+- (void)setAudioModel
+{
+    HXWAudioModel *audioModel = [[HXWAudioModel alloc] init];
+        
+    audioModel.audioURLString = @"http://audio.xmcdn.com/group7/M06/6F/70/wKgDWlc79jSzR6aVAKdfheI8_kU436.mp3";
+    
+    audioModel.audioTitle = @"测试播放器";
+    
+    audioModel.audioAuthor = @"第一财经";
+    
+    self.audioPlayer.audioModel = audioModel;
+
+}
+- (HXWAudioPlayer *)audioPlayer
+{
+    if (!_audioPlayer) {
+        self.audioPlayer  = [[HXWAudioPlayer alloc] init];
+        
+        __weak typeof(self) weakSelf = self;
+
+        _audioPlayer.audioPlayerState = ^(HXWAudioPlayerState state){
+            NSLog(@"播放状态 -- %ld",(long)state);
+            
+            if (state == HXWAudioPlayerIsPlaying) {
+                weakSelf.headerView.audioView.isPlaying = YES;
+                
+            }else if (state == HXWAudioPlayerIsPlayStop){
+                weakSelf.headerView.audioView.isPlaying = NO;
+                weakSelf.isHavePlayItem = NO;
+
+            }else {
+                weakSelf.headerView.audioView.isPlaying = NO;
+
+            }
+        };
+        
+        _audioPlayer.audioTime = ^(NSString *totaleTime, NSString *currentTime, NSString *surplusTime){
+            
+            weakSelf.headerView.audioView.timeText = surplusTime;
+
+        };
+        
+    }
+    
+    return _audioPlayer;
+}
+
 - (CBNDetailBottomView *)bottomView
 {
     if (!_bottomView) {
@@ -372,6 +480,50 @@
     
     [self.navigationController pushViewController:webVC animated:YES];
 
+}
+
+#define mark1  判断是否为远程控制状态
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event
+{
+    
+    if (event.type == UIEventTypeRemoteControl) {
+        
+        switch (event.subtype) {
+                
+            case  UIEventSubtypeRemoteControlPlay:
+                NSLog(@"赶紧播放");
+                /*
+                 *  后台点击了开始播放按钮
+                 */
+                if (self.isHavePlayItem == NO) {
+                    [self setAudioModel];
+                }else{
+                    [self.audioPlayer pauseChangeToPlaying];
+
+                }
+                
+                break;
+            case UIEventSubtypeRemoteControlPause:
+                NSLog(@"赶紧暂停");
+                
+                /*
+                 *  后台点击了暂停按钮
+                 */
+                [self.audioPlayer playingChangeToPause];
+                
+                break;
+            case UIEventSubtypeRemoteControlStop:
+                NSLog(@"播完了？？");
+                break;
+            case UIEventSubtypeRemoteControlEndSeekingBackward:
+                
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
 }
 
 
