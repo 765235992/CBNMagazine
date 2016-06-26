@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface HXWAudioModel : NSObject
+@property (nonatomic, strong) NSString *audioScreenImageURLString;
 @property (nonatomic, strong) NSString *audioTitle;
 @property (nonatomic, strong) NSString *audioAuthor;
 @property (nonatomic, strong) NSString *audioURLString;

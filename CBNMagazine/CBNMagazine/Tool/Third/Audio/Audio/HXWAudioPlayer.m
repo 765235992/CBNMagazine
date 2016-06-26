@@ -106,6 +106,12 @@ static NSString *const HXWAudioPlayerItemLoadedTimeRangesKeyPath = @"loadedTimeR
     if (self.currentPlayItem) {
         //清空旧的监听、观察者之类的
         [self clearObserver];
+        _playerState = HXWAudioPlayerStateNone;
+        if (self.audioPlayerState!=nil) {
+            
+            self.audioPlayerState(_playerState);
+            
+        }
 
     }
     /*
@@ -113,14 +119,14 @@ static NSString *const HXWAudioPlayerItemLoadedTimeRangesKeyPath = @"loadedTimeR
      */
     NSString *newAudioPath = [audioModel.audioURLString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSURL *url = [NSURL fileURLWithPath:newAudioPath];
+    NSURL *url ;
     
     if ([newAudioPath hasPrefix:@"http://"] || [newAudioPath hasPrefix:@"https://"]) {
         
-        url = [NSURL URLWithString:newAudioPath];
+        url = [NSURL URLWithString:@"http://flv2.bn.netease.com/videolib3/1606/25/FNdkE2999/SD/movie_index.m3u8"];
     }
-    NSString *musicFilePath = [[NSBundle mainBundle] pathForResource:@"佛祖.f4v" ofType:@"mp4"];
-    url = [NSURL fileURLWithPath:musicFilePath];
+//    NSString *musicFilePath = [[NSBundle mainBundle] pathForResource:@"佛祖.f4v" ofType:@"mp4"];
+//    url = [NSURL fileURLWithPath:@"http://flv2.bn.netease.com/videolib3/1606/25/FNdkE2999/SD/FNdkE2999-mobile.mp4"];
     /*
      *  获取音频相关信息
      */
@@ -132,17 +138,17 @@ static NSString *const HXWAudioPlayerItemLoadedTimeRangesKeyPath = @"loadedTimeR
     
     [self.player replaceCurrentItemWithPlayerItem:playItem];
     
-    [_player play];
+    [self play];
     _progressUpdateTimer = [NSTimer  scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updatePlaybackProgress) userInfo:nil repeats:YES];
 
-    /*
-     *  状态正在播放
-     */
-    _playerState = HXWAudioPlayerIsPlaying;
-    
-    if (self.audioPlayerState != nil) {
-        _audioPlayerState(_playerState);
-    }
+//    /*
+//     *  状态正在播放
+//     */
+//    _playerState = HXWAudioPlayerIsPlaying;
+//    
+//    if (self.audioPlayerState != nil) {
+//        _audioPlayerState(_playerState);
+//    }
 
     /*
      *  block中进行弱引用
@@ -175,7 +181,7 @@ static NSString *const HXWAudioPlayerItemLoadedTimeRangesKeyPath = @"loadedTimeR
 }
 - (void)backgroundScreenShowInfo
 {
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://q.qlogo.cn/qqapp/1104950857/870C310EEF72A25105D84743B3DA78AE/100"]]];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://vimg1.ws.126.net/image/snapshot/2016/6/1/2/VBPFRO012.jpg"]]];
 
     MPMediaItemArtwork *artWork = [[MPMediaItemArtwork alloc] initWithImage:image];
 
@@ -288,10 +294,12 @@ static NSString *const HXWAudioPlayerItemLoadedTimeRangesKeyPath = @"loadedTimeR
         [_progressUpdateTimer invalidate], _progressUpdateTimer = nil;
         
     }
-
+    
     if (_observer) {
+
+        [_player removeTimeObserver:_observer];
         
-        [_player removeTimeObserver:self.observer];
+        _observer = nil;
         
     }
 
@@ -307,13 +315,7 @@ static NSString *const HXWAudioPlayerItemLoadedTimeRangesKeyPath = @"loadedTimeR
     
     _currentPlayItem = nil;
     
-    _playerState = HXWAudioPlayerStateNone;
     
-    if (self.audioPlayerState!=nil) {
-        
-        self.audioPlayerState(_playerState);
-        
-    }
 
     
     
@@ -407,6 +409,13 @@ static NSString *const HXWAudioPlayerItemLoadedTimeRangesKeyPath = @"loadedTimeR
              */
             NSLog(@"失败");
             [self clearObserver];
+            _playerState = HXWAudioPlayerPlayFailed;
+            
+            if (self.audioPlayerState!=nil) {
+                
+                self.audioPlayerState(_playerState);
+                
+            }
 
             
         }

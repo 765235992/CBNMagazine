@@ -178,7 +178,7 @@
                 [weakSelf setAudioModel];
                 
                 weakSelf.isHavePlayItem = YES;
-
+                return ;
             }
             
             if (sender.selected == YES) {
@@ -225,7 +225,7 @@
             if (state == HXWAudioPlayerIsPlaying) {
                 weakSelf.headerView.audioView.isPlaying = YES;
                 
-            }else if (state == HXWAudioPlayerIsPlayStop){
+            }else if (state == HXWAudioPlayerIsPlayStop || state == HXWAudioPlayerPlayFailed){
                 weakSelf.headerView.audioView.isPlaying = NO;
                 weakSelf.isHavePlayItem = NO;
 
