@@ -35,7 +35,7 @@
         
         _companyLabel.textAlignment = 1;
         
-        _companyLabel.font = font(12.0);
+        _companyLabel.font = font_px_Medium(12.0);
         
         _companyLabel.dk_textColorPicker = DKColorPickerWithKey(字体默认颜色);
         

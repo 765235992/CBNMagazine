@@ -13,11 +13,13 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _width = 200.0f;
+        _width = 0.0f;
         _fontSize = 14.0f;
         _lineSpace = 5.0f;
         _textColor = 0x000000;
-        _fontName = @"PingFang-SC-Medium";
+        _fontName = @"PingFangSC-Medium";
+        _textAlignment = 0;
+        _textAlignment = kCTTextAlignmentLeft;
         
     }
     return self;

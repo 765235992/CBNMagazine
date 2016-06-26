@@ -19,15 +19,15 @@
 - (void)dealloc
 {
     NSLog(@"广告链接释放");
-    NSHTTPCookie *cookie;
-    
-    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    
-    for (cookie in [storage cookies]) {
-        
-        [storage deleteCookie:cookie];
-        
-    }
+//    NSHTTPCookie *cookie;
+//    
+//    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//    
+//    for (cookie in [storage cookies]) {
+//        
+//        [storage deleteCookie:cookie];
+//        
+//    }
 }
 
 
@@ -62,7 +62,7 @@
         
         self.maskView = [[UIView alloc] initWithFrame:self.view.bounds];
         
-        _maskView.dk_backgroundColorPicker = DKColorPickerWithColors([UIColor clearColor], [UIColor colorWithRed:3/255.0 green:3/255.0 blue:3/255.0 alpha:0.3],[UIColor clearColor]);
+        _maskView.dk_backgroundColorPicker = image_Back_Mask;
         
         _maskView.userInteractionEnabled = NO;
         

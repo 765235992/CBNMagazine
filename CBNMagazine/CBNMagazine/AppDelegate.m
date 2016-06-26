@@ -11,6 +11,8 @@
 #import "CBNUerChannelVC.h"
 #import "CBNMainNavigationVC.h"
 #import "CBNUserCenterNavigationVC.h"
+#import <QuartzCore/QuartzCore.h>
+#import "CBNTextArticleDetailVC.h"
 
 @interface AppDelegate ()
 @property (nonatomic,strong) MMDrawerController * drawerController;
@@ -19,7 +21,8 @@
 
 @implementation AppDelegate
 -(BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
-    
+
+
     /*
      *  添加频道根视图
      */
@@ -31,19 +34,20 @@
      *  添加用户根视图
      */
     CBNUerChannelVC *userCenterVC =[[CBNUerChannelVC alloc] initWithNibName:nil bundle:nil];
-    CBNUserCenterNavigationVC *userCenterNavigationVC = [[CBNUserCenterNavigationVC alloc]initWithRootViewController:userCenterVC];
-    [userCenterNavigationVC setRestorationIdentifier:@"GMUserRootVC"];
+    UINavigationController *userCenterNavigationVC = [[CBNUserCenterNavigationVC alloc]initWithRootViewController:userCenterVC];
+    [userCenterNavigationVC setRestorationIdentifier:@"CBNUerChannelVC"];
     
     /*
      *  添加到抽屉上去
      */
     self.drawerController = [[MMDrawerController alloc]initWithCenterViewController:channelRootNavigationVC leftDrawerViewController:userCenterNavigationVC];
-    [self.drawerController setShowsShadow:NO];
+    [self.drawerController setShowsShadow:YES];
     
     [self.drawerController setRestorationIdentifier:@"MMDrawer"];
-    //抽屉打开的大小
-    [self.drawerController setMaximumRightDrawerWidth:200.0];
     
+    //抽屉打开的大小
+    [self.drawerController setMaximumLeftDrawerWidth:180*screen_Width/320];
+ 
     [self.drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
@@ -58,8 +62,6 @@
      }];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UIColor * tintColor = [UIColor whiteColor];
-    [self.window setTintColor:tintColor];
     
     [self.window setRootViewController:self.drawerController];
     
@@ -69,11 +71,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 //    [[SDImageCache sharedImageCache] setShouldDecompressImages:NO];
 //    [[SDWebImageDownloader sharedDownloader] setShouldDecompressImages:NO];
-
+   
     // Override point for customization after application launch.
     return YES;
 }
@@ -99,5 +101,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
 
 @end

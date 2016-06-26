@@ -137,6 +137,7 @@
     self.data = [JHCTFrameAssembleParser assembleDataOnRequestWithRequirements:tempArray];
     
     self.height = _data.height;
+    
     self.backgroundColor = [UIColor whiteColor];
 }
 - (void)dealloc

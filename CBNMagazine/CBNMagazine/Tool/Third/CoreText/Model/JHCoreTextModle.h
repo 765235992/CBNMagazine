@@ -29,5 +29,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSString *text;
 //内容类型
 @property (nonatomic, assign) JHCoreTextModleType modleType;
+@property (nonatomic, assign) NSInteger  textAlignment;
 
 @end

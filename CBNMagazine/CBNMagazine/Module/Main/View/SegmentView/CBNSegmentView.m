@@ -35,8 +35,8 @@
         _style.showLine = YES;
 
         _style.segmentHeight = segmentView_Height;
-        _style.titleFont = font(14);
-        _style.scrollLineHeight = 4;
+        _style.titleFont = font_px_Regular(fontSize(38.0,36.0,36.0));
+        _style.scrollLineHeight = 3;
         [self.segmentView reloadTitlesWithNewTitles:self.titlesArray];
 
     }

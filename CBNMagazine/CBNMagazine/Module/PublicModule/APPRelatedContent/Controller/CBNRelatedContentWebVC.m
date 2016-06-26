@@ -81,7 +81,7 @@
 
     UIView *maskView = [[UIView alloc] initWithFrame:_aWebView.bounds];
     
-    maskView.dk_backgroundColorPicker = DKColorPickerWithColors([UIColor clearColor], [UIColor colorWithRed:3/255.0 green:3/255.0 blue:3/255.0 alpha:0.3],[UIColor clearColor]);
+    maskView.dk_backgroundColorPicker = image_Back_Mask;
     
     [self.view addSubview:maskView];
     

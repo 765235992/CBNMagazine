@@ -35,6 +35,8 @@
             
             [_author_list addObject:authorModel];
             
+            [_author_list addObject:authorModel];
+            
         }
         
         self.block_list = [[NSMutableArray alloc] init];

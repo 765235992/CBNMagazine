@@ -10,4 +10,9 @@
 
 @interface CBNViewController : UIViewController
 
+/*
+ *  进入文章详情
+ */
+- (void)pushToNewsDetail;
+
 @end

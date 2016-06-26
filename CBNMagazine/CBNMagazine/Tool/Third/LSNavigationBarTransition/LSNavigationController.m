@@ -10,9 +10,13 @@
 #import "UIViewController+LSNavigationBarTransition.h"
 #import <objc/runtime.h>
 //最大移动比例可以pop
-#define LSRightScale 0.4
+#define LSRightScale 0.2
 //边缘手势比例
 #define LSScreenEdgeScale 0.3
+
+@interface LSNavigationController ()<UINavigationBarDelegate>
+
+@end
 
 @implementation LSNavigationController
 
@@ -25,6 +29,7 @@
     self.stack = [[LSStack alloc] init];
     UIGestureRecognizer* gesture = self.interactivePopGestureRecognizer;
     gesture.enabled = NO;
+    
     UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleGesture:)];
     [self.view addGestureRecognizer:pan];
     pan.delegate = self;
@@ -42,53 +47,53 @@
 }
 - (void)handleGesture:(UIPanGestureRecognizer*)recognizer
 {
-
+    
     CGFloat x = [recognizer translationInView:recognizer.view].x;
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
     CGFloat locationX = [recognizer locationInView:recognizer.view].x;
     CGFloat scale = x / width;
     switch (recognizer.state) {
-    case UIGestureRecognizerStateBegan: {
-        if (!self.fullScreenGesture) {
-            if (locationX > Screen_Width * LSScreenEdgeScale) {
+        case UIGestureRecognizerStateBegan: {
+            if (!self.fullScreenGesture) {
+                if (locationX > Screen_Width * LSScreenEdgeScale) {
+                    recognizer.enabled = NO;
+                    recognizer.enabled = YES;
+                    return;
+                }
+            }
+            //此处是解决 如果连续右滑 但是每次都是滑动不点距离又松手，会出现导航栏不显示 截图也不显示bug
+            if (self.navigationBar.hidden) {
                 recognizer.enabled = NO;
                 recognizer.enabled = YES;
                 return;
             }
+            self.interactionAnimation = [[LSInteractionTransition alloc] init];
+            [self popViewControllerAnimated:YES];
+        } break;
+        case UIGestureRecognizerStateChanged: {
+            if (x < 0) {
+                [self.interactionAnimation updateWithPercent:0];
+                return;
+            }
+            [self.interactionAnimation updateWithPercent:scale];
+            break;
         }
-        //此处是解决 如果连续右滑 但是每次都是滑动不点距离又松手，会出现导航栏不显示 截图也不显示bug
-        if (self.navigationBar.hidden) {
-            recognizer.enabled = NO;
-            recognizer.enabled = YES;
-            return;
-        }
-        self.interactionAnimation = [[LSInteractionTransition alloc] init];
-        [self popViewControllerAnimated:YES];
-    } break;
-    case UIGestureRecognizerStateChanged: {
-        if (x < 0) {
-            [self.interactionAnimation updateWithPercent:0];
-            return;
-        }
-        [self.interactionAnimation updateWithPercent:scale];
-        break;
-    }
-
-    case UIGestureRecognizerStateEnded:
-    case UIGestureRecognizerStateCancelled:
-    case UIGestureRecognizerStateFailed: {
-        CGFloat velocityX = [recognizer velocityInView:recognizer.view].x;
-        if (velocityX > 800) {
-            [self.interactionAnimation finishBy:YES];
+            
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateFailed: {
+            CGFloat velocityX = [recognizer velocityInView:recognizer.view].x;
+            if (velocityX > 800) {
+                [self.interactionAnimation finishBy:YES];
+                self.interactionAnimation = nil;
+                return;
+            }
+            [self.interactionAnimation finishBy:scale > LSRightScale];
             self.interactionAnimation = nil;
-            return;
+            break;
         }
-        [self.interactionAnimation finishBy:scale > LSRightScale];
-        self.interactionAnimation = nil;
-        break;
-    }
-    default:
-        break;
+        default:
+            break;
     }
 }
 

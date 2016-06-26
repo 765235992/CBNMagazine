@@ -54,7 +54,7 @@
         
         self.keyLabel = [[UILabel alloc] initWithFrame:CGRectMake(12, 12, screen_Width*2/3, 25)];
         
-        _keyLabel.font = font(14.0);
+        _keyLabel.font = font_px_Medium(14.0);
         _keyLabel.dk_textColorPicker = DKColorPickerWithKey(字体默认颜色);
 
     }
@@ -81,7 +81,7 @@
         
         self.lineImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 49, screen_Width, 1)];
         
-        _lineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(分割线默认颜色);
+        _lineImageView.dk_backgroundColorPicker = DKColorPickerWithKey(新闻列表分割线颜色);
 
     }
     

@@ -28,7 +28,7 @@
         self.numberOfLines = 0;
         
         
-        self.dk_textColorPicker = DKColorPickerWithKey(所有字体默认颜色);
+        self.dk_textColorPicker = DKColorPickerWithKey(新闻大标题字体颜色);
         
         
     }
@@ -50,13 +50,9 @@
      */
     NSMutableParagraphStyle *paraStyle = [[NSMutableParagraphStyle alloc] init];
     
-    if (self.isCenter == NO) {
-        paraStyle.alignment = NSTextAlignmentJustified;
+ 
+    paraStyle.alignment = self.textAlignment;
 
-    }else{
-        paraStyle.alignment = NSTextAlignmentCenter;
-
-    }
     paraStyle.lineBreakMode = NSLineBreakByCharWrapping;
     
     [paraStyle setLineSpacing:self.lineSpace];

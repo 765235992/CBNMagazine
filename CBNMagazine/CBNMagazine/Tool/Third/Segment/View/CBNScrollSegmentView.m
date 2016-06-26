@@ -123,7 +123,7 @@
         label.text = segmentItem.title;
         //        label.textColor = self.segmentStyle.normalTitleColor;
         label.dk_textColorPicker = DKColorPickerWithKey(频道切换未选择字体颜色);
-        
+//        label.backgroundColor = [UIColor orangeColor];
         label.font = self.segmentStyle.titleFont;
         label.textAlignment = NSTextAlignmentCenter;
         label.userInteractionEnabled = YES;
@@ -170,7 +170,7 @@
     CGFloat titleX = 0.0;
     CGFloat titleY = 0.0;
     CGFloat titleW = 0.0;
-    CGFloat titleH = self.JH_height - self.segmentStyle.scrollLineHeight;
+    CGFloat titleH = self.JH_height;
     
     if (!self.segmentStyle.isScrollTitle) {// 标题不能滚动, 平分宽度
         titleW = _currentWidth / self.titles.count;
@@ -253,10 +253,10 @@
 
 - (void)adjustUIWhenBtnOnClickWithAnimate:(BOOL)animated {
     if (_currentIndex == _oldIndex) {
-        if (self.titleBtnOnClick) {
-            //        DLog(@"%lu",(unsigned long)_currentIndex);
-            self.titleBtnOnClick([_titles objectAtIndex:_currentIndex]);
-        }
+//        if (self.titleBtnOnClick) {
+//            //        DLog(@"%lu",(unsigned long)_currentIndex);
+//            self.titleBtnOnClick([_titles objectAtIndex:_currentIndex]);
+//        }
 
         return;
     }

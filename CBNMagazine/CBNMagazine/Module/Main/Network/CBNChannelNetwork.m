@@ -8,7 +8,7 @@
 
 #import "CBNChannelNetwork.h"
 
-#define channel_Base_URL @"http://www.cbnweek.com/v/lanmu_api?id="
+#define channel_Base_URL @"http://testapi.cbnweek.com/index.php/Index/GetIndexArticleList?kye"
 
 @interface CBNChannelNetwork ()
 @property (nonatomic, strong) NSURLConnection *connection;
@@ -25,9 +25,11 @@
     
     self.aFailed = failed;
     
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@",channel_Base_URL,channelID];
+    NSString *str = [NSString getTheMD5EncryptedStringWithString:@"www_y_z_cbnweek_w_comGetIndexArticleList"];
     
-    NSURL *url = [NSURL URLWithString:urlStr];
+    NSString *urlStr = [NSString stringWithFormat:@"%@=%@",channel_Base_URL,str];
+
+    NSURL *url = [NSURL URLWithString:@"http://testapi.cbnweek.com/index.php/Index/GetIndexArticleList?key=6bd7120ac2b6bdb8333a4ac10597c3c3"];
     
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
     self.connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];

@@ -9,5 +9,6 @@
 #import "CBNViewController.h"
 
 @interface CBNTextArticleDetailVC : CBNViewController
-
+@property (nonatomic, strong) NSString *chapt_ID;
+@property (nonatomic, strong) NSString *issue_ID;
 @end

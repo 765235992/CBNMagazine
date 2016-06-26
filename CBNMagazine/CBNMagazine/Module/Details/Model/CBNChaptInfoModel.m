@@ -17,6 +17,8 @@
     self = [super init];
     
     if (self) {
+        
+        NSLog(@"%@",chaptInfoResult);
         /*
          *  期刊ID
          */
@@ -52,6 +54,8 @@
          */
         self.chaptPicURL = [chaptInfoResult objectForKey:@"chapt_pic_url"];
         
+        self.chaptTime = [chaptInfoResult objectForKey:@"chapt_time"];
+
     }
     
     return self;

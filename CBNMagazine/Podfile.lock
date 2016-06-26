@@ -45,6 +45,7 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
+  - SFFocusViewLayout (1.1.1)
   - SSKeychain (1.4.0)
   - UMengSocial (5.0)
   - YRJSONAdapter (1.0.1)
@@ -57,6 +58,7 @@ DEPENDENCIES:
   - MJRefresh
   - MMDrawerController
   - SDWebImage
+  - SFFocusViewLayout
   - SSKeychain
   - UMengSocial
   - YRJSONAdapter
@@ -69,10 +71,11 @@ SPEC CHECKSUMS:
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SFFocusViewLayout: 01b91154fb64cf745ca75d97bdf8f069dd62d33c
   SSKeychain: c71293fa57216a40ab06c23f4085387583293de4
   UMengSocial: 48b67179c492a8cf7803fbb0438b8f55432e2fc1
   YRJSONAdapter: 55956d3e6f6b6eadf05e734914b8d29afa0fc06b
 
-PODFILE CHECKSUM: 062e72210bdffa035f4d5413b1eda5e302b76775
+PODFILE CHECKSUM: 589aa34db16ef23ce8586059427940db97bb06d4
 
 COCOAPODS: 1.0.0

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		004A7CD0C6D973841CC3ACA2 /* libPods-CBNMagazine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4D9C7E4A6FA1692A9C61C1 /* libPods-CBNMagazine.a */; };
+		38087AC71D1921D70089C0DD /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 38087AC61D1921D70089C0DD /* UIColor+Extension.m */; };
+		38087AD01D1928FD0089C0DD /* CBNMainNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38087ACE1D1928FD0089C0DD /* CBNMainNavigationVC.m */; };
 		381B907D1D17D5EC0063365E /* CBNProjectBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 381B907C1D17D5EC0063365E /* CBNProjectBaseView.m */; };
 		381B90801D17D60A0063365E /* CBNProjectLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 381B907F1D17D60A0063365E /* CBNProjectLayout.m */; };
 		381B90831D17D6BE0063365E /* CBNProjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 381B90821D17D6BE0063365E /* CBNProjectCell.m */; };
@@ -19,8 +21,6 @@
 		386D963A1D17976F0000A7AF /* praiseCount_white_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 386D96381D17976F0000A7AF /* praiseCount_white_Day@3x.png */; };
 		386D963D1D1797EF0000A7AF /* audioTime_white_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 386D963B1D1797EF0000A7AF /* audioTime_white_Day@2x.png */; };
 		386D963E1D1797EF0000A7AF /* audioTime_white_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 386D963C1D1797EF0000A7AF /* audioTime_white_Day@3x.png */; };
-		386D96411D17C53B0000A7AF /* audio_white_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 386D963F1D17C53B0000A7AF /* audio_white_Day@2x.png */; };
-		386D96421D17C53B0000A7AF /* audio_white_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 386D96401D17C53B0000A7AF /* audio_white_Day@3x.png */; };
 		386D96451D17C6310000A7AF /* play_pause_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 386D96431D17C6310000A7AF /* play_pause_Day@2x.png */; };
 		386D96461D17C6310000A7AF /* play_pause_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 386D96441D17C6310000A7AF /* play_pause_Day@3x.png */; };
 		386D96481D17C6DA0000A7AF /* user_Center_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 386D96471D17C6DA0000A7AF /* user_Center_Day@2x.png */; };
@@ -43,7 +43,6 @@
 		38C29A791D13BC130061C0A2 /* CBNMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29A781D13BC130061C0A2 /* CBNMainVC.m */; };
 		38C29A811D13BC490061C0A2 /* CBNUerChannelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29A801D13BC490061C0A2 /* CBNUerChannelVC.m */; };
 		38C29A841D13BC680061C0A2 /* CBNUserCenterNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29A831D13BC680061C0A2 /* CBNUserCenterNavigationVC.m */; };
-		38C29A871D13BC810061C0A2 /* CBNMainNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29A861D13BC810061C0A2 /* CBNMainNavigationVC.m */; };
 		38C29A8B1D13BF1E0061C0A2 /* CBNDrawerVisualStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29A8A1D13BF1E0061C0A2 /* CBNDrawerVisualStateManager.m */; };
 		38C29A8E1D13C4990061C0A2 /* UIImage+CBNImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29A8D1D13C4990061C0A2 /* UIImage+CBNImage.m */; };
 		38C29A921D13C96F0061C0A2 /* CBNBarBurronItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29A911D13C96F0061C0A2 /* CBNBarBurronItem.m */; };
@@ -53,11 +52,9 @@
 		38C29AA41D13DF120061C0A2 /* CBNImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29AA31D13DF120061C0A2 /* CBNImageView.m */; };
 		38C29AA71D13DF6B0061C0A2 /* CBNShufflingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29AA61D13DF6B0061C0A2 /* CBNShufflingCell.m */; };
 		38C29AAB1D13DFC50061C0A2 /* CBNLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29AAA1D13DFC50061C0A2 /* CBNLabel.m */; };
-		38C29AB41D13E2B70061C0A2 /* defaultImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38C29AB31D13E2B70061C0A2 /* defaultImage.jpg */; };
 		38C29AB71D13E4E90061C0A2 /* CBNNormalNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29AB61D13E4E90061C0A2 /* CBNNormalNewsCell.m */; };
 		38C29ABA1D13EFE70061C0A2 /* CBNVideoNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29AB91D13EFE70061C0A2 /* CBNVideoNewsCell.m */; };
 		38C29ABD1D13F02A0061C0A2 /* CBNRecommendNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29ABC1D13F02A0061C0A2 /* CBNRecommendNewsCell.m */; };
-		38C29ABF1D13F4610061C0A2 /* pause_Image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C29ABE1D13F4610061C0A2 /* pause_Image@3x.png */; };
 		38C29AC11D13F59E0061C0A2 /* userCenter_Day_Image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C29AC01D13F59E0061C0A2 /* userCenter_Day_Image@2x.png */; };
 		38C29B151D13F6F10061C0A2 /* CBNRelatedContentWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29AC61D13F6F10061C0A2 /* CBNRelatedContentWebVC.m */; };
 		38C29B161D13F6F10061C0A2 /* CBNArrowsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29AC91D13F6F10061C0A2 /* CBNArrowsCell.m */; };
@@ -86,6 +83,43 @@
 		38C29B321D13F7150061C0A2 /* CBNFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C29B301D13F7150061C0A2 /* CBNFileManager.m */; };
 		38C29B371D1794F70061C0A2 /* commentsCount_gray_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C29B341D1794F70061C0A2 /* commentsCount_gray_Day@2x.png */; };
 		38C29B381D1794F70061C0A2 /* commentsCount_gray_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38C29B351D1794F70061C0A2 /* commentsCount_gray_Day@3x.png */; };
+		38DD7F0C1D1A2B990048EE60 /* defaultImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7F0B1D1A2B990048EE60 /* defaultImage.jpg */; };
+		38DD7F0F1D1A2D970048EE60 /* CBNAudioNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7F0E1D1A2D970048EE60 /* CBNAudioNewsCell.m */; };
+		38DD7F121D1A2F1D0048EE60 /* video_white_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7F101D1A2F1D0048EE60 /* video_white_Day@2x.png */; };
+		38DD7F131D1A2F1D0048EE60 /* video_white_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7F111D1A2F1D0048EE60 /* video_white_Day@3x.png */; };
+		38DD7F151D1A2F760048EE60 /* book_Shop_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7F141D1A2F760048EE60 /* book_Shop_Day@3x.png */; };
+		38DD7F171D1A2F7A0048EE60 /* user_Center_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7F161D1A2F7A0048EE60 /* user_Center_Day@3x.png */; };
+		38DD7F1A1D1A2F9D0048EE60 /* navigation_Logo_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7F181D1A2F9D0048EE60 /* navigation_Logo_Day@2x.png */; };
+		38DD7F1B1D1A2F9D0048EE60 /* navigation_Logo_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7F191D1A2F9D0048EE60 /* navigation_Logo_Day@3x.png */; };
+		38DD7F1E1D1A31580048EE60 /* audio_white_Day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7F1C1D1A31580048EE60 /* audio_white_Day@2x.png */; };
+		38DD7F1F1D1A31580048EE60 /* audio_white_Day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7F1D1D1A31580048EE60 /* audio_white_Day@3x.png */; };
+		38DD7F261D1A36CB0048EE60 /* CBNProjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7F251D1A36CB0048EE60 /* CBNProjectRequest.m */; };
+		38DD7F291D1A39A20048EE60 /* CBNSliderRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7F281D1A39A20048EE60 /* CBNSliderRequest.m */; };
+		38DD7F2C1D1A3A960048EE60 /* CBNChannelRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7F2B1D1A3A960048EE60 /* CBNChannelRequest.m */; };
+		38DD7F2F1D1A57AE0048EE60 /* CBNProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7F2E1D1A57AE0048EE60 /* CBNProjectModel.m */; };
+		38DD7F311D1A78D20048EE60 /* newsList.json in Resources */ = {isa = PBXBuildFile; fileRef = 38DD7F301D1A78D20048EE60 /* newsList.json */; };
+		38DD7F371D1B8D1B0048EE60 /* CBNWebDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7F361D1B8D1B0048EE60 /* CBNWebDetailVC.m */; };
+		38DD7F411D1BAC6F0048EE60 /* CBNArticleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 38DD7F401D1BAC6F0048EE60 /* CBNArticleRequest.m */; };
+		780703301D1D7C1A003286F4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7807032F1D1D7C1A003286F4 /* AudioToolbox.framework */; };
+		780703321D1D7C25003286F4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 780703311D1D7C25003286F4 /* AVFoundation.framework */; };
+		780703341D1D7C30003286F4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 780703331D1D7C30003286F4 /* MediaPlayer.framework */; };
+		780703391D1D9A8A003286F4 /* player-bg-image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 780703381D1D9A8A003286F4 /* player-bg-image.jpg */; };
+		7807033B1D1DA945003286F4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7807033A1D1DA945003286F4 /* libxml2.tbd */; };
+		7807033D1D1DA950003286F4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7807033C1D1DA950003286F4 /* CFNetwork.framework */; };
+		7807033F1D1DA95D003286F4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7807033E1D1DA95D003286F4 /* UIKit.framework */; };
+		785EA7C21D1E609400E3117C /* HXWAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EA7BE1D1E609400E3117C /* HXWAudioPlayer.m */; };
+		785EA7C31D1E609400E3117C /* HXWAudioModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EA7C11D1E609400E3117C /* HXWAudioModel.m */; };
+		785EA7C71D1E60D900E3117C /* CBNMarqueeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EA7C61D1E60D900E3117C /* CBNMarqueeView.m */; };
+		785EA7CD1D1E610400E3117C /* CBNCommentesButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EA7CA1D1E610400E3117C /* CBNCommentesButton.m */; };
+		785EA7CE1D1E610400E3117C /* CBNCommentsEditorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EA7CC1D1E610400E3117C /* CBNCommentsEditorView.m */; };
+		785EA7D41D1E613800E3117C /* CBNArticleHeaderNoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EA7D11D1E613800E3117C /* CBNArticleHeaderNoImageView.m */; };
+		785EA7D51D1E613800E3117C /* CBNArticleHeaderNormalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EA7D31D1E613800E3117C /* CBNArticleHeaderNormalView.m */; };
+		785EA7D91D1E616400E3117C /* CBNChaptBlockTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EA7D81D1E616400E3117C /* CBNChaptBlockTextView.m */; };
+		785EA7DD1D1E618200E3117C /* CBNDetailBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EA7DC1D1E618200E3117C /* CBNDetailBottomView.m */; };
+		785EA7E11D1E619B00E3117C /* CBNChaptAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 785EA7E01D1E619B00E3117C /* CBNChaptAudioView.m */; };
+		785EA7E31D1E679200E3117C /* pushu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 785EA7E21D1E679200E3117C /* pushu.jpg */; };
+		785EA7E91D1E849700E3117C /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 785EA7E81D1E849700E3117C /* test.mp3 */; };
+		785EA7EB1D1E8D6500E3117C /* 佛祖.f4v.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 785EA7EA1D1E8D6500E3117C /* 佛祖.f4v.mp4 */; };
 		7877D51F1D141F570012DEA2 /* UIColor+CBNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D51E1D141F570012DEA2 /* UIColor+CBNColor.m */; };
 		7877D5361D1433F40012DEA2 /* CBNRecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5321D1433F40012DEA2 /* CBNRecommendHeaderView.m */; };
 		7877D5371D1433F40012DEA2 /* CBNRecommendSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5341D1433F40012DEA2 /* CBNRecommendSliderView.m */; };
@@ -114,16 +148,13 @@
 		7877D5941D168BBD0012DEA2 /* CBNChaptAuthorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5931D168BBD0012DEA2 /* CBNChaptAuthorModel.m */; };
 		7877D5971D168BF60012DEA2 /* CBNChaptBlockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5961D168BF60012DEA2 /* CBNChaptBlockModel.m */; };
 		7877D59A1D168C360012DEA2 /* CBNArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5991D168C360012DEA2 /* CBNArticleModel.m */; };
-		7877D59D1D168C830012DEA2 /* CBNChaptBlockTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D59C1D168C830012DEA2 /* CBNChaptBlockTextView.m */; };
-		7877D5A01D168CF20012DEA2 /* CBNArticleHeaderNoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D59F1D168CF20012DEA2 /* CBNArticleHeaderNoImageView.m */; };
 		7877D5A61D168D9C0012DEA2 /* CBNChaptBlockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5A51D168D9C0012DEA2 /* CBNChaptBlockCell.m */; };
 		7877D5A91D168DD40012DEA2 /* CBNChaptSubTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5A81D168DD40012DEA2 /* CBNChaptSubTitleCell.m */; };
 		7877D5AC1D168E010012DEA2 /* CBNChaptImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5AB1D168E010012DEA2 /* CBNChaptImageCell.m */; };
 		7877D5B21D168EB20012DEA2 /* CBNTextArticleDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5B11D168EB20012DEA2 /* CBNTextArticleDetailVC.m */; };
 		7877D5B41D168F7F0012DEA2 /* 21860.json in Resources */ = {isa = PBXBuildFile; fileRef = 7877D5B31D168F7F0012DEA2 /* 21860.json */; };
-		7877D5B71D16BDB80012DEA2 /* CBNArticleHeaderNormalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5B61D16BDB80012DEA2 /* CBNArticleHeaderNormalView.m */; };
 		7877D5BA1D16DD520012DEA2 /* CBNADWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7877D5B91D16DD520012DEA2 /* CBNADWebVC.m */; };
-		78ED5E6D1D180B6600653CEA /* CBNChaptAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 78ED5E6C1D180B6600653CEA /* CBNChaptAudioView.m */; };
+		787938CC1D195CC100875F21 /* CBNNavigationHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 787938CB1D195CC100875F21 /* CBNNavigationHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +175,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38087AC51D1921D70089C0DD /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
+		38087AC61D1921D70089C0DD /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
+		38087ACD1D1928FD0089C0DD /* CBNMainNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNMainNavigationVC.h; sourceTree = "<group>"; };
+		38087ACE1D1928FD0089C0DD /* CBNMainNavigationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNMainNavigationVC.m; sourceTree = "<group>"; };
 		381B907B1D17D5EC0063365E /* CBNProjectBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNProjectBaseView.h; sourceTree = "<group>"; };
 		381B907C1D17D5EC0063365E /* CBNProjectBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNProjectBaseView.m; sourceTree = "<group>"; };
 		381B907E1D17D60A0063365E /* CBNProjectLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNProjectLayout.h; sourceTree = "<group>"; };
@@ -158,8 +193,6 @@
 		386D96381D17976F0000A7AF /* praiseCount_white_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "praiseCount_white_Day@3x.png"; sourceTree = "<group>"; };
 		386D963B1D1797EF0000A7AF /* audioTime_white_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "audioTime_white_Day@2x.png"; sourceTree = "<group>"; };
 		386D963C1D1797EF0000A7AF /* audioTime_white_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "audioTime_white_Day@3x.png"; sourceTree = "<group>"; };
-		386D963F1D17C53B0000A7AF /* audio_white_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "audio_white_Day@2x.png"; sourceTree = "<group>"; };
-		386D96401D17C53B0000A7AF /* audio_white_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "audio_white_Day@3x.png"; sourceTree = "<group>"; };
 		386D96431D17C6310000A7AF /* play_pause_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_pause_Day@2x.png"; sourceTree = "<group>"; };
 		386D96441D17C6310000A7AF /* play_pause_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play_pause_Day@3x.png"; sourceTree = "<group>"; };
 		386D96471D17C6DA0000A7AF /* user_Center_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_Center_Day@2x.png"; sourceTree = "<group>"; };
@@ -201,8 +234,6 @@
 		38C29A801D13BC490061C0A2 /* CBNUerChannelVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNUerChannelVC.m; sourceTree = "<group>"; };
 		38C29A821D13BC680061C0A2 /* CBNUserCenterNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNUserCenterNavigationVC.h; sourceTree = "<group>"; };
 		38C29A831D13BC680061C0A2 /* CBNUserCenterNavigationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNUserCenterNavigationVC.m; sourceTree = "<group>"; };
-		38C29A851D13BC810061C0A2 /* CBNMainNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNMainNavigationVC.h; sourceTree = "<group>"; };
-		38C29A861D13BC810061C0A2 /* CBNMainNavigationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNMainNavigationVC.m; sourceTree = "<group>"; };
 		38C29A891D13BF1E0061C0A2 /* CBNDrawerVisualStateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNDrawerVisualStateManager.h; sourceTree = "<group>"; };
 		38C29A8A1D13BF1E0061C0A2 /* CBNDrawerVisualStateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNDrawerVisualStateManager.m; sourceTree = "<group>"; };
 		38C29A8C1D13C4990061C0A2 /* UIImage+CBNImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CBNImage.h"; sourceTree = "<group>"; };
@@ -221,14 +252,12 @@
 		38C29AA61D13DF6B0061C0A2 /* CBNShufflingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNShufflingCell.m; sourceTree = "<group>"; };
 		38C29AA91D13DFC50061C0A2 /* CBNLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNLabel.h; sourceTree = "<group>"; };
 		38C29AAA1D13DFC50061C0A2 /* CBNLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNLabel.m; sourceTree = "<group>"; };
-		38C29AB31D13E2B70061C0A2 /* defaultImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultImage.jpg; sourceTree = "<group>"; };
 		38C29AB51D13E4E90061C0A2 /* CBNNormalNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNormalNewsCell.h; sourceTree = "<group>"; };
 		38C29AB61D13E4E90061C0A2 /* CBNNormalNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNormalNewsCell.m; sourceTree = "<group>"; };
 		38C29AB81D13EFE70061C0A2 /* CBNVideoNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNVideoNewsCell.h; sourceTree = "<group>"; };
 		38C29AB91D13EFE70061C0A2 /* CBNVideoNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNVideoNewsCell.m; sourceTree = "<group>"; };
 		38C29ABB1D13F02A0061C0A2 /* CBNRecommendNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNRecommendNewsCell.h; sourceTree = "<group>"; };
 		38C29ABC1D13F02A0061C0A2 /* CBNRecommendNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNRecommendNewsCell.m; sourceTree = "<group>"; };
-		38C29ABE1D13F4610061C0A2 /* pause_Image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause_Image@3x.png"; sourceTree = "<group>"; };
 		38C29AC01D13F59E0061C0A2 /* userCenter_Day_Image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "userCenter_Day_Image@2x.png"; sourceTree = "<group>"; };
 		38C29AC51D13F6F10061C0A2 /* CBNRelatedContentWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNRelatedContentWebVC.h; sourceTree = "<group>"; };
 		38C29AC61D13F6F10061C0A2 /* CBNRelatedContentWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNRelatedContentWebVC.m; sourceTree = "<group>"; };
@@ -279,7 +308,62 @@
 		38C29B301D13F7150061C0A2 /* CBNFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNFileManager.m; sourceTree = "<group>"; };
 		38C29B341D1794F70061C0A2 /* commentsCount_gray_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "commentsCount_gray_Day@2x.png"; sourceTree = "<group>"; };
 		38C29B351D1794F70061C0A2 /* commentsCount_gray_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "commentsCount_gray_Day@3x.png"; sourceTree = "<group>"; };
+		38DD7F0B1D1A2B990048EE60 /* defaultImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = defaultImage.jpg; sourceTree = "<group>"; };
+		38DD7F0D1D1A2D970048EE60 /* CBNAudioNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNAudioNewsCell.h; sourceTree = "<group>"; };
+		38DD7F0E1D1A2D970048EE60 /* CBNAudioNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNAudioNewsCell.m; sourceTree = "<group>"; };
+		38DD7F101D1A2F1D0048EE60 /* video_white_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_white_Day@2x.png"; sourceTree = "<group>"; };
+		38DD7F111D1A2F1D0048EE60 /* video_white_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_white_Day@3x.png"; sourceTree = "<group>"; };
+		38DD7F141D1A2F760048EE60 /* book_Shop_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book_Shop_Day@3x.png"; sourceTree = "<group>"; };
+		38DD7F161D1A2F7A0048EE60 /* user_Center_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user_Center_Day@3x.png"; sourceTree = "<group>"; };
+		38DD7F181D1A2F9D0048EE60 /* navigation_Logo_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_Logo_Day@2x.png"; sourceTree = "<group>"; };
+		38DD7F191D1A2F9D0048EE60 /* navigation_Logo_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_Logo_Day@3x.png"; sourceTree = "<group>"; };
+		38DD7F1C1D1A31580048EE60 /* audio_white_Day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "audio_white_Day@2x.png"; sourceTree = "<group>"; };
+		38DD7F1D1D1A31580048EE60 /* audio_white_Day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "audio_white_Day@3x.png"; sourceTree = "<group>"; };
+		38DD7F231D1A358E0048EE60 /* CBNURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBNURL.h; sourceTree = "<group>"; };
+		38DD7F241D1A36CB0048EE60 /* CBNProjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNProjectRequest.h; sourceTree = "<group>"; };
+		38DD7F251D1A36CB0048EE60 /* CBNProjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNProjectRequest.m; sourceTree = "<group>"; };
+		38DD7F271D1A39A20048EE60 /* CBNSliderRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNSliderRequest.h; sourceTree = "<group>"; };
+		38DD7F281D1A39A20048EE60 /* CBNSliderRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNSliderRequest.m; sourceTree = "<group>"; };
+		38DD7F2A1D1A3A960048EE60 /* CBNChannelRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChannelRequest.h; sourceTree = "<group>"; };
+		38DD7F2B1D1A3A960048EE60 /* CBNChannelRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChannelRequest.m; sourceTree = "<group>"; };
+		38DD7F2D1D1A57AE0048EE60 /* CBNProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNProjectModel.h; sourceTree = "<group>"; };
+		38DD7F2E1D1A57AE0048EE60 /* CBNProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNProjectModel.m; sourceTree = "<group>"; };
+		38DD7F301D1A78D20048EE60 /* newsList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = newsList.json; sourceTree = "<group>"; };
+		38DD7F351D1B8D1B0048EE60 /* CBNWebDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNWebDetailVC.h; sourceTree = "<group>"; };
+		38DD7F361D1B8D1B0048EE60 /* CBNWebDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNWebDetailVC.m; sourceTree = "<group>"; };
+		38DD7F3F1D1BAC6F0048EE60 /* CBNArticleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNArticleRequest.h; sourceTree = "<group>"; };
+		38DD7F401D1BAC6F0048EE60 /* CBNArticleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNArticleRequest.m; sourceTree = "<group>"; };
 		5F4D9C7E4A6FA1692A9C61C1 /* libPods-CBNMagazine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CBNMagazine.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7807032F1D1D7C1A003286F4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		780703311D1D7C25003286F4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		780703331D1D7C30003286F4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		780703381D1D9A8A003286F4 /* player-bg-image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "player-bg-image.jpg"; sourceTree = "<group>"; };
+		7807033A1D1DA945003286F4 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		7807033C1D1DA950003286F4 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7807033E1D1DA95D003286F4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		785EA7BD1D1E609400E3117C /* HXWAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXWAudioPlayer.h; sourceTree = "<group>"; };
+		785EA7BE1D1E609400E3117C /* HXWAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXWAudioPlayer.m; sourceTree = "<group>"; };
+		785EA7C01D1E609400E3117C /* HXWAudioModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HXWAudioModel.h; sourceTree = "<group>"; };
+		785EA7C11D1E609400E3117C /* HXWAudioModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXWAudioModel.m; sourceTree = "<group>"; };
+		785EA7C51D1E60D900E3117C /* CBNMarqueeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNMarqueeView.h; sourceTree = "<group>"; };
+		785EA7C61D1E60D900E3117C /* CBNMarqueeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNMarqueeView.m; sourceTree = "<group>"; };
+		785EA7C91D1E610400E3117C /* CBNCommentesButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNCommentesButton.h; sourceTree = "<group>"; };
+		785EA7CA1D1E610400E3117C /* CBNCommentesButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNCommentesButton.m; sourceTree = "<group>"; };
+		785EA7CB1D1E610400E3117C /* CBNCommentsEditorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNCommentsEditorView.h; sourceTree = "<group>"; };
+		785EA7CC1D1E610400E3117C /* CBNCommentsEditorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNCommentsEditorView.m; sourceTree = "<group>"; };
+		785EA7D01D1E613800E3117C /* CBNArticleHeaderNoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNArticleHeaderNoImageView.h; sourceTree = "<group>"; };
+		785EA7D11D1E613800E3117C /* CBNArticleHeaderNoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNArticleHeaderNoImageView.m; sourceTree = "<group>"; };
+		785EA7D21D1E613800E3117C /* CBNArticleHeaderNormalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNArticleHeaderNormalView.h; sourceTree = "<group>"; };
+		785EA7D31D1E613800E3117C /* CBNArticleHeaderNormalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNArticleHeaderNormalView.m; sourceTree = "<group>"; };
+		785EA7D71D1E616400E3117C /* CBNChaptBlockTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChaptBlockTextView.h; sourceTree = "<group>"; };
+		785EA7D81D1E616400E3117C /* CBNChaptBlockTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChaptBlockTextView.m; sourceTree = "<group>"; };
+		785EA7DB1D1E618200E3117C /* CBNDetailBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNDetailBottomView.h; sourceTree = "<group>"; };
+		785EA7DC1D1E618200E3117C /* CBNDetailBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNDetailBottomView.m; sourceTree = "<group>"; };
+		785EA7DF1D1E619B00E3117C /* CBNChaptAudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChaptAudioView.h; sourceTree = "<group>"; };
+		785EA7E01D1E619B00E3117C /* CBNChaptAudioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChaptAudioView.m; sourceTree = "<group>"; };
+		785EA7E21D1E679200E3117C /* pushu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pushu.jpg; sourceTree = "<group>"; };
+		785EA7E81D1E849700E3117C /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
+		785EA7EA1D1E8D6500E3117C /* 佛祖.f4v.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "佛祖.f4v.mp4"; sourceTree = "<group>"; };
 		7877D51D1D141F570012DEA2 /* UIColor+CBNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CBNColor.h"; sourceTree = "<group>"; };
 		7877D51E1D141F570012DEA2 /* UIColor+CBNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CBNColor.m"; sourceTree = "<group>"; };
 		7877D5311D1433F40012DEA2 /* CBNRecommendHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNRecommendHeaderView.h; sourceTree = "<group>"; };
@@ -336,10 +420,6 @@
 		7877D5961D168BF60012DEA2 /* CBNChaptBlockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChaptBlockModel.m; sourceTree = "<group>"; };
 		7877D5981D168C360012DEA2 /* CBNArticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNArticleModel.h; sourceTree = "<group>"; };
 		7877D5991D168C360012DEA2 /* CBNArticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNArticleModel.m; sourceTree = "<group>"; };
-		7877D59B1D168C830012DEA2 /* CBNChaptBlockTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChaptBlockTextView.h; sourceTree = "<group>"; };
-		7877D59C1D168C830012DEA2 /* CBNChaptBlockTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChaptBlockTextView.m; sourceTree = "<group>"; };
-		7877D59E1D168CF20012DEA2 /* CBNArticleHeaderNoImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNArticleHeaderNoImageView.h; sourceTree = "<group>"; };
-		7877D59F1D168CF20012DEA2 /* CBNArticleHeaderNoImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNArticleHeaderNoImageView.m; sourceTree = "<group>"; };
 		7877D5A41D168D9C0012DEA2 /* CBNChaptBlockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChaptBlockCell.h; sourceTree = "<group>"; };
 		7877D5A51D168D9C0012DEA2 /* CBNChaptBlockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChaptBlockCell.m; sourceTree = "<group>"; };
 		7877D5A71D168DD40012DEA2 /* CBNChaptSubTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChaptSubTitleCell.h; sourceTree = "<group>"; };
@@ -349,12 +429,10 @@
 		7877D5B01D168EB20012DEA2 /* CBNTextArticleDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNTextArticleDetailVC.h; sourceTree = "<group>"; };
 		7877D5B11D168EB20012DEA2 /* CBNTextArticleDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNTextArticleDetailVC.m; sourceTree = "<group>"; };
 		7877D5B31D168F7F0012DEA2 /* 21860.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 21860.json; sourceTree = "<group>"; };
-		7877D5B51D16BDB80012DEA2 /* CBNArticleHeaderNormalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNArticleHeaderNormalView.h; sourceTree = "<group>"; };
-		7877D5B61D16BDB80012DEA2 /* CBNArticleHeaderNormalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNArticleHeaderNormalView.m; sourceTree = "<group>"; };
 		7877D5B81D16DD520012DEA2 /* CBNADWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNADWebVC.h; sourceTree = "<group>"; };
 		7877D5B91D16DD520012DEA2 /* CBNADWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNADWebVC.m; sourceTree = "<group>"; };
-		78ED5E6B1D180B6600653CEA /* CBNChaptAudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNChaptAudioView.h; sourceTree = "<group>"; };
-		78ED5E6C1D180B6600653CEA /* CBNChaptAudioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNChaptAudioView.m; sourceTree = "<group>"; };
+		787938CA1D195CC100875F21 /* CBNNavigationHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBNNavigationHeaderView.h; sourceTree = "<group>"; };
+		787938CB1D195CC100875F21 /* CBNNavigationHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNNavigationHeaderView.m; sourceTree = "<group>"; };
 		F1AA840B599CB1991A6B1860 /* Pods-CBNMagazine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBNMagazine.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBNMagazine/Pods-CBNMagazine.release.xcconfig"; sourceTree = "<group>"; };
 		F78F2E8E306C8252A591C18F /* Pods-CBNMagazine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBNMagazine.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CBNMagazine/Pods-CBNMagazine.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -364,6 +442,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7807033F1D1DA95D003286F4 /* UIKit.framework in Frameworks */,
+				7807033D1D1DA950003286F4 /* CFNetwork.framework in Frameworks */,
+				7807033B1D1DA945003286F4 /* libxml2.tbd in Frameworks */,
+				780703341D1D7C30003286F4 /* MediaPlayer.framework in Frameworks */,
+				780703321D1D7C25003286F4 /* AVFoundation.framework in Frameworks */,
+				780703301D1D7C1A003286F4 /* AudioToolbox.framework in Frameworks */,
 				004A7CD0C6D973841CC3ACA2 /* libPods-CBNMagazine.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +570,8 @@
 		38C29A501D13BA1F0061C0A2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				38087AC51D1921D70089C0DD /* UIColor+Extension.h */,
+				38087AC61D1921D70089C0DD /* UIColor+Extension.m */,
 				38C29A511D13BA1F0061C0A2 /* NSData+CBNData.h */,
 				38C29A521D13BA1F0061C0A2 /* NSData+CBNData.m */,
 				38C29A531D13BA1F0061C0A2 /* NSDate+CBNDate.h */,
@@ -506,6 +592,7 @@
 			isa = PBXGroup;
 			children = (
 				38C29A5A1D13BA1F0061C0A2 /* PrefixHeader.pch */,
+				38DD7F231D1A358E0048EE60 /* CBNURL.h */,
 			);
 			path = PCH;
 			sourceTree = "<group>";
@@ -564,6 +651,8 @@
 			children = (
 				38C29AB51D13E4E90061C0A2 /* CBNNormalNewsCell.h */,
 				38C29AB61D13E4E90061C0A2 /* CBNNormalNewsCell.m */,
+				38DD7F0D1D1A2D970048EE60 /* CBNAudioNewsCell.h */,
+				38DD7F0E1D1A2D970048EE60 /* CBNAudioNewsCell.m */,
 				38C29AB81D13EFE70061C0A2 /* CBNVideoNewsCell.h */,
 				38C29AB91D13EFE70061C0A2 /* CBNVideoNewsCell.m */,
 				38C29ABB1D13F02A0061C0A2 /* CBNRecommendNewsCell.h */,
@@ -581,8 +670,8 @@
 			children = (
 				38C29A771D13BC130061C0A2 /* CBNMainVC.h */,
 				38C29A781D13BC130061C0A2 /* CBNMainVC.m */,
-				38C29A851D13BC810061C0A2 /* CBNMainNavigationVC.h */,
-				38C29A861D13BC810061C0A2 /* CBNMainNavigationVC.m */,
+				38087ACD1D1928FD0089C0DD /* CBNMainNavigationVC.h */,
+				38087ACE1D1928FD0089C0DD /* CBNMainNavigationVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -601,6 +690,12 @@
 			children = (
 				7877D55D1D1456D90012DEA2 /* CBNChannelNetwork.h */,
 				7877D55E1D1456D90012DEA2 /* CBNChannelNetwork.m */,
+				38DD7F241D1A36CB0048EE60 /* CBNProjectRequest.h */,
+				38DD7F251D1A36CB0048EE60 /* CBNProjectRequest.m */,
+				38DD7F271D1A39A20048EE60 /* CBNSliderRequest.h */,
+				38DD7F281D1A39A20048EE60 /* CBNSliderRequest.m */,
+				38DD7F2A1D1A3A960048EE60 /* CBNChannelRequest.h */,
+				38DD7F2B1D1A3A960048EE60 /* CBNChannelRequest.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -608,6 +703,7 @@
 		38C29A6D1D13BBF30061C0A2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				787938C91D195CB000875F21 /* NavigationHeader */,
 				386D964E1D17CD000000A7AF /* ProjectView */,
 				7877D5631D14EE5B0012DEA2 /* ImageLabel */,
 				7877D5301D1433F40012DEA2 /* HeaderView */,
@@ -751,6 +847,7 @@
 		38C29A931D13CDA90061C0A2 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				780703241D1D683A003286F4 /* Audio */,
 				7877D56A1D1688FA0012DEA2 /* CoreText */,
 				7877D5501D144CAC0012DEA2 /* LSNavigationBarTransition */,
 				7877D5381D1435200012DEA2 /* Segment */,
@@ -821,10 +918,12 @@
 		38C29AB21D13E2AD0061C0A2 /* TempImage */ = {
 			isa = PBXGroup;
 			children = (
+				785EA7EA1D1E8D6500E3117C /* 佛祖.f4v.mp4 */,
+				785EA7E21D1E679200E3117C /* pushu.jpg */,
 				7877D5B31D168F7F0012DEA2 /* 21860.json */,
 				38C29AC01D13F59E0061C0A2 /* userCenter_Day_Image@2x.png */,
-				38C29ABE1D13F4610061C0A2 /* pause_Image@3x.png */,
-				38C29AB31D13E2B70061C0A2 /* defaultImage.jpg */,
+				38DD7F0B1D1A2B990048EE60 /* defaultImage.jpg */,
+				785EA7E81D1E849700E3117C /* test.mp3 */,
 			);
 			path = TempImage;
 			sourceTree = "<group>";
@@ -1203,12 +1302,18 @@
 		38C29B331D1794F70061C0A2 /* Day */ = {
 			isa = PBXGroup;
 			children = (
+				38DD7F181D1A2F9D0048EE60 /* navigation_Logo_Day@2x.png */,
+				38DD7F191D1A2F9D0048EE60 /* navigation_Logo_Day@3x.png */,
+				38DD7F1C1D1A31580048EE60 /* audio_white_Day@2x.png */,
+				38DD7F1D1D1A31580048EE60 /* audio_white_Day@3x.png */,
+				38DD7F101D1A2F1D0048EE60 /* video_white_Day@2x.png */,
+				38DD7F111D1A2F1D0048EE60 /* video_white_Day@3x.png */,
 				386D96491D17C7390000A7AF /* book_Shop_Day@2x.png */,
+				38DD7F141D1A2F760048EE60 /* book_Shop_Day@3x.png */,
 				386D96471D17C6DA0000A7AF /* user_Center_Day@2x.png */,
+				38DD7F161D1A2F7A0048EE60 /* user_Center_Day@3x.png */,
 				386D96431D17C6310000A7AF /* play_pause_Day@2x.png */,
 				386D96441D17C6310000A7AF /* play_pause_Day@3x.png */,
-				386D963F1D17C53B0000A7AF /* audio_white_Day@2x.png */,
-				386D96401D17C53B0000A7AF /* audio_white_Day@3x.png */,
 				386D963B1D1797EF0000A7AF /* audioTime_white_Day@2x.png */,
 				386D963C1D1797EF0000A7AF /* audioTime_white_Day@3x.png */,
 				386D96371D17976F0000A7AF /* praiseCount_white_Day@2x.png */,
@@ -1228,6 +1333,101 @@
 			children = (
 			);
 			path = Night;
+			sourceTree = "<group>";
+		};
+		38DD7F3E1D1BAC650048EE60 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				38DD7F3F1D1BAC6F0048EE60 /* CBNArticleRequest.h */,
+				38DD7F401D1BAC6F0048EE60 /* CBNArticleRequest.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		780703241D1D683A003286F4 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				785EA7BC1D1E609400E3117C /* Audio */,
+				785EA7BF1D1E609400E3117C /* Model */,
+				780703381D1D9A8A003286F4 /* player-bg-image.jpg */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		785EA7BC1D1E609400E3117C /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				785EA7BD1D1E609400E3117C /* HXWAudioPlayer.h */,
+				785EA7BE1D1E609400E3117C /* HXWAudioPlayer.m */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		785EA7BF1D1E609400E3117C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				785EA7C01D1E609400E3117C /* HXWAudioModel.h */,
+				785EA7C11D1E609400E3117C /* HXWAudioModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		785EA7C41D1E60D900E3117C /* MarqueeView */ = {
+			isa = PBXGroup;
+			children = (
+				785EA7C51D1E60D900E3117C /* CBNMarqueeView.h */,
+				785EA7C61D1E60D900E3117C /* CBNMarqueeView.m */,
+			);
+			path = MarqueeView;
+			sourceTree = "<group>";
+		};
+		785EA7C81D1E610400E3117C /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				785EA7C91D1E610400E3117C /* CBNCommentesButton.h */,
+				785EA7CA1D1E610400E3117C /* CBNCommentesButton.m */,
+				785EA7CB1D1E610400E3117C /* CBNCommentsEditorView.h */,
+				785EA7CC1D1E610400E3117C /* CBNCommentsEditorView.m */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		785EA7CF1D1E613800E3117C /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				785EA7D01D1E613800E3117C /* CBNArticleHeaderNoImageView.h */,
+				785EA7D11D1E613800E3117C /* CBNArticleHeaderNoImageView.m */,
+				785EA7D21D1E613800E3117C /* CBNArticleHeaderNormalView.h */,
+				785EA7D31D1E613800E3117C /* CBNArticleHeaderNormalView.m */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
+		785EA7D61D1E616400E3117C /* Chapt */ = {
+			isa = PBXGroup;
+			children = (
+				785EA7D71D1E616400E3117C /* CBNChaptBlockTextView.h */,
+				785EA7D81D1E616400E3117C /* CBNChaptBlockTextView.m */,
+			);
+			path = Chapt;
+			sourceTree = "<group>";
+		};
+		785EA7DA1D1E618200E3117C /* Bottom */ = {
+			isa = PBXGroup;
+			children = (
+				785EA7DB1D1E618200E3117C /* CBNDetailBottomView.h */,
+				785EA7DC1D1E618200E3117C /* CBNDetailBottomView.m */,
+			);
+			path = Bottom;
+			sourceTree = "<group>";
+		};
+		785EA7DE1D1E619B00E3117C /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				785EA7DF1D1E619B00E3117C /* CBNChaptAudioView.h */,
+				785EA7E01D1E619B00E3117C /* CBNChaptAudioView.m */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		7877D5301D1433F40012DEA2 /* HeaderView */ = {
@@ -1299,9 +1499,12 @@
 		7877D55A1D14524C0012DEA2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				38DD7F301D1A78D20048EE60 /* newsList.json */,
 				7877D55B1D1452670012DEA2 /* CBNChannel.plist */,
 				7877D5601D145C8F0012DEA2 /* CBNChannelNewsModel.h */,
 				7877D5611D145C8F0012DEA2 /* CBNChannelNewsModel.m */,
+				38DD7F2D1D1A57AE0048EE60 /* CBNProjectModel.h */,
+				38DD7F2E1D1A57AE0048EE60 /* CBNProjectModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1372,11 +1575,11 @@
 		7877D5851D168AF00012DEA2 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				38DD7F3E1D1BAC650048EE60 /* Network */,
 				7877D5861D168B2E0012DEA2 /* Cell */,
 				7877D5871D168B2E0012DEA2 /* Controller */,
 				7877D5881D168B2E0012DEA2 /* Image */,
 				7877D5891D168B2E0012DEA2 /* Model */,
-				7877D58A1D168B2E0012DEA2 /* Network */,
 				7877D58B1D168B2E0012DEA2 /* View */,
 			);
 			path = Details;
@@ -1402,6 +1605,8 @@
 				7877D5B11D168EB20012DEA2 /* CBNTextArticleDetailVC.m */,
 				7877D5B81D16DD520012DEA2 /* CBNADWebVC.h */,
 				7877D5B91D16DD520012DEA2 /* CBNADWebVC.m */,
+				38DD7F351D1B8D1B0048EE60 /* CBNWebDetailVC.h */,
+				38DD7F361D1B8D1B0048EE60 /* CBNWebDetailVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1430,31 +1635,37 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		7877D58A1D168B2E0012DEA2 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		7877D58B1D168B2E0012DEA2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7877D59B1D168C830012DEA2 /* CBNChaptBlockTextView.h */,
-				7877D59C1D168C830012DEA2 /* CBNChaptBlockTextView.m */,
-				7877D59E1D168CF20012DEA2 /* CBNArticleHeaderNoImageView.h */,
-				7877D59F1D168CF20012DEA2 /* CBNArticleHeaderNoImageView.m */,
-				7877D5B51D16BDB80012DEA2 /* CBNArticleHeaderNormalView.h */,
-				7877D5B61D16BDB80012DEA2 /* CBNArticleHeaderNormalView.m */,
-				78ED5E6B1D180B6600653CEA /* CBNChaptAudioView.h */,
-				78ED5E6C1D180B6600653CEA /* CBNChaptAudioView.m */,
+				785EA7DE1D1E619B00E3117C /* Audio */,
+				785EA7DA1D1E618200E3117C /* Bottom */,
+				785EA7D61D1E616400E3117C /* Chapt */,
+				785EA7CF1D1E613800E3117C /* Article */,
+				785EA7C81D1E610400E3117C /* Comment */,
+				785EA7C41D1E60D900E3117C /* MarqueeView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		787938C91D195CB000875F21 /* NavigationHeader */ = {
+			isa = PBXGroup;
+			children = (
+				787938CA1D195CC100875F21 /* CBNNavigationHeaderView.h */,
+				787938CB1D195CC100875F21 /* CBNNavigationHeaderView.m */,
+			);
+			path = NavigationHeader;
 			sourceTree = "<group>";
 		};
 		F1E304A92F76FD6156DD8AC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7807033E1D1DA95D003286F4 /* UIKit.framework */,
+				7807033C1D1DA950003286F4 /* CFNetwork.framework */,
+				7807033A1D1DA945003286F4 /* libxml2.tbd */,
+				780703331D1D7C30003286F4 /* MediaPlayer.framework */,
+				780703311D1D7C25003286F4 /* AVFoundation.framework */,
+				7807032F1D1D7C1A003286F4 /* AudioToolbox.framework */,
 				5F4D9C7E4A6FA1692A9C61C1 /* libPods-CBNMagazine.a */,
 			);
 			name = Frameworks;
@@ -1569,31 +1780,41 @@
 			files = (
 				386D963E1D1797EF0000A7AF /* audioTime_white_Day@3x.png in Resources */,
 				386D96321D17965B0000A7AF /* praiseCount_gray_Day@3x.png in Resources */,
+				785EA7E91D1E849700E3117C /* test.mp3 in Resources */,
 				386D96451D17C6310000A7AF /* play_pause_Day@2x.png in Resources */,
-				38C29ABF1D13F4610061C0A2 /* pause_Image@3x.png in Resources */,
+				38DD7F1F1D1A31580048EE60 /* audio_white_Day@3x.png in Resources */,
+				785EA7EB1D1E8D6500E3117C /* 佛祖.f4v.mp4 in Resources */,
 				38C29AC11D13F59E0061C0A2 /* userCenter_Day_Image@2x.png in Resources */,
-				386D96411D17C53B0000A7AF /* audio_white_Day@2x.png in Resources */,
+				780703391D1D9A8A003286F4 /* player-bg-image.jpg in Resources */,
 				386D96361D1797120000A7AF /* commentsCount_white_Day@3x.png in Resources */,
+				38DD7F131D1A2F1D0048EE60 /* video_white_Day@3x.png in Resources */,
 				38C29B1C1D13F6F10061C0A2 /* Setter_arrows_right_day@2x.png in Resources */,
 				38C29B1D1D13F6F10061C0A2 /* CBNSetter.plist in Resources */,
 				386D96481D17C6DA0000A7AF /* user_Center_Day@2x.png in Resources */,
 				386D96311D17965B0000A7AF /* praiseCount_gray_Day@2x.png in Resources */,
+				38DD7F121D1A2F1D0048EE60 /* video_white_Day@2x.png in Resources */,
+				38DD7F151D1A2F760048EE60 /* book_Shop_Day@3x.png in Resources */,
 				38C29B1F1D13F6F10061C0A2 /* CBNSynchronousPermissions.plist in Resources */,
 				386D96351D1797120000A7AF /* commentsCount_white_Day@2x.png in Resources */,
 				386D963A1D17976F0000A7AF /* praiseCount_white_Day@3x.png in Resources */,
 				386D96391D17976F0000A7AF /* praiseCount_white_Day@2x.png in Resources */,
 				386D964A1D17C7390000A7AF /* book_Shop_Day@2x.png in Resources */,
+				785EA7E31D1E679200E3117C /* pushu.jpg in Resources */,
+				38DD7F1B1D1A2F9D0048EE60 /* navigation_Logo_Day@3x.png in Resources */,
 				38C29A2C1D13B8CF0061C0A2 /* LaunchScreen.storyboard in Resources */,
 				7877D5B41D168F7F0012DEA2 /* 21860.json in Resources */,
+				38DD7F171D1A2F7A0048EE60 /* user_Center_Day@3x.png in Resources */,
+				38DD7F0C1D1A2B990048EE60 /* defaultImage.jpg in Resources */,
 				386D963D1D1797EF0000A7AF /* audioTime_white_Day@2x.png in Resources */,
+				38DD7F1E1D1A31580048EE60 /* audio_white_Day@2x.png in Resources */,
 				38C29A291D13B8CF0061C0A2 /* Assets.xcassets in Resources */,
+				38DD7F1A1D1A2F9D0048EE60 /* navigation_Logo_Day@2x.png in Resources */,
 				38C29B371D1794F70061C0A2 /* commentsCount_gray_Day@2x.png in Resources */,
+				38DD7F311D1A78D20048EE60 /* newsList.json in Resources */,
 				38C29A271D13B8CF0061C0A2 /* Main.storyboard in Resources */,
 				386D96461D17C6310000A7AF /* play_pause_Day@3x.png in Resources */,
 				38C29B381D1794F70061C0A2 /* commentsCount_gray_Day@3x.png in Resources */,
-				386D96421D17C53B0000A7AF /* audio_white_Day@3x.png in Resources */,
 				7877D55C1D1452670012DEA2 /* CBNChannel.plist in Resources */,
-				38C29AB41D13E2B70061C0A2 /* defaultImage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1668,16 +1889,18 @@
 			files = (
 				7877D55F1D1456D90012DEA2 /* CBNChannelNetwork.m in Sources */,
 				7877D5361D1433F40012DEA2 /* CBNRecommendHeaderView.m in Sources */,
-				78ED5E6D1D180B6600653CEA /* CBNChaptAudioView.m in Sources */,
+				785EA7CE1D1E610400E3117C /* CBNCommentsEditorView.m in Sources */,
+				38DD7F2C1D1A3A960048EE60 /* CBNChannelRequest.m in Sources */,
 				38C29B201D13F6F10061C0A2 /* CBNNetworkStateManager.m in Sources */,
-				7877D5A01D168CF20012DEA2 /* CBNArticleHeaderNoImageView.m in Sources */,
 				38C29A641D13BB700061C0A2 /* CBNViewController.m in Sources */,
 				38C29B271D13F6F10061C0A2 /* CBNLoginEvent.m in Sources */,
+				38DD7F261D1A36CB0048EE60 /* CBNProjectRequest.m in Sources */,
 				38C29A241D13B8CF0061C0A2 /* ViewController.m in Sources */,
 				38C29AAB1D13DFC50061C0A2 /* CBNLabel.m in Sources */,
 				38C29AA41D13DF120061C0A2 /* CBNImageView.m in Sources */,
 				38C29ABA1D13EFE70061C0A2 /* CBNVideoNewsCell.m in Sources */,
 				38C29A9D1D13DE910061C0A2 /* CBNShufflingModel.m in Sources */,
+				38DD7F371D1B8D1B0048EE60 /* CBNWebDetailVC.m in Sources */,
 				38C29B161D13F6F10061C0A2 /* CBNArrowsCell.m in Sources */,
 				38C29B251D13F6F10061C0A2 /* CBNUserLoginVC.m in Sources */,
 				7877D5371D1433F40012DEA2 /* CBNRecommendSliderView.m in Sources */,
@@ -1685,24 +1908,30 @@
 				38C29B171D13F6F10061C0A2 /* CBNSwitchCell.m in Sources */,
 				38C29B221D13F6F10061C0A2 /* CBNSynchronousPermissionsFootView.m in Sources */,
 				38C29B311D13F7150061C0A2 /* CBNCacheManager.m in Sources */,
-				7877D5B71D16BDB80012DEA2 /* CBNArticleHeaderNormalView.m in Sources */,
 				7877D5831D1688FA0012DEA2 /* JHCoreTextModle.m in Sources */,
 				7877D5581D144CAC0012DEA2 /* LSNavigationController.m in Sources */,
 				381B90831D17D6BE0063365E /* CBNProjectCell.m in Sources */,
 				38C29B1A1D13F6F10061C0A2 /* CBNSetterVC.m in Sources */,
 				7877D5911D168B8E0012DEA2 /* CBNChaptBlockImageModel.m in Sources */,
+				785EA7E11D1E619B00E3117C /* CBNChaptAudioView.m in Sources */,
+				785EA7D51D1E613800E3117C /* CBNArticleHeaderNormalView.m in Sources */,
 				38C29B281D13F6F10061C0A2 /* CBNRegisterVC.m in Sources */,
 				386D964D1D17C9B30000A7AF /* CBNProjectArrayCell.m in Sources */,
 				7877D5621D145C8F0012DEA2 /* CBNChannelNewsModel.m in Sources */,
 				7877D5941D168BBD0012DEA2 /* CBNChaptAuthorModel.m in Sources */,
 				38C29B261D13F6F10061C0A2 /* CBNUserModel.m in Sources */,
+				38DD7F2F1D1A57AE0048EE60 /* CBNProjectModel.m in Sources */,
+				38087AC71D1921D70089C0DD /* UIColor+Extension.m in Sources */,
 				7877D5491D1437040012DEA2 /* CBNSegmentStyle.m in Sources */,
 				7877D5591D144CAC0012DEA2 /* UIViewController+LSNavigationBarTransition.m in Sources */,
 				38C29ABD1D13F02A0061C0A2 /* CBNRecommendNewsCell.m in Sources */,
+				785EA7C21D1E609400E3117C /* HXWAudioPlayer.m in Sources */,
 				381B907D1D17D5EC0063365E /* CBNProjectBaseView.m in Sources */,
 				38C29AA01D13DEAF0061C0A2 /* CBNBaseShufflingView.m in Sources */,
 				38C29A5D1D13BA1F0061C0A2 /* NSString+CBNString.m in Sources */,
+				785EA7C31D1E609400E3117C /* HXWAudioModel.m in Sources */,
 				38C29A8E1D13C4990061C0A2 /* UIImage+CBNImage.m in Sources */,
+				785EA7DD1D1E618200E3117C /* CBNDetailBottomView.m in Sources */,
 				38C29B291D13F6F10061C0A2 /* CBNRegisterEvent.m in Sources */,
 				7877D5841D1688FA0012DEA2 /* JHCTLabel.m in Sources */,
 				38C29A811D13BC490061C0A2 /* CBNUerChannelVC.m in Sources */,
@@ -1711,6 +1940,8 @@
 				38C29B2A1D13F6F10061C0A2 /* CBNUserCenterVC.m in Sources */,
 				38C29A671D13BB840061C0A2 /* CBNNavigationController.m in Sources */,
 				7877D5801D1688FA0012DEA2 /* JHCTFrameAssembleParser.m in Sources */,
+				787938CC1D195CC100875F21 /* CBNNavigationHeaderView.m in Sources */,
+				38DD7F291D1A39A20048EE60 /* CBNSliderRequest.m in Sources */,
 				38C29B1E1D13F6F10061C0A2 /* CBNSetterModel.m in Sources */,
 				38C29AA71D13DF6B0061C0A2 /* CBNShufflingCell.m in Sources */,
 				38C29A8B1D13BF1E0061C0A2 /* CBNDrawerVisualStateManager.m in Sources */,
@@ -1720,7 +1951,7 @@
 				38C29B191D13F6F10061C0A2 /* CBNSynchronousPermissionsCell.m in Sources */,
 				7877D5821D1688FA0012DEA2 /* JHCoreTextData.m in Sources */,
 				7877D58E1D168B4A0012DEA2 /* CBNChaptInfoModel.m in Sources */,
-				38C29A871D13BC810061C0A2 /* CBNMainNavigationVC.m in Sources */,
+				785EA7D41D1E613800E3117C /* CBNArticleHeaderNoImageView.m in Sources */,
 				7877D5461D1436A90012DEA2 /* CBNSegmentLabel.m in Sources */,
 				7877D5A61D168D9C0012DEA2 /* CBNChaptBlockCell.m in Sources */,
 				7877D54C1D1437220012DEA2 /* UIView+JHFrame.m in Sources */,
@@ -1731,28 +1962,33 @@
 				7877D5401D1435A70012DEA2 /* CBNScrollSegmentView.m in Sources */,
 				38C29A5C1D13BA1F0061C0A2 /* NSDate+CBNDate.m in Sources */,
 				7877D5AC1D168E010012DEA2 /* CBNChaptImageCell.m in Sources */,
+				785EA7D91D1E616400E3117C /* CBNChaptBlockTextView.m in Sources */,
 				381B90801D17D60A0063365E /* CBNProjectLayout.m in Sources */,
 				7877D5B21D168EB20012DEA2 /* CBNTextArticleDetailVC.m in Sources */,
 				38C29A5B1D13BA1F0061C0A2 /* NSData+CBNData.m in Sources */,
+				785EA7C71D1E60D900E3117C /* CBNMarqueeView.m in Sources */,
 				7877D5691D14EE900012DEA2 /* CBNImageAndTextLabel.m in Sources */,
 				38C29A921D13C96F0061C0A2 /* CBNBarBurronItem.m in Sources */,
 				38C29B151D13F6F10061C0A2 /* CBNRelatedContentWebVC.m in Sources */,
 				7877D57E1D1688FA0012DEA2 /* UIView+JHCTFrame.m in Sources */,
 				7877D54F1D14391F0012DEA2 /* CBNSegmentView.m in Sources */,
 				38C29AB71D13E4E90061C0A2 /* CBNNormalNewsCell.m in Sources */,
-				7877D59D1D168C830012DEA2 /* CBNChaptBlockTextView.m in Sources */,
 				7877D53D1D1435660012DEA2 /* CBNSegmentModel.m in Sources */,
 				7877D5811D1688FA0012DEA2 /* JHCoreTextButtonData.m in Sources */,
 				38C29A5E1D13BA1F0061C0A2 /* UILabel+CBNLabel.m in Sources */,
 				38C29B1B1D13F6F10061C0A2 /* CBNSynchronousPermissionsVC.m in Sources */,
 				7877D59A1D168C360012DEA2 /* CBNArticleModel.m in Sources */,
 				38C29B321D13F7150061C0A2 /* CBNFileManager.m in Sources */,
+				38DD7F411D1BAC6F0048EE60 /* CBNArticleRequest.m in Sources */,
 				38C29B231D13F6F10061C0A2 /* CBNForgetVC.m in Sources */,
+				38DD7F0F1D1A2D970048EE60 /* CBNAudioNewsCell.m in Sources */,
+				38087AD01D1928FD0089C0DD /* CBNMainNavigationVC.m in Sources */,
 				7877D5971D168BF60012DEA2 /* CBNChaptBlockModel.m in Sources */,
 				38C29A971D13CDCF0061C0A2 /* CBNRefreshStateHeader.m in Sources */,
 				7877D57F1D1688FA0012DEA2 /* JHCoreTextUtils.m in Sources */,
 				38C29A1E1D13B8CF0061C0A2 /* main.m in Sources */,
 				38C29A791D13BC130061C0A2 /* CBNMainVC.m in Sources */,
+				785EA7CD1D1E610400E3117C /* CBNCommentesButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1900,11 +2136,12 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CBNMagazine/Tool/PCH/PrefixHeader.pch";
 				INFOPLIST_FILE = CBNMagazine/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yicai.cbn-weekly-iphone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ee18b844-9d30-4065-843c-a9801ff2754e";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1917,11 +2154,12 @@
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CBNMagazine/Tool/PCH/PrefixHeader.pch";
 				INFOPLIST_FILE = CBNMagazine/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yicai.cbn-weekly-iphone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ee18b844-9d30-4065-843c-a9801ff2754e";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

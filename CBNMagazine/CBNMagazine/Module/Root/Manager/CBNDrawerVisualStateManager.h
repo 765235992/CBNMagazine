@@ -23,4 +23,5 @@ typedef NS_ENUM(NSInteger, MMDrawerAnimationType){
 
 -(MMDrawerControllerDrawerVisualStateBlock)drawerVisualStateBlockForDrawerSide:(MMDrawerSide)drawerSide;
 
+
 @end

@@ -42,13 +42,13 @@
     frame.origin.x = -Screen_Width/2;
     toViewController.view.frame = frame;
     [containerView insertSubview:toViewController.view belowSubview:fromViewController.view];
-
+    
     //导航栏截图添加到fromView上
     UIView* rightNavigationBarView = [fromViewController.navigationController.navigationBar snapshotViewAfterScreenUpdates:NO];
     rightNavigationBarView.frame = CGRectMake(0, -44, Screen_Width, 44);
     [fromViewController.view addSubview:rightNavigationBarView];
     self.rightNavigationBarView = rightNavigationBarView;
-
+    
     self.navigationController = (LSNavigationController*)fromViewController.navigationController;
     
     //导航栏截图添加到toView上
@@ -56,7 +56,7 @@
     leftNavigationBarView.frame = CGRectMake(0, -44, Screen_Width, 44);
     [toViewController.view addSubview:leftNavigationBarView];
     self.leftNavigationBarView = leftNavigationBarView;
-
+    
     self.rightView = fromViewController.view;
     self.leftView = toViewController.view;
     
@@ -71,7 +71,7 @@
 
 - (void)updateWithPercent:(CGFloat)percent
 {
- 
+    
     self.navigationController.navigationBar.hidden = YES;
     CGFloat scale = fabs(percent);
     self.rightView.transform = CGAffineTransformMakeTranslation(scale * Screen_Width, 0);
@@ -88,19 +88,19 @@
             self.leftView.transform = CGAffineTransformIdentity;
             self.maskView.alpha = 0.5;
         }
-            completion:^(BOOL finished) {
-                [self.transitionContext cancelInteractiveTransition];
-                [self.transitionContext updateInteractiveTransition:0];
-                [self.transitionContext completeTransition:NO];
-                [self.maskView removeFromSuperview];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    self.navigationController.navigationBar.hidden = NO;
-                        [self.rightNavigationBarView removeFromSuperview];
-                        self.rightNavigationBarView = nil;
-                        [self.leftNavigationBarView removeFromSuperview];
-                        self.leftNavigationBarView = nil;
-                });
-            }];
+                         completion:^(BOOL finished) {
+                             [self.transitionContext cancelInteractiveTransition];
+                             [self.transitionContext updateInteractiveTransition:0];
+                             [self.transitionContext completeTransition:NO];
+                             [self.maskView removeFromSuperview];
+                             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                 self.navigationController.navigationBar.hidden = NO;
+                                 [self.rightNavigationBarView removeFromSuperview];
+                                 self.rightNavigationBarView = nil;
+                                 [self.leftNavigationBarView removeFromSuperview];
+                                 self.leftNavigationBarView = nil;
+                             });
+                         }];
     }
     else { //完成
         CGFloat width = [UIScreen mainScreen].bounds.size.width;
@@ -109,23 +109,23 @@
             self.leftView.transform = CGAffineTransformMakeTranslation(width / 2, 0);
             self.maskView.alpha = 0;
         }
-            completion:^(BOOL finished) {
-                [self.maskView removeFromSuperview];
-                [self.transitionContext updateInteractiveTransition:1];
-                [self.transitionContext finishInteractiveTransition];
-                [self.transitionContext completeTransition:YES];
-                [self.rightNavigationBarView removeFromSuperview];
-                self.rightNavigationBarView = nil;
-                self.leftView.transform = CGAffineTransformIdentity;
-                CGRect frame = self.leftView.frame;
-                frame.origin.x = 0;
-                self.leftView.frame = frame;
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    self.navigationController.navigationBar.hidden = NO;
-                    [self.leftNavigationBarView removeFromSuperview];
-                    self.leftNavigationBarView = nil;
-                });
-            }];
+                         completion:^(BOOL finished) {
+                             [self.maskView removeFromSuperview];
+                             [self.transitionContext updateInteractiveTransition:1];
+                             [self.transitionContext finishInteractiveTransition];
+                             [self.transitionContext completeTransition:YES];
+                             [self.rightNavigationBarView removeFromSuperview];
+                             self.rightNavigationBarView = nil;
+                             self.leftView.transform = CGAffineTransformIdentity;
+                             CGRect frame = self.leftView.frame;
+                             frame.origin.x = 0;
+                             self.leftView.frame = frame;
+                             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                 self.navigationController.navigationBar.hidden = NO;
+                                 [self.leftNavigationBarView removeFromSuperview];
+                                 self.leftNavigationBarView = nil;
+                             });
+                         }];
     }
 }
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext

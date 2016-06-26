@@ -9,6 +9,6 @@
 #import "CBNNavigationController.h"
 #import "LSNavigationController.h"
 
-@interface CBNUserCenterNavigationVC : LSNavigationController
+@interface CBNUserCenterNavigationVC : CBNNavigationController
 
 @end

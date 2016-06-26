@@ -72,9 +72,9 @@
         
         _newsTitleLabel.lineSpace = 0;
         
-        _newsTitleLabel.font = font_px_bold(fontSize(72.0,64.0,56.0));
+        _newsTitleLabel.font = font_px_Medium(fontSize(72.0,64.0,56.0));
         
-        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithRGB(0xFFFFFF,0xFFFFFF,0xFFFFFF);
+        _newsTitleLabel.dk_textColorPicker = DKColorPickerWithKey(默认背景颜色);
         
     }
     
@@ -85,7 +85,7 @@
 - (void)setShufflingModel:(CBNShufflingModel *)shufflingModel
 {
     
-    _newsTitleLabel.content = @"上海迪斯尼今天12点正式开放\n多个首发项目亮相\n全球最大的迪士尼城堡\n最长的米奇通话专列巡游";
+    _newsTitleLabel.content =shufflingModel.newsTitleStr;
     
     _newsTitleLabel.textAlignment = 1;
 
@@ -93,7 +93,7 @@
     
     _newsTitleLabel.frame = CGRectMake(_newsTitleLabel.frame.origin.x, self.frame.size.height - 20*1.8 - _newsTitleLabel.frame.size.height, screen_Width - 46, _newsTitleLabel.frame.size.height);
     
-//    _newsTitleLabel.center = CGPointMake(myWidth/2, (myHeight- 18)/2 + 32 );
+    _newsTitleLabel.center = CGPointMake(myWidth/2, (myHeight)/2 + 32 );
     
     [self sd_setImageWithURL:[NSURL URLWithString:shufflingModel.newsThumbStr] placeholderImage:shufflingModel.newsDefaultImage];
     

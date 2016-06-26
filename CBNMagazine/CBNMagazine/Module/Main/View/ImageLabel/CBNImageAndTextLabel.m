@@ -55,7 +55,7 @@
         
         self.contentLabel = [[CBNLabel alloc] initWithFrame:CGRectMake(25, 0, 0, 0)];
         
-        _contentLabel.font = font_px(fontSize(36.0,31.0,26.0));
+        _contentLabel.font = font_px_Medium(fontSize(36.0,31.0,26.0));
         
     }
     
@@ -65,6 +65,11 @@
 
 - (void)setText:(NSString *)text
 {
+    
+    self.frame = CGRectMake(0, 0, 0, 0);
+    
+    _contentLabel.frame = CGRectMake(0, 0, 0, 0);
+    
     _contentLabel.text = text;
     
     [_contentLabel sizeToFit];

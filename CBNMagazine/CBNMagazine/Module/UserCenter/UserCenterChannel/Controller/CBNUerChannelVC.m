@@ -13,7 +13,14 @@
 @end
 
 @implementation CBNUerChannelVC
-
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self setRestorationIdentifier:@"CBNUerChannelVC"];
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
